@@ -100,6 +100,19 @@ function initializeEventListeners() {
     document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
 }
+
+document.getElementById('toggleMode').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    // Check if the body has the 'dark-mode' class
+    if (document.body.classList.contains('dark-mode')) {
+        // If it does, change the button text to 'Light Mode'
+        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+    } else {
+        // If it doesn't, change the button text back to 'Dark Mode'
+        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+    }
+});
+
 //END INIT
 
 
