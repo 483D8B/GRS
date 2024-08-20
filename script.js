@@ -70,12 +70,8 @@ window.onload = function () {
         .catch(error => console.error('Error loading content:', error));
 
 
-    // Attach the searchFunction to the input field
-    let debounceTimer;
-    document.getElementById('search').addEventListener('input', function () {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
-    });
+    // Attach the debounced search function to the input event
+    document.getElementById('search').addEventListener('input', debounceSearch);
 
 }
 
@@ -99,99 +95,142 @@ for (let key in numberMapping) {
     reverseNumberMapping[numberMapping[key]] = key;
 }
 
+// Debounce timer variable to avoid too many search function calls
+let debounceTimer;
+
+function debounceSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
+}
 
 function searchFunction() {
-    // 1. Get the search input value and convert it to lowercase
-    var input = document.getElementById('search').value.toLowerCase();
+    // 1. Get the search input value and trim any surrounding whitespace
+    const input = document.getElementById('search').value.trim().toLowerCase();
 
-    // 2. Convert input into potential Kanji if it's a number, and vice versa
+    // 2. If the input value is composed only of space characters, display all exercises and return
+    if (/^\s*$/.test(input)) {
+        displayAllExercises();
+        return;
+    }
+
+    // 3. Convert input into potential Kanji if it's a number, and vice versa
     let inputsToCheck = [input];
-
-    // If input is a number, add its Kanji equivalent to the list
     if (numberMapping[input]) {
         inputsToCheck.push(numberMapping[input]);
     }
-
-    // If input is a Kanji, add its Western number equivalent to the list
     if (reverseNumberMapping[input]) {
         inputsToCheck.push(reverseNumberMapping[input]);
     }
 
-    // 3. Get the states of the checkboxes
-    var useFurigana = document.getElementById('useFurigana').checked;
-    var useKanji = document.getElementById('useKanji').checked;
-    var useTranslation = document.getElementById('useTranslation').checked;
+    // 4. Get the states of the checkboxes
+    const useFurigana = document.getElementById('useFurigana').checked;
+    const useKanji = document.getElementById('useKanji').checked;
+    const useTranslation = document.getElementById('useTranslation').checked;
 
-    // 4. Get all the 'exercise' elements, which contain the sentences
-    var exercises = document.getElementsByClassName('exercise');
+    // 5. Get all the 'exercise' elements, which contain the sentences
+    const exercises = document.getElementsByClassName('exercise');
 
-    // Array to keep track of which exercises should be displayed
-    let results = [];
+    // Initialize an empty array to hold elements that need highlighting
+    let elementsToHighlight = [];
+    let matchCount = 0;
 
-    // 5. Loop through all 'exercise' elements
+    // 6. Loop through all 'exercise' elements
     for (let i = 0; i < exercises.length; i++) {
-        // Get the sentence element inside the current exercise
-        var sentence = exercises[i].getElementsByClassName('sentence')[0];
-        // Get the translation element inside the current exercise
-        var translation = exercises[i].getElementsByClassName('translation')[0];
+        const exercise = exercises[i];
+        const sentence = exercise.getElementsByClassName('sentence')[0];
+        const translation = exercise.getElementsByClassName('translation')[0];
 
-        // Extract text content from the sentence and translation, and convert to lowercase
-        var sentenceText = sentence ? sentence.textContent.toLowerCase() : "";
-        var translationText = translation ? translation.textContent.toLowerCase() : "";
+        // Skip if the elements are missing
+        if (!sentence || !translation) continue;
 
-        // 6. Initialize an empty string to hold Furigana text if needed
-        var furiganaText = "";
+        const sentenceText = sentence.textContent.toLowerCase();
+        const translationText = translation.textContent.toLowerCase();
+        let furiganaText = "";
+
         if (useFurigana) {
-            // If the Furigana checkbox is checked, collect all Furigana (rt) text
-            var rts = sentence.getElementsByTagName('rt');
+            const rts = sentence.getElementsByTagName('rt');
             for (let j = 0; j < rts.length; j++) {
                 furiganaText += rts[j].textContent.toLowerCase();
             }
         }
 
-        // 7. Determine whether the current exercise should be displayed
-        var showExercise = false;
+        let shouldDisplay = false;
+        let highlightNeeded = false;
 
-
-        // Check against all inputs (original, Kanji, and Western equivalents)
-        for (let j = 0; j < inputsToCheck.length; j++) {
-            let currentInput = inputsToCheck[j];
-
-            // Check if the Kanji checkbox is checked and if the sentence text contains the input
+        // Check for matches in the sentence, furigana, and translation
+        for (const currentInput of inputsToCheck) {
             if (useKanji && sentenceText.includes(currentInput)) {
-                showExercise = true;
+                highlightNeeded = true;
+                shouldDisplay = true;
             }
-
-            // Check if the Furigana checkbox is checked and if the Furigana text contains the input
             if (useFurigana && furiganaText.includes(currentInput)) {
-                showExercise = true;
+                highlightNeeded = true;
+                shouldDisplay = true;
             }
-
-            // Check if the Translation checkbox is checked and if the translation text contains the input
             if (useTranslation && translationText.includes(currentInput)) {
-                showExercise = true;
+                highlightNeeded = true;
+                shouldDisplay = true;
             }
-
-            if (showExercise) break; // No need to check further if a match is found
         }
 
-        // If the exercise matches the search criteria, add it to the results array
-        if (showExercise) {
-            results.push(i);
+        // Update display status and highlight elements
+        exercise.style.display = shouldDisplay ? "" : "none";
+        exercise.previousElementSibling.style.display = shouldDisplay ? "" : "none";
+
+        // Collect elements for highlighting
+        if (highlightNeeded) {
+            elementsToHighlight.push({ element: sentence, text: sentenceText });
+            elementsToHighlight.push({ element: translation, text: translationText });
+            matchCount++;
         }
     }
 
-    // 8. Batch update the DOM to show or hide exercises based on the search results
+    // Highlight matching elements
+    highlightMatches(elementsToHighlight, inputsToCheck);
+
+    // Update the filteredNumber div to show how many results were found
+    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
+}
+
+// Function to display all exercises and clear highlighting
+function displayAllExercises() {
+    const exercises = document.getElementsByClassName('exercise');
     for (let i = 0; i < exercises.length; i++) {
-        if (results.includes(i)) {
-            exercises[i].style.display = ""; // Show the exercise
-            exercises[i].previousElementSibling.style.display = ""; // Also show the corresponding number
-        } else {
-            exercises[i].style.display = "none"; // Hide the exercise
-            exercises[i].previousElementSibling.style.display = "none"; // Also hide the corresponding number
+        exercises[i].style.display = "";
+        if (exercises[i].previousElementSibling) {
+            exercises[i].previousElementSibling.style.display = ""; // show the number
         }
+        // Clear any existing highlights
+        clearElementHighlight(exercises[i].getElementsByClassName('sentence')[0]);
+        clearElementHighlight(exercises[i].getElementsByClassName('translation')[0]);
     }
+    // Clear the filtered number display
+    document.getElementById('filteredNumber').innerText = ' ';
+}
 
-    // 9. Update the filteredNumber div to show how many results were found
-    document.getElementById('filteredNumber').innerText = results.length ? results.length : 'No matches found';
+// Function to highlight matched text
+function highlightMatches(elements, inputs) {
+    elements.forEach(({ element, text }) => {
+        let html = element.getAttribute('data-original-content') || element.innerHTML;
+        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
+
+        // Replace text with highlighted version
+        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
+        if (newHTML !== element.innerHTML) {
+            element.innerHTML = newHTML;
+        }
+
+        // Store the original content if not already stored
+        if (!element.hasAttribute('data-original-content')) {
+            element.setAttribute('data-original-content', html);
+        }
+    });
+}
+
+// Function to clear highlighting from an individual element
+function clearElementHighlight(element) {
+    if (element && element.hasAttribute('data-original-content')) {
+        element.innerHTML = element.getAttribute('data-original-content');
+        element.removeAttribute('data-original-content');
+    }
 }
