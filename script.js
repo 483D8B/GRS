@@ -295,7 +295,7 @@ function searchFunction() {
     }
 
     // Highlight matching elements
-    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
+    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana, input.toLowerCase()]));
 
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
