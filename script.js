@@ -9,13 +9,13 @@ function toggleVisibility(event) {
                 rts[j].style.visibility = 'hidden';
             }
         }
+    } else if (event.target.classList.contains('close-note')) {
+        let note = event.target.closest('.notes');
+        note.innerHTML = 'Show notes';
     } else if (event.target.classList.contains('notes')) {
-        let originalText = event.target.getAttribute('data-original-text');
-        if (event.target.innerHTML === originalText) {
-            event.target.innerText = 'Show notes';
-        } else {
-            event.target.innerHTML = originalText;
-        }
+        let note = event.target;
+        let originalText = note.getAttribute('data-original-text');
+        note.innerHTML = originalText + ' <span class="close-note">Close</span>';
     }
 }
 
@@ -31,8 +31,9 @@ window.onload = function () {
             // Store original text for notes
             var notes = document.getElementsByClassName('notes');
             for (let i = 0; i < notes.length; i++) {
-                notes[i].setAttribute('data-original-text', notes[i].innerHTML);
-                notes[i].innerText = 'Show notes';
+                let originalText = notes[i].innerHTML;
+                notes[i].setAttribute('data-original-text', originalText);
+                notes[i].innerHTML = 'Show notes';
             }
 
             // Set initial state for furigana
