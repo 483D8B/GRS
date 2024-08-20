@@ -98,7 +98,7 @@ function initializeEventListeners() {
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleFuriganaCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
-    debounceKanjiSearch
+    debounceKanjiSearch;
     bindIME();
 }
 
