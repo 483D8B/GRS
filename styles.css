@@ -464,3 +464,20 @@ ruby rt {
     text-decoration-thickness: 0.2em;
     text-underline-offset: 5px;
 }
+
+
+#kanjiFoundContainer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 2em;
+}
+
+.kanji {
+    cursor: pointer;
+    font-size: 2em;
+    font-family: 'Noto Sans JP', sans-serif;
+}

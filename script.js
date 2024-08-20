@@ -163,6 +163,7 @@ function searchFunction() {
             if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
                 highlightNeeded = true;
                 shouldDisplay = true;
+                kanjiSearchFunction();
             }
             if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
                 highlightNeeded = true;
@@ -264,3 +265,68 @@ function handleFuriganaCheckboxChange() {
     }
 }
 
+
+function debounce(func, wait) {
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Create an index of Kanji by pronunciation
+var kanjiIndex = {};
+for (var i = 0; i < readings.length; i++) {
+    var kanji = readings[i];
+    kanji.ja_on.concat(kanji.ja_kun).forEach(pronunciation => {
+        var hiragana = wanakana.toHiragana(pronunciation);
+        if (!kanjiIndex[hiragana]) {
+            kanjiIndex[hiragana] = [];
+        }
+        kanjiIndex[hiragana].push(kanji);
+    });
+}
+
+
+var kanjiSearchFunction = debounce(function () {
+    // Get the input value
+    var input = document.getElementById('search');
+    var filter = wanakana.toHiragana(input.value);
+
+
+    // Look up the Kanji in the index
+    var results = kanjiIndex[filter] || [];
+
+    // If the filter is "まるばつ", add 〇 × to the results
+    if (filter === 'まるばつ') {
+        results.push({ literal: '〇' });
+        results.push({ literal: '×' });
+    }
+
+    // Get the results container
+    var container = document.getElementById('kanjiFoundContainer');
+
+    // Clear the container
+    container.innerHTML = '';
+
+    // Add the results to the container
+    for (var i = 0; i < results.length; i++) {
+        var kanjiDiv = document.createElement('div');
+        kanjiDiv.textContent = results[i].literal; // Display the matched Kanji
+        kanjiDiv.classList.add('kanji'); // Add class for styling
+        kanjiDiv.onclick = function () {
+            var searchInput = document.getElementById('search');
+            searchInput.value += this.textContent + ' '; // Set input value to Kanji
+            input.value = '';
+            searchInput.dispatchEvent(new Event('keyup')); // Manually trigger the keyup event
+            input.dispatchEvent(new Event('keyup'));
+
+        };
+        container.appendChild(kanjiDiv);
+    }
+}, 300); // 300 milliseconds debounce time
