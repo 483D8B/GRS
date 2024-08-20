@@ -3,7 +3,7 @@ import html
 import re
 
 # Open the CSV file with your notes
-with open('/home/483d8b/sentenceData/notes.csv', 'r', encoding='utf-8') as notes_file:
+with open('notes.csv', 'r', encoding='utf-8') as notes_file:
     notes_reader = csv.reader(notes_file, delimiter=';')
     # Skip the header
     next(notes_reader, None)
@@ -18,7 +18,7 @@ with open('/home/483d8b/sentenceData/notes.csv', 'r', encoding='utf-8') as notes
                 notes_dict[note_id] = row[1]
 
 # Open the CSV file
-with open('/home/483d8b/sentenceData/grs.csv', 'r', encoding='utf-8') as csv_file:
+with open('grs.csv', 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
 
     # Skip the first two lines
@@ -26,7 +26,7 @@ with open('/home/483d8b/sentenceData/grs.csv', 'r', encoding='utf-8') as csv_fil
     next(csv_reader, None)
 
     # Open the output HTML file
-    with open('/home/483d8b/sentenceData/output.js', 'w', encoding='utf-8') as js_file:
+    with open('output.js', 'w', encoding='utf-8') as js_file:
         # Write the start of the HTML document
         js_file.write('document.getElementById("container").innerHTML = `\n')
 
@@ -45,11 +45,12 @@ with open('/home/483d8b/sentenceData/grs.csv', 'r', encoding='utf-8') as csv_fil
             for char in row[0]:
                 # If the character is a Kanji and it's the first occurrence, mark it
                 if ('\u4e00' <= char <= '\u9fff' or char in ['〇']) and char not in kanji_dict:
-                    kanji_dict[char] = True
-                    if first_kanji is None:
-                        first_kanji = char
-                        counter += 1
-                        sub_counter = 1
+                    if char != '寶':
+                        kanji_dict[char] = True
+                        if first_kanji is None:
+                            first_kanji = char
+                            counter += 1
+                            sub_counter = 1
 
 
             # Start the exercise div
@@ -64,10 +65,9 @@ with open('/home/483d8b/sentenceData/grs.csv', 'r', encoding='utf-8') as csv_fil
 
             # Enclose each column in a div with the appropriate class and id
             if first_kanji is not None:
-                js_file.write(f'\t<div class="sentence first elem_{first_kanji}">{html.escape(row[0])}</div>\n')
+                js_file.write(f'\t<div class="furigana first elem_{first_kanji}">{furigana}</div>\n')
             else:
-                js_file.write(f'\t<div class="sentence">{html.escape(row[0])}</div>\n')
-            js_file.write(f'\t<div class="furigana">{furigana}</div>\n')
+                js_file.write(f'\t<div class="furigana">{furigana}</div>\n')
             js_file.write(f'\t<div class="translation">{html.escape(row[2])}</div>\n')
 
             # Add the notes div
