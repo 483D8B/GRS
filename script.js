@@ -158,6 +158,8 @@ function debounceSearch() {
     debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
 }
 
+
+
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
@@ -176,7 +178,6 @@ function searchFunction() {
             ? prepareTextForSearch(convertedWord)
             : prepareTextForSearch(convertedWord);
     });
-
 
     // 4. Get the states of the checkboxes
     const useFurigana = document.getElementById('useFurigana').checked;
@@ -214,19 +215,38 @@ function searchFunction() {
         let shouldDisplay = false;
         let highlightNeeded = false;
 
-        // Check for matches in the sentence, furigana, and translation
-        for (const filter of filters) {
-            if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
-                highlightNeeded = true;
-                shouldDisplay = true;
+        // Check if none of the checkboxes are checked
+        if (!useFurigana && !useKanji && !useTranslation) {
+            // Exclude content inside rt tags
+            const sentenceWithoutRt = sentence.cloneNode(true);
+            const rts = sentenceWithoutRt.getElementsByTagName('rt');
+            while (rts.length > 0) {
+                rts[0].parentNode.removeChild(rts[0]);
             }
-            if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
-                highlightNeeded = true;
-                shouldDisplay = true;
+            const sentenceTextWithoutRt = replaceNumbers(sentenceWithoutRt.textContent.toLowerCase());
+
+            // Check for matches in the sentence excluding rt content
+            for (const filter of filters) {
+                if (sentenceTextWithoutRt.includes(filter.hiragana) || sentenceTextWithoutRt.includes(filter.katakana)) {
+                    highlightNeeded = true;
+                    shouldDisplay = true;
+                }
             }
-            if (useTranslation && (translationText.includes(filter.hiragana) || translationText.includes(filter.katakana))) {
-                highlightNeeded = true;
-                shouldDisplay = true;
+        } else {
+            // Check for matches in the sentence, furigana, and translation
+            for (const filter of filters) {
+                if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
+                    highlightNeeded = true;
+                    shouldDisplay = true;
+                }
+                if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
+                    highlightNeeded = true;
+                    shouldDisplay = true;
+                }
+                if (useTranslation && (translationText.includes(filter.hiragana) || translationText.includes(filter.katakana))) {
+                    highlightNeeded = true;
+                    shouldDisplay = true;
+                }
             }
         }
 
@@ -248,7 +268,6 @@ function searchFunction() {
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
 }
-
 
 
 
