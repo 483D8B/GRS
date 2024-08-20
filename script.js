@@ -187,6 +187,7 @@ function debounceKanjiSearch() {
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
+    console.log('Search input:', input);
 
     // 2. If the input value is composed only of space characters, display all exercises and return
     if (/^\s*$/.test(input)) {
@@ -197,16 +198,21 @@ function searchFunction() {
     // Convert input into both Hiragana and Katakana for searching
     const filters = [input].map(word => {
         const convertedWord = replaceNumbers(word);
+        console.log('Converted word:', convertedWord);
 
         return IMEMode === 'toHiragana'
             ? prepareTextForSearch(convertedWord)
             : prepareTextForSearch(convertedWord);
     });
 
+    console.log('Filters:', filters);
+
     // 4. Get the states of the checkboxes
     const useFurigana = document.getElementById('useFurigana').checked;
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
+
+    console.log('Checkbox states - Furigana:', useFurigana, 'Kanji:', useKanji, 'Translation:', useTranslation);
 
     // 5. Get all the 'exercise' elements, which contain the sentences
     const exercises = document.getElementsByClassName('exercise');
@@ -268,7 +274,8 @@ function searchFunction() {
                     highlightNeeded = true;
                     shouldDisplay = true;
                 }
-                if (useTranslation && (translationText.includes(filter.hiragana) || translationText.includes(filter.katakana))) {
+                if (useTranslation && translationText.includes(input.toLowerCase())) {
+                    console.log('Translation match found:', translationText);
                     highlightNeeded = true;
                     shouldDisplay = true;
                 }
@@ -290,10 +297,11 @@ function searchFunction() {
     // Highlight matching elements
     highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
 
-
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
+
+
 
 
 
@@ -335,15 +343,15 @@ function kanjiSearchFunction() {
 }
 
 
-
-
 // Initialize variables
 let IMEMode = 'toHiragana'; // Default to Hiragana mode
 const searchInput = document.getElementById('search');
+let isBound = false; // Variable to keep track of whether the input is bound
 
 // Bind the input to the current IMEMode
 function bindIME() {
     wanakana.bind(searchInput, { IMEMode: IMEMode });
+    isBound = true; // Update the variable when bound
 }
 
 // Function to toggle IMEMode between 'toHiragana' and 'toKatakana'
@@ -355,15 +363,26 @@ function toggleIMEMode() {
 // Function to handle the state of the Furigana checkbox
 function handleFuriganaCheckboxChange() {
     const useFurigana = document.getElementById('useFurigana').checked;
-    if (useFurigana) {
-        bindIME(); // Bind to Hiragana when Furigana checkbox is checked
+    const useTranslation = document.getElementById('useTranslation').checked;
+
+    if (useFurigana && !useTranslation) {
+        if (!isBound) {
+            bindIME(); // Bind to Hiragana when Furigana checkbox is checked and Translation checkbox is not checked
+        }
     } else {
-        // Unbind the input if Furigana checkbox is unchecked
-        wanakana.unbind(searchInput);
+        // Unbind the input if Furigana checkbox is unchecked or Translation checkbox is checked
+        if (isBound) {
+            wanakana.unbind(searchInput);
+            isBound = false; // Update the variable when unbound
+        }
     }
 }
 
+// Add event listener for the useTranslation checkbox
+document.getElementById('useTranslation').addEventListener('change', handleFuriganaCheckboxChange);
 
+// Initial call to handleFuriganaCheckboxChange to set the initial state
+handleFuriganaCheckboxChange();
 
 
 
