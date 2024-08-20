@@ -302,6 +302,30 @@ function searchFunction() {
 }
 
 
+// Function to highlight matched text
+function highlightMatches(elements, inputs) {
+    elements.forEach(({ element, text }) => {
+        // Use a copy of the original HTML content
+        let html = element.getAttribute('data-original-content') || element.innerHTML;
+
+        // Create a regex to match all input patterns (Kanji and Western numbers)
+        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
+
+        // Replace text with highlighted version
+        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
+        if (newHTML !== element.innerHTML) {
+            element.innerHTML = newHTML;
+        }
+
+        // Store the original content if not already stored
+        if (!element.hasAttribute('data-original-content')) {
+            element.setAttribute('data-original-content', html);
+        }
+    });
+}
+
+
+
 
 
 
@@ -399,30 +423,6 @@ for (var i = 0; i < readings.length; i++) {
             kanjiIndex[hiragana] = [];
         }
         kanjiIndex[hiragana].push(kanji);
-    });
-}
-
-
-
-// Function to highlight matched text
-function highlightMatches(elements, inputs) {
-    elements.forEach(({ element, text }) => {
-        // Use a copy of the original HTML content
-        let html = element.getAttribute('data-original-content') || element.innerHTML;
-
-        // Create a regex to match all input patterns (Kanji and Western numbers)
-        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
-
-        // Replace text with highlighted version
-        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
-        if (newHTML !== element.innerHTML) {
-            element.innerHTML = newHTML;
-        }
-
-        // Store the original content if not already stored
-        if (!element.hasAttribute('data-original-content')) {
-            element.setAttribute('data-original-content', html);
-        }
     });
 }
 
