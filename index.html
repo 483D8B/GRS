@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="data:;base64,iVBORw0KGgo=" rel="icon" />
+    <link rel="canonical" href="https://483d8b.github.io/gradedSentences/" />
+    <script src="https://unpkg.com/wanakana"></script>
+    <script src="readings.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="https://483d8b.pythonanywhere.com/output.js"></script>
+    <!-- <script defer src="output.js"></script> -->
+    <script src="https://unpkg.com/kanji.js@1.6.2/dist/kanji.min.js"></script>
+    <script src="https://kit.fontawesome.com/9e1918fedd.js" crossorigin="anonymous"></script>
+    <link href="data:;base64,iVBORw0KGgo=" rel="icon" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json" />
+    <title>Graded Sentences</title>
+</head>
+
+<body>
+
+    <div id="toggleMode" title="toggle light/dark mode"><i class="fa-solid fa-lightbulb"></i></div>
+
+    <div id="filteredNumber">&#8203;</div>
+    <input type="text" id="search" onkeyup="searchFunction()" placeholder="検索...">
+    <input type="text" id="kanjiSearch" onkeyup="kanjiSearchFunction()" placeholder="漢字">
+    <div id="reset"><i class="fa-solid fa-x"></i></div>
+    <input type="text" id="readingSearch" onkeyup="readingSearchFunction()" placeholder="音訓...">
+
+    <input type="text" id="furiganaSearch" onkeyup="furiganaSearchFunction()" placeholder="furigana searching...">
+
+    <div id="toggleAllFurigana" title="toggle all furigana">
+        <img src="Pictogrammers-Material-Furigana-horizontal.png" alt="toggle all furigana">
+    </div>
+
+
+    <div id="kanjiFoundContainer"></div>
+
+    <div id="readingFoundContainer"></div>
+
+    <div id="counter" title="sentence counter"></div>
+
+    <div id="showUnit" title="show grid of kanji"><i class="fa-solid fa-map"></i></div>
+    <div id="toggleAllTranslations" title="toggle all translations"><i class="fa-solid fa-closed-captioning"></i></div>
+
+    <div id="container"></div>
+
+
+</body>
+
+</html>
