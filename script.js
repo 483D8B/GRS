@@ -70,9 +70,12 @@ window.onload = function () {
         .catch(error => console.error('Error loading content:', error));
 
 
+    // Attach event listeners
+    document.getElementById('useFurigana').addEventListener('change', handleFuriganaCheckboxChange);
     // Attach the debounced search function to the input event
     document.getElementById('search').addEventListener('input', debounceSearch);
-
+    // Initial binding on page load
+    bindIME();
 }
 
 // Mapping from Western numbers to Japanese kanji numbers
@@ -105,7 +108,7 @@ function debounceSearch() {
 
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
-    const input = document.getElementById('search').value.trim().toLowerCase();
+    const input = document.getElementById('search').value.trim();
 
     // 2. If the input value is composed only of space characters, display all exercises and return
     if (/^\s*$/.test(input)) {
@@ -113,14 +116,12 @@ function searchFunction() {
         return;
     }
 
-    // 3. Convert input into potential Kanji if it's a number, and vice versa
-    let inputsToCheck = [input];
-    if (numberMapping[input]) {
-        inputsToCheck.push(numberMapping[input]);
-    }
-    if (reverseNumberMapping[input]) {
-        inputsToCheck.push(reverseNumberMapping[input]);
-    }
+    // 3. Convert input into both Hiragana and Katakana for searching
+    const filters = [input].map(word => {
+        return IMEMode === 'toHiragana'
+            ? { hiragana: wanakana.toHiragana(word), katakana: wanakana.toKatakana(word) }
+            : { hiragana: wanakana.toHiragana(word), katakana: wanakana.toKatakana(word) };
+    });
 
     // 4. Get the states of the checkboxes
     const useFurigana = document.getElementById('useFurigana').checked;
@@ -158,16 +159,16 @@ function searchFunction() {
         let highlightNeeded = false;
 
         // Check for matches in the sentence, furigana, and translation
-        for (const currentInput of inputsToCheck) {
-            if (useKanji && sentenceText.includes(currentInput)) {
+        for (const filter of filters) {
+            if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
                 highlightNeeded = true;
                 shouldDisplay = true;
             }
-            if (useFurigana && furiganaText.includes(currentInput)) {
+            if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
                 highlightNeeded = true;
                 shouldDisplay = true;
             }
-            if (useTranslation && translationText.includes(currentInput)) {
+            if (useTranslation && (translationText.includes(filter.hiragana) || translationText.includes(filter.katakana))) {
                 highlightNeeded = true;
                 shouldDisplay = true;
             }
@@ -186,7 +187,7 @@ function searchFunction() {
     }
 
     // Highlight matching elements
-    highlightMatches(elementsToHighlight, inputsToCheck);
+    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
 
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
@@ -234,3 +235,32 @@ function clearElementHighlight(element) {
         element.removeAttribute('data-original-content');
     }
 }
+
+
+
+// Initialize variables
+let IMEMode = 'toHiragana'; // Default to Hiragana mode
+const searchInput = document.getElementById('search');
+
+// Bind the input to the current IMEMode
+function bindIME() {
+    wanakana.bind(searchInput, { IMEMode: IMEMode });
+}
+
+// Function to toggle IMEMode between 'toHiragana' and 'toKatakana'
+function toggleIMEMode() {
+    IMEMode = IMEMode === 'toHiragana' ? 'toKatakana' : 'toHiragana';
+    bindIME(); // Re-bind the input to the new IMEMode
+}
+
+// Function to handle the state of the Furigana checkbox
+function handleFuriganaCheckboxChange() {
+    const useFurigana = document.getElementById('useFurigana').checked;
+    if (useFurigana) {
+        bindIME(); // Bind to Hiragana when Furigana checkbox is checked
+    } else {
+        // Unbind the input if Furigana checkbox is unchecked
+        wanakana.unbind(searchInput);
+    }
+}
+

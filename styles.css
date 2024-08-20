@@ -193,7 +193,6 @@ body.dark-mode .kanjiGroup {
     font-size: 1.5em;
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer;
-    user-select: none;
 }
 
 .translation {
@@ -461,7 +460,7 @@ ruby rt {
 
 
 .highlight {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+    text-underline-offset: 5px;
 }
