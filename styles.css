@@ -481,3 +481,8 @@ ruby rt {
     font-size: 2em;
     font-family: 'Noto Sans JP', sans-serif;
 }
+
+.highlight-kanji {
+    background-color: deeppink;
+    font-weight: bold;
+}

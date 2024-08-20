@@ -1,82 +1,97 @@
 function toggleVisibility(event) {
     if (event.target.tagName === 'RUBY' || event.target.closest('ruby')) {
-        var ruby = event.target.closest('ruby');
-        var rts = ruby.getElementsByTagName('rt');
-        for (let j = 0; j < rts.length; j++) {
-            if (rts[j].style.visibility === 'hidden') {
-                rts[j].style.visibility = 'visible';
-            } else {
-                rts[j].style.visibility = 'hidden';
-            }
-        }
+        handleRubyVisibility(event);
     } else if (event.target.classList.contains('close-note')) {
-        let note = event.target.closest('.notes');
-        note.innerHTML = 'Show notes';
+        handleCloseNoteVisibility(event);
     } else if (event.target.classList.contains('notes')) {
-        let note = event.target;
-        let originalText = note.getAttribute('data-original-text');
-        note.innerHTML = originalText + ' <span class="close-note">Close</span>';
+        handleNotesVisibility(event);
     }
+}
+
+function handleRubyVisibility(event) {
+    const ruby = event.target.closest('ruby');
+    const rts = ruby.getElementsByTagName('rt');
+    for (const rt of rts) {
+        rt.style.visibility = rt.style.visibility === 'hidden' ? 'visible' : 'hidden';
+    }
+}
+
+function handleCloseNoteVisibility(event) {
+    const note = event.target.closest('.notes');
+    note.innerHTML = 'Show notes';
+}
+
+function handleNotesVisibility(event) {
+    const note = event.target;
+    const originalText = note.getAttribute('data-original-text');
+    note.innerHTML = `${originalText} <span class="close-note">Close</span>`;
 }
 
 
 window.onload = function () {
-    fetch('content.html')
+    loadContent()
+        .then(setupPage)
+        .catch(error => console.error('Error loading content:', error));
+
+    initializeEventListeners();
+};
+
+function loadContent() {
+    return fetch('content.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('container').innerHTML = data;
+        });
+}
 
-            // Get all exercise elements that contain a sentence with the 'first' class
-            var exercises = document.querySelectorAll('.exercise .sentence.first');
-            // Loop through all exercise elements
-            for (let i = 0; i < exercises.length; i++) {
-                // Get the preceding number div
-                var numberDiv = exercises[i].parentElement.previousElementSibling;
+function setupPage() {
+    highlightFirstExerciseNumbers();
+    updateCounter();
+    initializeNotes();
+    setInitialFuriganaState();
+}
 
+function highlightFirstExerciseNumbers() {
+    const exercises = document.querySelectorAll('.exercise .sentence.first');
+    for (const exercise of exercises) {
+        const numberDiv = exercise.parentElement.previousElementSibling;
+        numberDiv.classList.add('colouredNumber');
+    }
+}
 
-                // Add a new class to the numberDiv
-                numberDiv.classList.add('colouredNumber');
-            }
+function updateCounter() {
+    const numbers = document.querySelectorAll('#container .number');
+    const lastNumber = numbers[numbers.length - 1];
+    const counterDiv = document.getElementById('counter');
+    counterDiv.innerHTML = `${lastNumber.id} <i class="fa-solid fa-language"></i>`;
+}
 
-            var numbers = document.querySelectorAll('#container .number');
-            var lastNumber = numbers[numbers.length - 1];
+function initializeNotes() {
+    const notes = document.getElementsByClassName('notes');
+    for (const note of notes) {
+        const originalText = note.innerHTML;
+        note.setAttribute('data-original-text', originalText);
+        note.innerHTML = 'Show notes';
+    }
+}
 
-            var counterDiv = document.getElementById('counter');
+function setInitialFuriganaState() {
+    const furiganas = document.getElementsByClassName('sentence');
+    for (const furigana of furiganas) {
+        const rts = furigana.getElementsByTagName('rt');
+        for (const rt of rts) {
+            rt.style.visibility = 'hidden'; // Set initial state
+        }
+    }
+}
 
-            counterDiv.innerHTML = lastNumber.id + ' <i class="fa-solid fa-language"></i>';
-
-
-
-            // Add event listener to the container for event delegation
-            document.getElementById('container').addEventListener('click', toggleVisibility);
-
-            // Store original text for notes
-            var notes = document.getElementsByClassName('notes');
-            for (let i = 0; i < notes.length; i++) {
-                let originalText = notes[i].innerHTML;
-                notes[i].setAttribute('data-original-text', originalText);
-                notes[i].innerHTML = 'Show notes';
-            }
-
-            // Set initial state for furigana
-            var furiganas = document.getElementsByClassName('sentence');
-            for (let i = 0; i < furiganas.length; i++) {
-                var rts = furiganas[i].getElementsByTagName('rt');
-                for (let j = 0; j < rts.length; j++) {
-                    rts[j].style.visibility = 'hidden'; // Set initial state
-                }
-            }
-        })
-        .catch(error => console.error('Error loading content:', error));
-
-
-    // Attach event listeners
+function initializeEventListeners() {
+    document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleFuriganaCheckboxChange);
-    // Attach the debounced search function to the input event
     document.getElementById('search').addEventListener('input', debounceSearch);
-    // Initial binding on page load
     bindIME();
 }
+
 
 // Mapping from Western numbers to Japanese kanji numbers
 const numberMapping = {
@@ -107,58 +122,50 @@ function debounceSearch() {
 }
 
 function searchFunction() {
-    // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
-
-    // 2. If the input value is composed only of space characters, display all exercises and return
     if (/^\s*$/.test(input)) {
         displayAllExercises();
         return;
     }
 
-    // 3. Convert input into both Hiragana and Katakana for searching
-    const filters = [input].map(word => {
-        return IMEMode === 'toHiragana'
-            ? { hiragana: wanakana.toHiragana(word), katakana: wanakana.toKatakana(word) }
-            : { hiragana: wanakana.toHiragana(word), katakana: wanakana.toKatakana(word) };
-    });
-
-    // 4. Get the states of the checkboxes
-    const useFurigana = document.getElementById('useFurigana').checked;
-    const useKanji = document.getElementById('useKanji').checked;
-    const useTranslation = document.getElementById('useTranslation').checked;
-
-    // 5. Get all the 'exercise' elements, which contain the sentences
+    const filters = createFilters(input);
+    const { useFurigana, useKanji, useTranslation } = getCheckboxStates();
     const exercises = document.getElementsByClassName('exercise');
 
-    // Initialize an empty array to hold elements that need highlighting
+    const { elementsToHighlight, matchCount } = processExercises(exercises, filters, useFurigana, useKanji, useTranslation);
+    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
+    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
+}
+
+function createFilters(input) {
+    return [input].map(word => ({
+        hiragana: wanakana.toHiragana(word),
+        katakana: wanakana.toKatakana(word)
+    }));
+}
+
+function getCheckboxStates() {
+    return {
+        useFurigana: document.getElementById('useFurigana').checked,
+        useKanji: document.getElementById('useKanji').checked,
+        useTranslation: document.getElementById('useTranslation').checked
+    };
+}
+
+function processExercises(exercises, filters, useFurigana, useKanji, useTranslation) {
     let elementsToHighlight = [];
     let matchCount = 0;
 
-    // 6. Loop through all 'exercise' elements
-    for (let i = 0; i < exercises.length; i++) {
-        const exercise = exercises[i];
+    for (const exercise of exercises) {
         const sentence = exercise.getElementsByClassName('sentence')[0];
         const translation = exercise.getElementsByClassName('translation')[0];
-
-        // Skip if the elements are missing
         if (!sentence || !translation) continue;
 
-        const sentenceText = sentence.textContent.toLowerCase();
-        const translationText = translation.textContent.toLowerCase();
-        let furiganaText = "";
-
-        if (useFurigana) {
-            const rts = sentence.getElementsByTagName('rt');
-            for (let j = 0; j < rts.length; j++) {
-                furiganaText += rts[j].textContent.toLowerCase();
-            }
-        }
+        const { sentenceText, translationText, furiganaText } = extractTexts(sentence, useFurigana);
 
         let shouldDisplay = false;
         let highlightNeeded = false;
 
-        // Check for matches in the sentence, furigana, and translation
         for (const filter of filters) {
             if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
                 highlightNeeded = true;
@@ -175,11 +182,9 @@ function searchFunction() {
             }
         }
 
-        // Update display status and highlight elements
         exercise.style.display = shouldDisplay ? "" : "none";
         exercise.previousElementSibling.style.display = shouldDisplay ? "" : "none";
 
-        // Collect elements for highlighting
         if (highlightNeeded) {
             elementsToHighlight.push({ element: sentence, text: sentenceText });
             elementsToHighlight.push({ element: translation, text: translationText });
@@ -187,11 +192,22 @@ function searchFunction() {
         }
     }
 
-    // Highlight matching elements
-    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
+    return { elementsToHighlight, matchCount };
+}
 
-    // Update the filteredNumber div to show how many results were found
-    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
+function extractTexts(sentence, useFurigana) {
+    const sentenceText = sentence.textContent.toLowerCase();
+    const translationText = sentence.parentElement.querySelector('.translation').textContent.toLowerCase();
+    let furiganaText = "";
+
+    if (useFurigana) {
+        const rts = sentence.getElementsByTagName('rt');
+        for (const rt of rts) {
+            furiganaText += rt.textContent.toLowerCase();
+        }
+    }
+
+    return { sentenceText, translationText, furiganaText };
 }
 
 // Function to display all exercises and clear highlighting
@@ -227,6 +243,15 @@ function highlightMatches(elements, inputs) {
             element.setAttribute('data-original-content', html);
         }
     });
+}
+
+// Function to highlight the clicked Kanji
+function highlightKanji() {
+    const kanjiElements = document.querySelectorAll('#kanjiFoundContainer .kanji');
+    kanjiElements.forEach(el => el.classList.remove('highlight-kanji'));
+    this.classList.add('highlight-kanji');
+    highlightedKanji = this.textContent;
+    searchFunction(); // Trigger search function to filter exercises
 }
 
 // Function to clear highlighting from an individual element
@@ -327,6 +352,9 @@ var kanjiSearchFunction = debounce(function () {
             input.dispatchEvent(new Event('keyup'));
 
         };
+        kanjiDiv.classList.add('kanji'); // Add class for styling
+        kanjiDiv.onclick = highlightKanji; // Add click handler to highlight Kanji
         container.appendChild(kanjiDiv);
     }
 }, 300); // 300 milliseconds debounce time
+
