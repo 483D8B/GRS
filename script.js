@@ -290,8 +290,9 @@ function searchFunction() {
     // Highlight matching elements
     highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana]));
 
+
     // Update the filteredNumber div to show how many results were found
-    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : 'No matches found';
+    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
 
 
