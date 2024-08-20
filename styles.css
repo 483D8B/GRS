@@ -458,3 +458,10 @@ ruby rt {
     color: var(--color-8);
     /* Cyan */
 }
+
+
+.highlight {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
