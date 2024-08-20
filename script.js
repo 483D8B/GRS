@@ -324,10 +324,10 @@ function kanjiSearchFunction() {
         kanjiDiv.classList.add('kanji'); // Add class for styling
         kanjiDiv.onclick = function () {
             var searchInput = document.getElementById('search');
-            searchInput.value += this.textContent + ' '; // Set input value to Kanji
             input.value = '';
-            searchInput.dispatchEvent(new Event('keyup')); // Manually trigger the keyup event
-            input.dispatchEvent(new Event('keyup'));
+            searchInput.value += this.textContent; // Set input value to Kanji
+            // Trigger the search function after setting the value
+            debounceSearch();
         };
         container.appendChild(kanjiDiv);
     }
