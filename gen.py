@@ -65,9 +65,9 @@ with open('grs.csv', 'r', encoding='utf-8') as csv_file:
 
             # Enclose each column in a div with the appropriate class and id
             if first_kanji is not None:
-                js_file.write(f'\t<div class="furigana first elem_{first_kanji}">{furigana}</div>\n')
+                js_file.write(f'\t<div class="sentence first elem_{first_kanji}">{furigana}</div>\n')
             else:
-                js_file.write(f'\t<div class="furigana">{furigana}</div>\n')
+                js_file.write(f'\t<div class="sentence">{furigana}</div>\n')
             js_file.write(f'\t<div class="translation">{html.escape(row[2])}</div>\n')
 
             # Add the notes div

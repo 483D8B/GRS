@@ -20,9 +20,21 @@
 <body>
 
     <div id="toggleMode" title="toggle light/dark mode"><i class="fa-solid fa-lightbulb"></i></div>
-
+    <div id="counter" title="sentence counter">9676 <i class="fa-solid fa-language" aria-hidden="true"></i></div>
     <div id="filteredNumber">&#8203;</div>
-    <input type="text" id="search" onkeyup="searchFunction()" placeholder="検索...">
+    <input type="text" id="search" placeholder="検索...">
+    <div>
+        <input type="checkbox" id="useFurigana" checked>
+        <label for="useFurigana">Search in Furigana</label>
+    </div>
+    <div>
+        <input type="checkbox" id="useKanji">
+        <label for="useKanji">Search in Kanji</label>
+    </div>
+    <div>
+        <input type="checkbox" id="useTranslation">
+        <label for="useTranslation">Search in Translation</label>
+    </div>
 
     <div id="container"></div>
 
