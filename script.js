@@ -32,6 +32,7 @@ function handleNotesVisibility(event) {
 
 
 
+
 //START INIT
 window.onload = function () {
     loadContent()
@@ -64,11 +65,14 @@ function highlightFirstExerciseNumbers() {
     }
 }
 
+let exerciseTotalNumber = null;
 function updateCounter() {
     const numbers = document.querySelectorAll('#container .number');
     const lastNumber = numbers[numbers.length - 1];
+    exerciseTotalNumber = lastNumber ? lastNumber.id : null; // Store the ID globally
     const counterDiv = document.getElementById('counter');
     counterDiv.innerHTML = `${lastNumber.id} <i class="fa-solid fa-language"></i>`;
+    document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
 }
 
 function initializeNotes() {
@@ -344,7 +348,7 @@ function displayAllExercises() {
         clearElementHighlight(exercises[i].getElementsByClassName('translation')[0]);
     }
     // Clear the filtered number display
-    document.getElementById('filteredNumber').innerText = ' ';
+    document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
 }
 
 
