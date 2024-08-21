@@ -181,11 +181,9 @@ function debounceKanjiSearch() {
 
 
 
-
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
-
 
     // 2. If the input value is composed only of space characters, display all exercises and return
     if (/^\s*$/.test(input)) {
@@ -196,12 +194,8 @@ function searchFunction() {
     // Convert input into both Hiragana and Katakana for searching
     const filters = [input].map(word => {
         const convertedWord = replaceNumbers(word);
-
-        return IMEMode === 'toHiragana'
-            ? prepareTextForSearch(convertedWord)
-            : prepareTextForSearch(convertedWord);
+        return prepareTextForSearch(convertedWord);
     });
-
 
     // 4. Get the states of the checkboxes
     const useFurigana = document.getElementById('useFurigana').checked;
@@ -287,34 +281,51 @@ function searchFunction() {
         }
     }
 
+    // Determine which highlight function to use
+    const highlightFunction = determineHighlightFunction(useFurigana, useKanji);
+
     // Highlight matching elements
-    highlightMatches(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana, input.toLowerCase()]));
+    highlightFunction(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana, input.toLowerCase()]));
 
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
 
+// Determine which highlight function to use
+function determineHighlightFunction(useFurigana, useKanji) {
+    if (useFurigana && useKanji) {
+        return highlightMatchesFuriganaKanji;
+    } else {
+        return highlightMatchesDefault;
+    }
+}
 
-// Function to highlight matched text
-function highlightMatches() {
-    // Get the user input
+// Highlight function for default, useTranslation, and useKanji (without useFurigana)
+function highlightMatchesDefault(elements, inputs) {
+    elements.forEach(({ element, text }) => {
+        let html = element.getAttribute('data-original-content') || element.innerHTML;
+        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
+        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
+        if (newHTML !== element.innerHTML) {
+            element.innerHTML = newHTML;
+        }
+        if (!element.hasAttribute('data-original-content')) {
+            element.setAttribute('data-original-content', html);
+        }
+    });
+}
+
+// Highlight function for useFurigana and useKanji
+function highlightMatchesFuriganaKanji() {
     const userInput = document.getElementById('search').value;
-
-    // Separate the kanji and furigana from the input
     const kanji = userInput.charAt(0);
     const furigana = userInput.slice(1);
-
-    // Get all ruby elements
     const rubyElements = document.querySelectorAll('ruby');
 
     rubyElements.forEach(ruby => {
-        // Find the rt (furigana) element
         const furiganaElement = ruby.querySelector('rt');
-
         if (furiganaElement) {
             const rubyFurigana = furiganaElement.textContent;
-
-            // Check if the first child node is a text node and its value is equal to the kanji
             if (ruby.childNodes[0].nodeType === 3 && ruby.childNodes[0].nodeValue.trim() === kanji && rubyFurigana === furigana) {
                 ruby.classList.add('highlight');
             } else {
@@ -323,9 +334,6 @@ function highlightMatches() {
         }
     });
 }
-
-
-
 
 
 
