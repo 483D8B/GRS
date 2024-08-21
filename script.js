@@ -43,7 +43,7 @@ window.onload = function () {
 };
 
 function loadContent() {
-    return fetch('content.html')
+    return fetch('content-min.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('container').innerHTML = data;
