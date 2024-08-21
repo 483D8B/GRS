@@ -3,13 +3,19 @@
     "name": "KLC Graded Reading Sets",
     "icons": [
         {
-            "src": "/book192x192.png",
-            "sizes": "192x192",
+            "src": "/android-launchericon-512-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-launchericon-192-192.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "start_url": "/",
     "display": "standalone",
     "theme_color": "#ffffff",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "description": "My personal KLC Graded Reading Sets"
 }
