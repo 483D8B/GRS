@@ -1,59 +1,66 @@
 import json
 from bs4 import BeautifulSoup
 
-# Read the HTML file
-with open('content.html', 'r', encoding='utf-8') as file:
-    content = file.read()
+def parse_exercise(exercise_div):
+    exercise = {}
+    
+    # Extract the inner HTML of the sentence, preserving ruby annotations
+    sentence = exercise_div.find("div", class_="sentence")
+    if sentence:
+        exercise["sentence"] = ''.join(str(tag) for tag in sentence.contents).strip()
 
-# Parse the HTML content
-soup = BeautifulSoup(content, 'html.parser')
+    translation = exercise_div.find("div", class_="translation")
+    if translation:
+        exercise["translation"] = translation.get_text().strip()
 
-# Initialize an empty list to store the JSON data
-data = []
+    notes_div = exercise_div.find("div", class_="notes")
+    if notes_div:
+        notes = []
+        for note_div in notes_div.find_all("div", class_="note"):
+            notes.append(note_div.get_text().strip())
+        exercise["notes"] = notes
 
-# Find all the 'number' and 'exercise' divs
-numbers = soup.find_all('div', class_='number')
-exercises = soup.find_all('div', class_='exercise')
+    return exercise
 
-# Iterate through the numbers and exercises
-for number, exercise in zip(numbers, exercises):
-    # Extract the number and kanjiHeader if present
-    number_id = number.get('id')
-    kanji_header = number.find('span', class_='kanjiHeader')
-    kanji_header_text = kanji_header.text if kanji_header else None
+def html_to_json(html_content):
+    soup = BeautifulSoup(html_content, "html.parser")
+    exercises = []
 
-    # Extract the sentence, ruby, translation, and notes
-    sentence_div = exercise.find('div', class_='sentence')
-    sentence = sentence_div.text.strip()
-    ruby = str(sentence_div.find('ruby'))
-    translation = exercise.find('div', class_='translation').text.strip()
-    notes_divs = exercise.find_all('div', class_='note')
-    notes = [{"note": note.text.strip()} for note in notes_divs]
+    # Loop through all 'number' and 'exercise' pairs
+    number_divs = soup.find_all("div", class_="number")
+    for number_div in number_divs:
+        exercise_entry = {}
+        exercise_entry["id"] = number_div.get("id")
+        
+        # Handle counter text inside 'counter' span or directly within 'number' div
+        counter = number_div.find("span", class_="counter")
+        if counter:
+            exercise_entry["counter"] = counter.get_text().strip()
+        else:
+            exercise_entry["counter"] = number_div.get_text().strip()
 
-    # Create the JSON structure
-    exercise_data = {
-        "sentence": sentence,
-        "ruby": ruby,
-        "translation": translation,
-        "notes": notes
-    }
+        # Handle kanji header if present
+        kanji_header = number_div.find("span", class_="kanjiHeader")
+        if kanji_header:
+            exercise_entry["kanjiHeader"] = kanji_header.get_text().strip()
 
-    number_data = {
-        "number": number_id,
-        "exercise": exercise_data
-    }
+        # Parse the corresponding exercise content
+        next_sibling = number_div.find_next_sibling("div", class_="exercise")
+        if next_sibling:
+            exercise_entry["exercise"] = parse_exercise(next_sibling)
+        
+        exercises.append(exercise_entry)
 
-    if kanji_header_text:
-        number_data["kanjiHeader"] = kanji_header_text
+    return exercises
 
-    # Append the data to the list
-    data.append(number_data)
+def convert_html_to_json(input_file, output_file):
+    with open(input_file, "r", encoding="utf-8") as file:
+        html_content = file.read()
+    
+    exercises_json = html_to_json(html_content)
+    
+    with open(output_file, "w", encoding="utf-8") as json_file:
+        json.dump(exercises_json, json_file, ensure_ascii=False, indent=4)
 
-# Convert the list to JSON
-json_data = json.dumps(data, ensure_ascii=False, indent=4)
-
-# Write the JSON data to a file
-with open('content.json', 'w', encoding='utf-8') as json_file:
-    json_file.write(json_data)
-
-print("JSON data has been written to output.json")
+# Run the conversion
+convert_html_to_json("content.html", "content.json")
