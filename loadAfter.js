@@ -4,12 +4,28 @@ function updateCounter(matchCount) {
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
 
+
+function setupPage() {
+    updateCounter();
+    initializeNotes();
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
         .then(response => response.json())
         .then(data => {
             document.getElementById('search').addEventListener('input', function () {
                 const searchTerm = this.value.toLowerCase();
+
+                // Check if the input is empty or contains only whitespace
+                if (/^\s*$/.test(searchTerm)) {
+                    document.getElementById('container').innerHTML = '';
+                    updateCounter(0);
+                    return;
+                }
+
                 const useFurigana = document.getElementById('useFurigana').checked;
                 const useKanji = document.getElementById('useKanji').checked;
                 const useTranslation = document.getElementById('useTranslation').checked;
@@ -33,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 displayResults(filteredData);
                 updateCounter(filteredData.length);
+                initializeNotes();
             });
 
             function displayResults(results) {
@@ -75,7 +92,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Join all parts together into a single string
                 document.getElementById('container').innerHTML = htmlParts.join('');
             }
+            setupPage();
         })
         .catch(error => console.error('Error fetching data:', error));
-
 });
+
+
+
+
+
+
+
+
+
+
+//do not touch this
+
+document.getElementById('toggleMode').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    // Check if the body has the 'dark-mode' class
+    if (document.body.classList.contains('dark-mode')) {
+        // If it does, change the button text to 'Light Mode'
+        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+    } else {
+        // If it doesn't, change the button text back to 'Dark Mode'
+        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+    }
+});
+
+//START NOTES VISIBILITY
+function toggleVisibility(event) {
+    if (event.target.tagName === 'RUBY' || event.target.closest('ruby')) {
+        handleRubyVisibility(event);
+    } else if (event.target.classList.contains('close-note')) {
+        handleCloseNoteVisibility(event);
+    } else if (event.target.classList.contains('notes')) {
+        handleNotesVisibility(event);
+    }
+}
+
+function handleRubyVisibility(event) {
+    const ruby = event.target.closest('ruby');
+    const rts = ruby.getElementsByTagName('rt');
+    for (const rt of rts) {
+        rt.style.visibility = rt.style.visibility === 'hidden' ? 'visible' : 'hidden';
+    }
+}
+
+function handleCloseNoteVisibility(event) {
+    const note = event.target.closest('.notes');
+    note.innerHTML = 'Show notes';
+}
+
+function handleNotesVisibility(event) {
+    const note = event.target;
+    const originalText = note.getAttribute('data-original-text');
+    note.innerHTML = `${originalText} <span class="close-note">Close</span>`;
+}
+
+function initializeNotes() {
+    const notes = document.getElementsByClassName('notes');
+    for (const note of notes) {
+        const originalText = note.innerHTML;
+        note.setAttribute('data-original-text', originalText);
+        note.innerHTML = 'Show notes';
+    }
+}
+
+//END NOTES VISIBILITY
+
