@@ -70,8 +70,6 @@ function updateCounter() {
     const numbers = document.querySelectorAll('#container .number');
     const lastNumber = numbers[numbers.length - 1];
     exerciseTotalNumber = lastNumber ? lastNumber.id : null; // Store the ID globally
-    const counterDiv = document.getElementById('counter');
-    counterDiv.innerHTML = `${lastNumber.id} <i class="fa-solid fa-language"></i>`;
     document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
 }
 
@@ -187,7 +185,7 @@ function debounceKanjiSearch() {
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
-    console.log('Search input:', input);
+
 
     // 2. If the input value is composed only of space characters, display all exercises and return
     if (/^\s*$/.test(input)) {
@@ -198,21 +196,17 @@ function searchFunction() {
     // Convert input into both Hiragana and Katakana for searching
     const filters = [input].map(word => {
         const convertedWord = replaceNumbers(word);
-        console.log('Converted word:', convertedWord);
 
         return IMEMode === 'toHiragana'
             ? prepareTextForSearch(convertedWord)
             : prepareTextForSearch(convertedWord);
     });
 
-    console.log('Filters:', filters);
 
     // 4. Get the states of the checkboxes
     const useFurigana = document.getElementById('useFurigana').checked;
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
-
-    console.log('Checkbox states - Furigana:', useFurigana, 'Kanji:', useKanji, 'Translation:', useTranslation);
 
     // 5. Get all the 'exercise' elements, which contain the sentences
     const exercises = document.getElementsByClassName('exercise');
@@ -275,7 +269,6 @@ function searchFunction() {
                     shouldDisplay = true;
                 }
                 if (useTranslation && translationText.includes(input.toLowerCase())) {
-                    console.log('Translation match found:', translationText);
                     highlightNeeded = true;
                     shouldDisplay = true;
                 }
