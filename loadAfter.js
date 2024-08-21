@@ -1,3 +1,9 @@
+let exerciseTotalNumber = null;
+
+function updateCounter(matchCount) {
+    document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
         .then(response => response.json())
@@ -26,22 +32,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 displayResults(filteredData);
+                updateCounter(filteredData.length);
             });
 
             function displayResults(results) {
-                const container = document.getElementById('container');
-                container.innerHTML = '';
+                const htmlParts = [];
 
                 results.forEach(item => {
-                    const exerciseDiv = document.createElement('div');
-                    exerciseDiv.innerHTML = `
-                        <h3>${item.counter}</h3>
-                        <p>${item.exercise.sentence}</p>
-                        <p>${item.exercise.translation}</p>
-                    `;
-                    container.appendChild(exerciseDiv);
+                    // Add the number div
+                    let numberHTML = `<div class="number" id="${item.id}">`;
+                    if (item.counter) numberHTML += `<span class="counter">${item.counter}</span>`;
+                    if (item.kanjiHeader) numberHTML += `<span class="kanjiHeader">${item.kanjiHeader}</span>`;
+                    numberHTML += `</div>\n`;
+
+                    // Add the exercise div
+                    let exerciseHTML = `<div class="exercise">\n`;
+                    if (item.kanjiHeader) {
+                        exerciseHTML += `<div class="sentence first elem_${item.kanjiHeader}">${item.exercise.sentence}</div>\n`;
+                    } else {
+                        exerciseHTML += `<div class="sentence">${item.exercise.sentence}</div>\n`;
+                    }
+                    if (item.exercise.translation) {
+                        exerciseHTML += `<div class="translation">${item.exercise.translation}</div>\n`;
+                    }
+
+                    // Add the notes div if notes exist
+                    if (item.exercise.notes && item.exercise.notes.length > 0) {
+                        exerciseHTML += `<div class="notes">\n`;
+                        item.exercise.notes.forEach(note => {
+                            note = note.replace(/「(.*?)」/g, '「<span class="grammarPointsNote">$1</span>」');
+                            exerciseHTML += `<div class="note">${note}</div>\n`;
+                        });
+                        exerciseHTML += `</div>\n`;
+                    }
+
+                    exerciseHTML += `</div>\n`; // End of exercise div
+
+                    // Append the constructed HTML parts to the array
+                    htmlParts.push(numberHTML + exerciseHTML);
                 });
+
+                // Join all parts together into a single string
+                document.getElementById('container').innerHTML = htmlParts.join('');
             }
         })
         .catch(error => console.error('Error fetching data:', error));
+
 });
