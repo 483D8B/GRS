@@ -303,23 +303,30 @@ function searchFunction() {
 
 
 // Function to highlight matched text
-function highlightMatches(elements, inputs) {
-    elements.forEach(({ element, text }) => {
-        // Use a copy of the original HTML content
-        let html = element.getAttribute('data-original-content') || element.innerHTML;
+function highlightMatches() {
+    // Get the user input
+    const userInput = document.getElementById('search').value;
 
-        // Create a regex to match all input patterns (Kanji and Western numbers)
-        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
+    // Separate the kanji and furigana from the input
+    const kanji = userInput.charAt(0);
+    const furigana = userInput.slice(1);
 
-        // Replace text with highlighted version
-        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
-        if (newHTML !== element.innerHTML) {
-            element.innerHTML = newHTML;
-        }
+    // Get all ruby elements
+    const rubyElements = document.querySelectorAll('ruby');
 
-        // Store the original content if not already stored
-        if (!element.hasAttribute('data-original-content')) {
-            element.setAttribute('data-original-content', html);
+    rubyElements.forEach(ruby => {
+        // Find the rt (furigana) element
+        const furiganaElement = ruby.querySelector('rt');
+
+        if (furiganaElement) {
+            const rubyFurigana = furiganaElement.textContent;
+
+            // Check if the first child node is a text node and its value is equal to the kanji
+            if (ruby.childNodes[0].nodeType === 3 && ruby.childNodes[0].nodeValue.trim() === kanji && rubyFurigana === furigana) {
+                ruby.classList.add('highlight');
+            } else {
+                ruby.classList.remove('highlight');
+            }
         }
     });
 }
