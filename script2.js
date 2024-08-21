@@ -7,7 +7,7 @@ window.onload = function () {
 };
 
 function loadContent() {
-    return fetch('content.json')
+    return fetch('content-min.json')
         .then(response => response.json())
         .then(data => {
             // Generate all the HTML at once
