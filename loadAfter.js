@@ -4,13 +4,10 @@ function updateCounter(matchCount) {
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
 
-
 function setupPage() {
-    updateCounter();
+    updateCounter(0);
     initializeNotes();
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('content.json')
@@ -92,22 +89,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Join all parts together into a single string
                 document.getElementById('container').innerHTML = htmlParts.join('');
             }
+
             setupPage();
+            initializeEventListeners();
         })
         .catch(error => console.error('Error fetching data:', error));
 });
 
+function initializeEventListeners() {
+    document.getElementById('container').addEventListener('click', toggleVisibility);
+    document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
+    document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
+    document.getElementById('search').addEventListener('input', debounceSearch);
+    bindIME();
+}
 
+// Function to handle the state of the checkboxes
+function handleCheckboxChange() {
+    const useFurigana = document.getElementById('useFurigana').checked;
+    const useTranslation = document.getElementById('useTranslation').checked;
 
+    if (!useTranslation) {
+        if (!isBound) {
+            bindIME(); // Bind to Hiragana when Translation checkbox is not checked
+        }
+    } else {
+        if (isBound) {
+            unbindIME(); // Unbind the input if Translation checkbox is checked
+        }
+    }
+}
 
+// Initial call to set the initial state
+handleCheckboxChange();
 
+// Debounce timer variable to avoid too many search function calls
+let debounceTimer;
 
+function debounceSearch() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
+}
 
+// Initialize variables
+let IMEMode = 'toHiragana'; // Default to Hiragana mode
+const searchInput = document.getElementById('search');
+let isBound = false; // Variable to keep track of whether the input is bound
 
+// Bind the input to the current IMEMode
+function bindIME() {
+    wanakana.bind(searchInput, { IMEMode: IMEMode });
+    isBound = true; // Update the variable when bound
+}
 
+// Unbind the input from the current IMEMode
+function unbindIME() {
+    wanakana.unbind(searchInput);
+    isBound = false; // Update the variable when unbound
+}
 
-//do not touch this
-
+// Do not touch this
 document.getElementById('toggleMode').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
     // Check if the body has the 'dark-mode' class
@@ -120,7 +161,7 @@ document.getElementById('toggleMode').addEventListener('click', function () {
     }
 });
 
-//START NOTES VISIBILITY
+// START NOTES VISIBILITY
 function toggleVisibility(event) {
     if (event.target.tagName === 'RUBY' || event.target.closest('ruby')) {
         handleRubyVisibility(event);
@@ -158,6 +199,4 @@ function initializeNotes() {
         note.innerHTML = 'Show notes';
     }
 }
-
-//END NOTES VISIBILITY
-
+// END NOTES VISIBILITY
