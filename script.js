@@ -94,7 +94,8 @@ function setInitialFuriganaState() {
 
 function initializeEventListeners() {
     document.getElementById('container').addEventListener('click', toggleVisibility);
-    document.getElementById('useFurigana').addEventListener('change', handleFuriganaCheckboxChange);
+    document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
+    document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
     debounceKanjiSearch;
     bindIME();
@@ -386,35 +387,38 @@ function bindIME() {
     isBound = true; // Update the variable when bound
 }
 
+// Unbind the input from the current IMEMode
+function unbindIME() {
+    wanakana.unbind(searchInput);
+    isBound = false; // Update the variable when unbound
+}
+
 // Function to toggle IMEMode between 'toHiragana' and 'toKatakana'
 function toggleIMEMode() {
     IMEMode = IMEMode === 'toHiragana' ? 'toKatakana' : 'toHiragana';
-    bindIME(); // Re-bind the input to the new IMEMode
+    if (isBound) {
+        bindIME(); // Re-bind the input to the new IMEMode
+    }
 }
 
-// Function to handle the state of the Furigana checkbox
-function handleFuriganaCheckboxChange() {
+// Function to handle the state of the checkboxes
+function handleCheckboxChange() {
     const useFurigana = document.getElementById('useFurigana').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
 
-    if (useFurigana && !useTranslation) {
+    if (!useTranslation) {
         if (!isBound) {
-            bindIME(); // Bind to Hiragana when Furigana checkbox is checked and Translation checkbox is not checked
+            bindIME(); // Bind to Hiragana when Translation checkbox is not checked
         }
     } else {
-        // Unbind the input if Furigana checkbox is unchecked or Translation checkbox is checked
         if (isBound) {
-            wanakana.unbind(searchInput);
-            isBound = false; // Update the variable when unbound
+            unbindIME(); // Unbind the input if Translation checkbox is checked
         }
     }
 }
 
-// Add event listener for the useTranslation checkbox
-document.getElementById('useTranslation').addEventListener('change', handleFuriganaCheckboxChange);
-
-// Initial call to handleFuriganaCheckboxChange to set the initial state
-handleFuriganaCheckboxChange();
+// Initial call to set the initial state
+handleCheckboxChange();
 
 
 
