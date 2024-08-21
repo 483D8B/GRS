@@ -1,3 +1,14 @@
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+            console.log('Service worker registered:', registration);
+        })
+        .catch(error => {
+            console.error('Service worker registration failed:', error);
+        });
+}
+
+
 window.onload = function () {
     loadContent()
         .then(setupPage)
@@ -6,30 +17,15 @@ window.onload = function () {
     initializeEventListeners();
 };
 
-const CONTENT_VERSION = '1.0'; // Increment this when the content changes
-
 function loadContent() {
-    const storedVersion = localStorage.getItem('contentVersion');
-    let contentData = localStorage.getItem('contentData');
-
-    if (storedVersion === CONTENT_VERSION && contentData) {
-        contentData = JSON.parse(contentData);
-        const contentHTML = generateContentHTML(contentData);
-        document.getElementById('container').innerHTML = contentHTML;
-        return Promise.resolve(); // Continue with the setup
-    } else {
-        return fetch('content.json')
-            .then(response => response.json())
-            .then(data => {
-                localStorage.setItem('contentData', JSON.stringify(data));
-                localStorage.setItem('contentVersion', CONTENT_VERSION);
-
-                const contentHTML = generateContentHTML(data);
-                document.getElementById('container').innerHTML = contentHTML;
-            });
-    }
+    return fetch('content-min.json')
+        .then(response => response.json())
+        .then(data => {
+            // Generate all the HTML at once
+            const contentHTML = generateContentHTML(data);
+            document.getElementById('container').innerHTML = contentHTML;
+        });
 }
-
 
 function generateContentHTML(data) {
     // Use an array to collect HTML strings and join them later
