@@ -316,6 +316,7 @@ function highlightMatchesDefault(elements, inputs) {
     const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
     elements.forEach(({ element, text }) => {
         let html = element.getAttribute('data-original-content') || element.innerHTML;
+
         const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
         if (newHTML !== element.innerHTML) {
             element.innerHTML = newHTML;
@@ -343,6 +344,19 @@ function highlightMatchesFuriganaKanji() {
                 ruby.classList.remove('highlight');
             }
         }
+    });
+}
+
+// Create an index of Kanji by pronunciation
+var kanjiIndex = {};
+for (var i = 0; i < readings.length; i++) {
+    var kanji = readings[i];
+    kanji.ja_on.concat(kanji.ja_kun).forEach(pronunciation => {
+        var hiragana = wanakana.toHiragana(pronunciation);
+        if (!kanjiIndex[hiragana]) {
+            kanjiIndex[hiragana] = [];
+        }
+        kanjiIndex[hiragana].push(kanji);
     });
 }
 
@@ -433,20 +447,6 @@ handleCheckboxChange();
 
 
 //START DO NOT TOUCH FUNCTIONS
-
-
-// Create an index of Kanji by pronunciation
-var kanjiIndex = {};
-for (var i = 0; i < readings.length; i++) {
-    var kanji = readings[i];
-    kanji.ja_on.concat(kanji.ja_kun).forEach(pronunciation => {
-        var hiragana = wanakana.toHiragana(pronunciation);
-        if (!kanjiIndex[hiragana]) {
-            kanjiIndex[hiragana] = [];
-        }
-        kanjiIndex[hiragana].push(kanji);
-    });
-}
 
 
 
