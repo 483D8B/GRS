@@ -106,7 +106,7 @@ function initializeEventListeners() {
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
-    debounceKanjiSearch;
+    debounceKanjiSearch();
     bindIME();
 }
 
@@ -347,58 +347,55 @@ function highlightMatchesFuriganaKanji() {
     });
 }
 
-// Create an index of Kanji by pronunciation
-var kanjiIndex = {};
-for (var i = 0; i < readings.length; i++) {
-    var kanji = readings[i];
-    kanji.ja_on.concat(kanji.ja_kun).forEach(pronunciation => {
-        var hiragana = wanakana.toHiragana(pronunciation);
-        if (!kanjiIndex[hiragana]) {
-            kanjiIndex[hiragana] = [];
+// Efficiently create an index of Kanji by pronunciation
+const kanjiIndex = readings.reduce((index, kanji) => {
+    const pronunciations = kanji.ja_on.concat(kanji.ja_kun);
+    pronunciations.forEach(pronunciation => {
+        const hiragana = wanakana.toHiragana(pronunciation);
+        if (!index[hiragana]) {
+            index[hiragana] = [];
         }
-        kanjiIndex[hiragana].push(kanji);
+        index[hiragana].push(kanji);
     });
-}
-
+    return index;
+}, {});
 
 
 function kanjiSearchFunction() {
-    // Get the input value
-    var input = document.getElementById('search');
-    var filter = wanakana.toHiragana(input.value);
+    // Cache DOM elements and get the search input value
+    const input = document.getElementById('search');
+    const filter = wanakana.toHiragana(input.value.trim());
 
-
-    // Look up the Kanji in the index
-    var results = kanjiIndex[filter] || [];
-
-    // If the filter is "まるばつ", add 〇 × to the results
+    // Look up the Kanji in the index and handle special cases
+    const results = kanjiIndex[filter] ? [...kanjiIndex[filter]] : [];
     if (filter === 'まるばつ') {
-        results.push({ literal: '〇' });
-        results.push({ literal: '×' });
+        results.push({ literal: '〇' }, { literal: '×' });
     }
 
-    // Get the results container
-    var container = document.getElementById('kanjiFoundContainer');
-
-    // Clear the container
+    // Get and clear the results container
+    const container = document.getElementById('kanjiFoundContainer');
     container.innerHTML = '';
 
-    // Add the results to the container
-    for (var i = 0; i < results.length; i++) {
-        var kanjiDiv = document.createElement('div');
-        kanjiDiv.textContent = results[i].literal; // Display the matched Kanji
-        kanjiDiv.classList.add('kanji'); // Add class for styling
-        kanjiDiv.onclick = function () {
-            var searchInput = document.getElementById('search');
-            input.value = '';
-            searchInput.value += this.textContent; // Set input value to Kanji
-            // Trigger the search function after setting the value
-            debounceSearch();
-        };
-        container.appendChild(kanjiDiv);
-    }
-}
+    // Create document fragments for efficient DOM insertion
+    const fragment = document.createDocumentFragment();
 
+    results.forEach(kanji => {
+        const kanjiDiv = document.createElement('div');
+        kanjiDiv.textContent = kanji.literal; // Display the matched Kanji
+        kanjiDiv.classList.add('kanji'); // Add class for styling
+
+        kanjiDiv.addEventListener('click', () => {
+            input.value = ''; // Clear the search input
+            input.value += kanjiDiv.textContent; // Append the Kanji to the search input
+            debounceSearch(); // Trigger the search function
+        });
+
+        fragment.appendChild(kanjiDiv);
+    });
+
+    // Append all results to the container in one operation
+    container.appendChild(fragment);
+}
 
 // Initialize variables
 let IMEMode = 'toHiragana'; // Default to Hiragana mode

@@ -106,7 +106,7 @@ function initializeEventListeners() {
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
-    debounceKanjiSearch;
+    debounceKanjiSearch();
     bindIME();
 }
 
@@ -313,9 +313,9 @@ function determineHighlightFunction(useFurigana, useKanji) {
 
 // Highlight function for default, useTranslation, and useKanji (without useFurigana)
 function highlightMatchesDefault(elements, inputs) {
+    const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
     elements.forEach(({ element, text }) => {
         let html = element.getAttribute('data-original-content') || element.innerHTML;
-        const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
         const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
         if (newHTML !== element.innerHTML) {
             element.innerHTML = newHTML;
