@@ -33,15 +33,28 @@ function loadContent() {
         });
 }
 
-function loadPage(page) {
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const itemsToLoad = filteredData.slice(start, end);
+function getPageData(pageNumber) {
+    const itemsPerPage = 10; // Adjust this value as needed
+    const startIndex = (pageNumber - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
-    const contentHTML = generateContentHTML(itemsToLoad);
+    return filteredData.slice(startIndex, endIndex); // assuming filteredData is an array of all data
+}
+
+
+
+function loadPage(page) {
+    const pageData = getPageData(page);
+    const contentHTML = generateContentHTML(pageData);
     document.getElementById('container').innerHTML = contentHTML;
     updatePaginationControls(page);
 }
+
+function changePage(pageNumber) {
+    currentPage = pageNumber;
+    searchFunction(); // Update search results for the current page
+}
+
 
 function generateContentHTML(data) {
     // Use an array to collect HTML strings and join them later
@@ -94,7 +107,7 @@ function updatePaginationControls(page) {
         const button = document.createElement('button');
         button.textContent = i;
         button.disabled = i === page;
-        button.addEventListener('click', () => loadPage(i));
+        button.addEventListener('click', () => changePage(i));
         paginationControls.appendChild(button);
     }
 }
@@ -154,6 +167,7 @@ function initializeEventListeners() {
             this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
         }
     });
+
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
@@ -259,7 +273,6 @@ function searchFunction() {
     let matchCount = 0;
 
     // 5. Loop through all items in the data array to filter
-    // 5. Loop through all items in the data array to filter
     data.forEach(item => {
         const sentenceElement = document.createElement('div');
         sentenceElement.innerHTML = item.exercise.sentence;
@@ -273,7 +286,6 @@ function searchFunction() {
             const rts = sentenceElement.getElementsByTagName('rt');
             furiganaText = Array.from(rts).map(rt => replaceNumbers(rt.textContent.toLowerCase())).join(' ');
         }
-
 
         let shouldDisplay = false;
 
@@ -310,9 +322,8 @@ function searchFunction() {
         }
     });
 
-
     // Load the first page of filtered results
-    loadPage(1);
+    loadPage(currentPage);
 
     // 5. Get all the 'exercise' elements, which contain the sentences
     const exercises = document.getElementsByClassName('exercise');
@@ -372,12 +383,10 @@ function searchFunction() {
             });
         }
 
-
         // Collect elements for highlighting
         if (highlightNeeded) {
             elementsToHighlight.push({ element: sentence, text: sentenceText });
             elementsToHighlight.push({ element: translation, text: translationText });
-            //matchCount++;
         }
     }
 
