@@ -96,11 +96,28 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.error('Error fetching data:', error));
 });
 
+
+
+// // Debounce timer variable to avoid too many search function calls
+// let debounceTimer;
+
+// function debounceSearch() {
+//     clearTimeout(debounceTimer);
+//     debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
+// }
+
+// Initialize variables
+let IMEMode = 'toHiragana'; // Default to Hiragana mode
+const searchInput = document.getElementById('search');
+let isBound = false; // Variable to keep track of whether the input is bound
+
+
+
+
 function initializeEventListeners() {
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
-    document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
 }
 
@@ -123,18 +140,7 @@ function handleCheckboxChange() {
 // Initial call to set the initial state
 handleCheckboxChange();
 
-// Debounce timer variable to avoid too many search function calls
-let debounceTimer;
 
-function debounceSearch() {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(searchFunction, 300); // Adjust the delay as needed
-}
-
-// Initialize variables
-let IMEMode = 'toHiragana'; // Default to Hiragana mode
-const searchInput = document.getElementById('search');
-let isBound = false; // Variable to keep track of whether the input is bound
 
 // Bind the input to the current IMEMode
 function bindIME() {

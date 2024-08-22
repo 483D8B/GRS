@@ -1,16 +1,49 @@
 /* CSS Reset */
-* {
+
+
+:root {
+    --black: #222222;
+    --white: #FAF9F6;
+    --color-1: rgb(191, 64, 64);
+    /* Red */
+    --color-2: rgb(191, 115, 64);
+    /* Orange */
+    --color-3: rgb(191, 166, 64);
+    /* Yellow */
+    --color-4: rgb(166, 191, 64);
+    /* Yellow-Green */
+    --color-5: rgb(115, 191, 64);
+    /* Green */
+    --color-6: rgb(64, 191, 64);
+    /* Bright Green */
+    --color-7: rgb(64, 191, 115);
+    /* Green-Blue */
+    --color-8: rgb(64, 191, 166);
+    /* Cyan */
+    --color-9: rgb(64, 166, 191);
+    /* Sky Blue */
+    --color-10: rgb(64, 115, 191);
+    /* Blue */
+    --color-11: rgb(64, 64, 191);
+    /* Indigo */
+    --color-12: rgb(115, 64, 191);
+    /* Violet */
+    --color-13: rgb(166, 64, 191);
+    /* Purple */
+    --color-14: rgb(191, 64, 166);
+    /* Pink */
+    --color-15: rgb(191, 64, 115);
+    /* Magenta */
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    --black: #222222;
-    --white: #FAF9F6;
-}
-
-body {
     background-color: var(--white);
-}
 
+}
 
 body.dark-mode {
     background-color: var(--black);
@@ -316,40 +349,6 @@ ruby rt {
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
     text-align: center;
-}
-
-
-:root {
-    --color-1: rgb(191, 64, 64);
-    /* Red */
-    --color-2: rgb(191, 115, 64);
-    /* Orange */
-    --color-3: rgb(191, 166, 64);
-    /* Yellow */
-    --color-4: rgb(166, 191, 64);
-    /* Yellow-Green */
-    --color-5: rgb(115, 191, 64);
-    /* Green */
-    --color-6: rgb(64, 191, 64);
-    /* Bright Green */
-    --color-7: rgb(64, 191, 115);
-    /* Green-Blue */
-    --color-8: rgb(64, 191, 166);
-    /* Cyan */
-    --color-9: rgb(64, 166, 191);
-    /* Sky Blue */
-    --color-10: rgb(64, 115, 191);
-    /* Blue */
-    --color-11: rgb(64, 64, 191);
-    /* Indigo */
-    --color-12: rgb(115, 64, 191);
-    /* Violet */
-    --color-13: rgb(166, 64, 191);
-    /* Purple */
-    --color-14: rgb(191, 64, 166);
-    /* Pink */
-    --color-15: rgb(191, 64, 115);
-    /* Magenta */
 }
 
 
