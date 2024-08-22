@@ -52,8 +52,13 @@ function loadPage(page) {
 
 function changePage(pageNumber) {
     currentPage = pageNumber;
-    searchFunction(); // Update search results for the current page
+    if (document.getElementById('search').value.trim() === '') {
+        loadPage(currentPage); // Load normal pagination if no search term
+    } else {
+        searchFunction(); // Update search results for the current page
+    }
 }
+
 
 
 function generateContentHTML(data) {
