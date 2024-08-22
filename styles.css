@@ -542,3 +542,29 @@ input[type="checkbox"]:checked::before {
     align-items: center;
     padding: 0.1em;
 }
+
+.pagination {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 3px;
+    padding: 0.5em;
+    max-height: 100px;
+    overflow-y: auto;
+    scrollbar-color: red orange;
+    scrollbar-width: thin;
+}
+
+
+
+.pagination button {
+    width: 2.5em;
+    aspect-ratio: 1/1;
+    display: inline-block;
+    align-content: center;
+    background-color: #04AA6D;
+    border: 1px solid black;
+    color: white;
+    font-family: courier;
+}
