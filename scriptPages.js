@@ -10,7 +10,7 @@
 // Initialize variables
 let IMEMode = 'toHiragana'; // Default to Hiragana mode
 
-const itemsPerPage = 50;
+const itemsPerPage = 100;
 let currentPage = 1;
 let data = [];
 let filteredData = [];
@@ -34,12 +34,13 @@ function loadContent() {
 }
 
 function getPageData(pageNumber) {
-    const itemsPerPage = 10; // Adjust this value as needed
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    return filteredData.slice(startIndex, endIndex); // assuming filteredData is an array of all data
+    const pageData = filteredData.slice(startIndex, endIndex);
+    return pageData;
 }
+
 
 
 
@@ -135,11 +136,10 @@ function highlightFirstExerciseNumbers() {
 
 let exerciseTotalNumber = null;
 function updateCounter() {
-    const numbers = document.querySelectorAll('#container .number');
-    const lastNumber = numbers[numbers.length - 1];
-    exerciseTotalNumber = lastNumber ? lastNumber.id : null;
-    document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
+    const totalMatches = filteredData.length; // Get the total number of matches
+    document.getElementById('filteredNumber').innerText = totalMatches;
 }
+
 
 function initializeNotes() {
     const notes = document.getElementsByClassName('notes');
@@ -329,6 +329,9 @@ function searchFunction() {
 
     // Load the first page of filtered results
     loadPage(currentPage);
+
+    // Update the counter to show the total number of matches
+    updateCounter();
 
     // 5. Get all the 'exercise' elements, which contain the sentences
     const exercises = document.getElementsByClassName('exercise');
