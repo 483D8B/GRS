@@ -49,7 +49,8 @@ function loadPage(page) {
     const contentHTML = generateContentHTML(pageData);
     document.getElementById('container').innerHTML = contentHTML;
     updatePaginationControls(page);
-    highlightFirstExerciseNumbers();
+    highlightFirstExerciseNumbers(); // Call this function to add the colouredNumber class
+    initializeNotes(); // Call this function to set the initial state of the notes
 }
 
 function changePage(pageNumber) {
@@ -122,7 +123,6 @@ function updatePaginationControls(page) {
 function setupPage() {
     highlightFirstExerciseNumbers();
     updateCounter();
-    initializeNotes();
     setInitialFuriganaState();
 }
 
