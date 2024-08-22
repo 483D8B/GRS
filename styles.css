@@ -211,7 +211,7 @@ body.dark-mode .kanjiGroup {
     flex-direction: column;
     border: 2px solid black;
     padding: 0.5em;
-    width: 47.3em;
+    width: 88.9svw;
     transform: translateX(5%);
     gap: 1em;
     margin-top: -0.6em;
@@ -470,13 +470,14 @@ ruby rt {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 10px;
+    gap: 5px;
+    padding: 1em;
     padding-bottom: 2em;
 }
 
 .kanji {
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -549,7 +550,7 @@ input[type="checkbox"]:checked::before {
     justify-content: center;
     flex-flow: row wrap;
     gap: 3px;
-    padding: 0.5em;
+    padding: 1em;
     max-height: 100px;
     overflow-y: auto;
     scrollbar-color: #04AA6D #ff1493;
@@ -559,13 +560,14 @@ input[type="checkbox"]:checked::before {
 
 
 .pagination button {
-    width: 2.5em;
+    width: 2.8em;
     aspect-ratio: 1/1;
     display: inline-block;
     background-color: #04AA6D;
-    border: 1px solid black;
+    border: 2px solid #000000;
     color: white;
     font-family: courier;
+    font-size: 0.6em;
     -webkit-user-select: none;
     touch-action: manipulation;
     cursor: pointer;
@@ -657,4 +659,3 @@ input[type="checkbox"]:checked::before {
         -webkit-transform: rotate(-45deg);
     }
 }
-
