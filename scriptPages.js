@@ -10,7 +10,7 @@
 // Initialize variables
 let IMEMode = 'toHiragana'; // Default to Hiragana mode
 
-const itemsPerPage = 100;
+const itemsPerPage = 25;
 let currentPage = 1;
 let data = [];
 let filteredData = [];
