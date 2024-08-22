@@ -49,6 +49,7 @@ function loadPage(page) {
     const contentHTML = generateContentHTML(pageData);
     document.getElementById('container').innerHTML = contentHTML;
     updatePaginationControls(page);
+    highlightFirstExerciseNumbers();
 }
 
 function changePage(pageNumber) {
@@ -554,21 +555,21 @@ function clearElementHighlight(element) {
 }
 
 
-// Function to display all exercises and clear highlighting
-function displayAllExercises() {
-    const exercises = document.getElementsByClassName('exercise');
-    for (let i = 0; i < exercises.length; i++) {
-        exercises[i].style.display = "";
-        if (exercises[i].previousElementSibling) {
-            exercises[i].previousElementSibling.style.display = ""; // show the number
-        }
-        // Clear any existing highlights
-        clearElementHighlight(exercises[i].getElementsByClassName('sentence')[0]);
-        clearElementHighlight(exercises[i].getElementsByClassName('translation')[0]);
-    }
-    // Clear the filtered number display
-    document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
-}
+// // Function to display all exercises and clear highlighting
+// function displayAllExercises() {
+//     const exercises = document.getElementsByClassName('exercise');
+//     for (let i = 0; i < exercises.length; i++) {
+//         exercises[i].style.display = "";
+//         if (exercises[i].previousElementSibling) {
+//             exercises[i].previousElementSibling.style.display = ""; // show the number
+//         }
+//         // Clear any existing highlights
+//         clearElementHighlight(exercises[i].getElementsByClassName('sentence')[0]);
+//         clearElementHighlight(exercises[i].getElementsByClassName('translation')[0]);
+//     }
+//     // Clear the filtered number display
+//     document.getElementById('filteredNumber').innerText = exerciseTotalNumber;
+// }
 
 
 
