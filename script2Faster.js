@@ -7,7 +7,8 @@
 //             console.error('Service worker registration failed:', error);
 //         });
 // }
-
+// Initialize variables
+let IMEMode = 'toHiragana'; // Default to Hiragana mode
 
 window.onload = function () {
     loadContent()
@@ -113,26 +114,26 @@ function setInitialFuriganaState() {
 }
 
 function initializeEventListeners() {
+    document.getElementById('toggleMode').addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        // Check if the body has the 'dark-mode' class
+        if (document.body.classList.contains('dark-mode')) {
+            // If it does, change the button text to 'Light Mode'
+            this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+        } else {
+            // If it doesn't, change the button text back to 'Dark Mode'
+            this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+        }
+    });
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
-    debounceKanjiSearch();
     bindIME();
+    // Initial call to set the initial state
+    handleCheckboxChange();
 }
 
-
-document.getElementById('toggleMode').addEventListener('click', function () {
-    document.body.classList.toggle('dark-mode');
-    // Check if the body has the 'dark-mode' class
-    if (document.body.classList.contains('dark-mode')) {
-        // If it does, change the button text to 'Light Mode'
-        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
-    } else {
-        // If it doesn't, change the button text back to 'Dark Mode'
-        this.innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
-    }
-});
 
 //END INIT
 
@@ -408,19 +409,18 @@ function kanjiSearchFunction() {
     container.appendChild(fragment);
 }
 
-// Initialize variables
-let IMEMode = 'toHiragana'; // Default to Hiragana mode
-const searchInput = document.getElementById('search');
-let isBound = false; // Variable to keep track of whether the input is bound
+
 
 // Bind the input to the current IMEMode
 function bindIME() {
+    const searchInput = document.getElementById('search');
     wanakana.bind(searchInput, { IMEMode: IMEMode });
     isBound = true; // Update the variable when bound
 }
 
 // Unbind the input from the current IMEMode
 function unbindIME() {
+    const searchInput = document.getElementById('search');
     wanakana.unbind(searchInput);
     isBound = false; // Update the variable when unbound
 }
@@ -448,10 +448,6 @@ function handleCheckboxChange() {
         }
     }
 }
-
-// Initial call to set the initial state
-handleCheckboxChange();
-
 
 
 //START DO NOT TOUCH FUNCTIONS
