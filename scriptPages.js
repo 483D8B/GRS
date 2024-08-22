@@ -51,6 +51,7 @@ function loadPage(page) {
     updatePaginationControls(page);
     highlightFirstExerciseNumbers(); // Call this function to add the colouredNumber class
     initializeNotes(); // Call this function to set the initial state of the notes
+    setInitialFuriganaState();
 }
 
 function changePage(pageNumber) {
