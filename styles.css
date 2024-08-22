@@ -552,7 +552,7 @@ input[type="checkbox"]:checked::before {
     padding: 0.5em;
     max-height: 100px;
     overflow-y: auto;
-    scrollbar-color: red orange;
+    scrollbar-color: #04AA6D #ff1493;
     scrollbar-width: thin;
 }
 
@@ -604,7 +604,8 @@ input[type="checkbox"]:checked::before {
     position: absolute;
     height: 4px;
     width: 16px;
-    background: #ff1493;
+    background: #04AA6D;
+    ;
     -webkit-transform: rotate(240deg);
     left: 10px;
     bottom: -1em;
@@ -617,7 +618,8 @@ input[type="checkbox"]:checked::before {
     position: absolute;
     height: 4px;
     width: 16px;
-    background: #ff1493;
+    background: #04AA6D;
+    ;
     -webkit-transform: rotate(-60deg);
     left: 10px;
     bottom: -1em;
@@ -655,3 +657,4 @@ input[type="checkbox"]:checked::before {
         -webkit-transform: rotate(-45deg);
     }
 }
+
