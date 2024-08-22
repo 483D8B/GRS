@@ -13,6 +13,7 @@ let IMEMode = 'toHiragana'; // Default to Hiragana mode
 const itemsPerPage = 50;
 let currentPage = 1;
 let data = [];
+let filteredData = [];
 
 window.onload = function () {
     loadContent()
@@ -27,6 +28,7 @@ function loadContent() {
         .then(response => response.json())
         .then(fetchedData => {
             data = fetchedData;
+            filteredData = data; // Initialize filteredData with all data
             loadPage(currentPage);
         });
 }
@@ -34,7 +36,7 @@ function loadContent() {
 function loadPage(page) {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
-    const itemsToLoad = data.slice(start, end);
+    const itemsToLoad = filteredData.slice(start, end);
 
     const contentHTML = generateContentHTML(itemsToLoad);
     document.getElementById('container').innerHTML = contentHTML;
@@ -84,7 +86,7 @@ function generateContentHTML(data) {
 }
 
 function updatePaginationControls(page) {
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
     const paginationControls = document.getElementById('paginationControls');
     paginationControls.innerHTML = '';
 
@@ -103,6 +105,7 @@ function setupPage() {
     initializeNotes();
     setInitialFuriganaState();
 }
+
 
 function highlightFirstExerciseNumbers() {
     const exercises = document.querySelectorAll('.exercise .sentence.first');
@@ -229,14 +232,14 @@ function debounceKanjiSearch() {
 }
 
 
-
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
 
-    // 2. If the input value is composed only of space characters, display all exercises and return
+    // 2. If the input value is composed only of space characters, reset filteredData and load the first page
     if (/^\s*$/.test(input)) {
-        displayAllExercises();
+        filteredData = data; // Show all exercises
+        loadPage(1);
         return;
     }
 
@@ -251,14 +254,73 @@ function searchFunction() {
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
 
+    // Initialize an empty array to hold filtered results
+    filteredData = [];
+    let matchCount = 0;
+
+    // 5. Loop through all items in the data array to filter
+    // 5. Loop through all items in the data array to filter
+    data.forEach(item => {
+        const sentenceElement = document.createElement('div');
+        sentenceElement.innerHTML = item.exercise.sentence;
+
+        // Apply number replacement to sentence and translation
+        const sentenceText = replaceNumbers(sentenceElement.textContent.toLowerCase());
+        const translationText = replaceNumbers(item.exercise.translation.toLowerCase());
+        let furiganaText = "";
+
+        if (useFurigana) {
+            const rts = sentenceElement.getElementsByTagName('rt');
+            furiganaText = Array.from(rts).map(rt => replaceNumbers(rt.textContent.toLowerCase())).join(' ');
+        }
+
+
+        let shouldDisplay = false;
+
+        // Check if none of the checkboxes are checked
+        if (!useFurigana && !useKanji && !useTranslation) {
+            const sentenceWithoutRt = sentenceElement.textContent; // Extract plain text without furigana
+            const sentenceTextWithoutRt = replaceNumbers(sentenceWithoutRt.toLowerCase());
+
+            filters.forEach(filter => {
+                if (sentenceTextWithoutRt.includes(filter.hiragana) || sentenceTextWithoutRt.includes(filter.katakana)) {
+                    shouldDisplay = true;
+                }
+            });
+        } else {
+            // Check for matches in the sentence, furigana, and translation
+            filters.forEach(filter => {
+                if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
+                    debounceKanjiSearch();
+                    shouldDisplay = true;
+                }
+                if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
+                    shouldDisplay = true;
+                }
+                if (useTranslation && translationText.includes(input.toLowerCase())) {
+                    shouldDisplay = true;
+                }
+            });
+        }
+
+        // If this item should be displayed, add it to the filteredData array
+        if (shouldDisplay) {
+            filteredData.push(item);
+            matchCount++;
+        }
+    });
+
+
+    // Load the first page of filtered results
+    loadPage(1);
+
     // 5. Get all the 'exercise' elements, which contain the sentences
     const exercises = document.getElementsByClassName('exercise');
 
     // Initialize an empty array to hold elements that need highlighting
     let elementsToHighlight = [];
-    let matchCount = 0;
 
-    // 6. Loop through all 'exercise' elements
+    // Loop through exercises on the current page and gather elements to highlight
     for (let i = 0; i < exercises.length; i++) {
         const exercise = exercises[i];
         const sentence = exercise.getElementsByClassName('sentence')[0];
@@ -267,7 +329,7 @@ function searchFunction() {
         // Skip if the elements are missing
         if (!sentence || !translation) continue;
 
-        // Apply number replacement to sentence and translation
+        // Prepare the text for highlighting
         const sentenceText = replaceNumbers(sentence.textContent.toLowerCase());
         const translationText = replaceNumbers(translation.textContent.toLowerCase());
         let furiganaText = "";
@@ -279,10 +341,8 @@ function searchFunction() {
             }
         }
 
-        let shouldDisplay = false;
         let highlightNeeded = false;
 
-        // Check if none of the checkboxes are checked
         if (!useFurigana && !useKanji && !useTranslation) {
             // Exclude content inside rt tags
             const sentenceWithoutRt = sentence.cloneNode(true);
@@ -292,41 +352,32 @@ function searchFunction() {
             }
             const sentenceTextWithoutRt = replaceNumbers(sentenceWithoutRt.textContent.toLowerCase());
 
-            // Check for matches in the sentence excluding rt content
-            for (const filter of filters) {
+            filters.forEach(filter => {
                 if (sentenceTextWithoutRt.includes(filter.hiragana) || sentenceTextWithoutRt.includes(filter.katakana)) {
                     highlightNeeded = true;
-                    shouldDisplay = true;
                 }
-            }
+            });
         } else {
             // Check for matches in the sentence, furigana, and translation
-            for (const filter of filters) {
+            filters.forEach(filter => {
                 if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
-                    debounceKanjiSearch();
                     highlightNeeded = true;
-                    shouldDisplay = true;
                 }
                 if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
                     highlightNeeded = true;
-                    shouldDisplay = true;
                 }
                 if (useTranslation && translationText.includes(input.toLowerCase())) {
                     highlightNeeded = true;
-                    shouldDisplay = true;
                 }
-            }
+            });
         }
 
-        // Update display status and highlight elements
-        exercise.style.display = shouldDisplay ? "" : "none";
-        exercise.previousElementSibling.style.display = shouldDisplay ? "" : "none";
 
         // Collect elements for highlighting
         if (highlightNeeded) {
             elementsToHighlight.push({ element: sentence, text: sentenceText });
             elementsToHighlight.push({ element: translation, text: translationText });
-            matchCount++;
+            //matchCount++;
         }
     }
 
@@ -339,6 +390,8 @@ function searchFunction() {
     // Update the filteredNumber div to show how many results were found
     document.getElementById('filteredNumber').innerText = matchCount ? matchCount : '(•́︵•̀)';
 }
+
+
 
 // Determine which highlight function to use
 function determineHighlightFunction(useFurigana, useKanji) {
@@ -475,9 +528,13 @@ function handleCheckboxChange() {
     }
 }
 
-
-//START DO NOT TOUCH FUNCTIONS
-
+// Function to clear highlighting from an individual element
+function clearElementHighlight(element) {
+    if (element && element.hasAttribute('data-original-content')) {
+        element.innerHTML = element.getAttribute('data-original-content');
+        element.removeAttribute('data-original-content');
+    }
+}
 
 
 // Function to display all exercises and clear highlighting
@@ -497,13 +554,6 @@ function displayAllExercises() {
 }
 
 
-// Function to clear highlighting from an individual element
-function clearElementHighlight(element) {
-    if (element && element.hasAttribute('data-original-content')) {
-        element.innerHTML = element.getAttribute('data-original-content');
-        element.removeAttribute('data-original-content');
-    }
-}
 
 //START NOTES VISIBILITY
 function toggleVisibility(event) {
