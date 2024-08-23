@@ -1,0 +1,16 @@
+Export Notes in Plain Text (.txt)
+Uncheck Include HTML and media references
+Uncheck Include tags
+
+rename the file to grs.csv
+executed the script gen.py
+remove from the newly generated output.js the first line:
+document.getElementById("container").innerHTML = `ù
+
+and the last:
+`;
+
+copy the remaining code to content.html overwriting (important - dot not beautify or change the content alignment)
+
+execute the script contentToJson.py
+minify the newly created content.json file in order to include in the code
