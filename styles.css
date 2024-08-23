@@ -558,12 +558,13 @@ input[type="checkbox"]:checked::before {
     overflow-y: auto;
     scrollbar-color: #04AA6D #ff1493;
     scrollbar-width: thin;
+    justify-content: center;
 }
 
 
 
 .pagination button {
-    width: 2.8em;
+    height: 2.8em;
     aspect-ratio: 1/1;
     display: inline-block;
     background-color: #04AA6D;
@@ -580,7 +581,6 @@ input[type="checkbox"]:checked::before {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    margin: auto 0;
 }
 
 .pagination button:hover,
