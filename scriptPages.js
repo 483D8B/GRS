@@ -52,6 +52,7 @@ function loadPage(page) {
     highlightFirstExerciseNumbers(); // Call this function to add the colouredNumber class
     initializeNotes(); // Call this function to set the initial state of the notes
     setInitialFuriganaState();
+    updateCounter();
 }
 
 function changePage(pageNumber) {
@@ -275,6 +276,10 @@ function searchFunction() {
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
 
+
+    if (useKanji)
+        debounceKanjiSearch();
+
     // Initialize an empty array to hold filtered results
     filteredData = [];
     let matchCount = 0;
@@ -310,7 +315,6 @@ function searchFunction() {
             // Check for matches in the sentence, furigana, and translation
             filters.forEach(filter => {
                 if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
-                    debounceKanjiSearch();
                     shouldDisplay = true;
                 }
                 if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
@@ -478,6 +482,8 @@ function kanjiSearchFunction() {
     // Cache DOM elements and get the search input value
     const input = document.getElementById('search');
     const filter = wanakana.toHiragana(input.value.trim());
+
+    console.log(filter);
 
     // Look up the Kanji in the index and handle special cases
     const results = kanjiIndex[filter] ? [...kanjiIndex[filter]] : [];
