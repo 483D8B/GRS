@@ -191,7 +191,7 @@ body.dark-mode .kanjiGroup {
 }
 
 .number {
-    width: 94.5vw;
+    width: 96%;
     font-size: 1.2em;
     font-weight: 600;
     font-family: 'Noto Sans JP', sans-serif;
@@ -210,12 +210,13 @@ body.dark-mode .kanjiGroup {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    padding: 0.5em;
-    width: 88.9svw;
-    transform: translateX(5%);
+    width: 92%;
+    transform: translateX(4svw);
     gap: 1em;
     margin-top: -0.6em;
     border-top: transparent;
+    padding-top: 0.5;
+    padding-bottom: 0.5em;
 }
 
 
