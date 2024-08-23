@@ -259,7 +259,7 @@ function searchFunction() {
 
     // 2. If the input value is composed only of space characters, reset filteredData and load the first page
     if (/^\s*$/.test(input)) {
-        filteredData = data; // Show all exercises
+        filteredData = data;
         loadPage(1);
         return;
     }
@@ -316,8 +316,11 @@ function searchFunction() {
                 if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
                     shouldDisplay = true;
                 }
-                if (useTranslation && translationText.includes(input.toLowerCase())) {
-                    shouldDisplay = true;
+                if (useTranslation) {
+                    const regex = new RegExp(`\\b${input.toLowerCase()}\\b`, 'i');
+                    if (regex.test(translationText)) {
+                        shouldDisplay = true;
+                    }
                 }
             });
         }
