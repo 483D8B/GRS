@@ -237,6 +237,7 @@ body.dark-mode .kanjiGroup {
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -260,6 +261,7 @@ body.dark-mode .kanjiGroup {
     color: var(--black);
     margin: 0.5em;
     margin-top: 0.2em;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #search {
@@ -582,10 +584,12 @@ input[type="checkbox"]:checked::before {
     text-align: center;
     text-decoration: none;
     font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .pagination button:hover,
-.pagination button:focus {
+.pagination button:focus,
+.pagination button:active {
     background-color: #ff1493;
     color: #222222;
     font-weight: bold;
