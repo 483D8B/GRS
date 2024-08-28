@@ -315,7 +315,7 @@ function searchFunction() {
         let shouldDisplay = false;
 
         // Check if none of the checkboxes are checked
-        if (!useFurigana && !useKanji && !useTranslation) {
+        if (!useFurigana && !useKanji && !useTranslation && !useLessons) {
             // Extract plain text, including Kanji, even when Furigana is hidden
             const rubyElements = sentenceElement.getElementsByTagName('ruby');
             let sentenceTextWithoutRt = sentenceElement.textContent.toLowerCase();
@@ -400,7 +400,7 @@ function searchFunction() {
 
         let highlightNeeded = false;
 
-        if (!useFurigana && !useKanji && !useTranslation) {
+        if (!useFurigana && !useKanji && !useTranslation && !useLessons) {
             // Exclude content inside rt tags
             const sentenceWithoutRt = sentence.cloneNode(true);
             const rts = sentenceWithoutRt.getElementsByTagName('rt');
