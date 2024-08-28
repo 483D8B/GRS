@@ -100,6 +100,8 @@ function generateContentHTML(data) {
             exerciseHTML += `</div>\n`;
         }
 
+        exerciseHTML += `<a href="kanjistudy://grs?id={{${item.id}}}">View in Kanji Study</a>`
+
         exerciseHTML += `</div>\n`; // End of exercise div
 
         // Append the constructed HTML parts to the array

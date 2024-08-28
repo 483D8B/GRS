@@ -674,3 +674,7 @@ input[type="checkbox"]:checked::before {
         -webkit-transform: rotate(-45deg);
     }
 }
+
+a {
+    color: deeppink;
+}
