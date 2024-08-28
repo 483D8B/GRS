@@ -62,7 +62,9 @@ function changePage(pageNumber) {
     } else {
         searchFunction(); // Update search results for the current page
     }
+    updatePaginationControls(currentPage); // Update the pagination controls
 }
+
 
 
 
@@ -116,11 +118,20 @@ function updatePaginationControls(page) {
     for (let i = 1; i <= totalPages; i++) {
         const button = document.createElement('button');
         button.textContent = i;
-        button.disabled = i === page;
+
+        // Add 'active' class to the current page button
+        if (i === page) {
+            button.classList.add('active');
+            button.disabled = true; // Optionally disable the button for the current page
+        } else {
+            button.disabled = false;
+        }
+
         button.addEventListener('click', () => changePage(i));
         paginationControls.appendChild(button);
     }
 }
+
 
 function setupPage() {
     highlightFirstExerciseNumbers();

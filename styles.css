@@ -595,6 +595,13 @@ input[type="checkbox"]:checked::before {
     font-weight: bold;
 }
 
+.pagination button.active {
+    background-color: #ff1493;
+    color: #222222;
+    font-weight: bold;
+}
+
+
 
 
 .arrow-down {
