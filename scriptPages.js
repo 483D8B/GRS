@@ -303,15 +303,31 @@ function searchFunction() {
 
         // Check if none of the checkboxes are checked
         if (!useFurigana && !useKanji && !useTranslation) {
-            const sentenceWithoutRt = sentenceElement.textContent; // Extract plain text without furigana
-            const sentenceTextWithoutRt = replaceNumbers(sentenceWithoutRt.toLowerCase());
+            // Extract plain text, including Kanji, even when Furigana is hidden
+            const rubyElements = sentenceElement.getElementsByTagName('ruby');
+            let sentenceTextWithoutRt = sentenceElement.textContent.toLowerCase();
 
+            // Replace Ruby tags with their plain Kanji content
+            Array.from(rubyElements).forEach(ruby => {
+                const rubyText = ruby.textContent;
+                sentenceTextWithoutRt = sentenceTextWithoutRt.replace(rubyText, ruby.childNodes[0].textContent);
+            });
+
+            // Replace numbers and prepare text for comparison
+            sentenceTextWithoutRt = replaceNumbers(sentenceTextWithoutRt);
+
+            // Check for the exact Kanji combination as a whole
             filters.forEach(filter => {
+                const combinedKanjiPattern = filter.hiragana + "|" + filter.katakana; // Match either Hiragana or Katakana representation
+                const regex = new RegExp(combinedKanjiPattern, 'g');
+
+                // Check if the sentence contains the exact Kanji combination
                 if (sentenceTextWithoutRt.includes(filter.hiragana) || sentenceTextWithoutRt.includes(filter.katakana)) {
                     shouldDisplay = true;
                 }
             });
-        } else {
+        }
+        else {
             // Check for matches in the sentence, furigana, and translation
             filters.forEach(filter => {
                 if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
@@ -483,7 +499,6 @@ function kanjiSearchFunction() {
     const input = document.getElementById('search');
     const filter = wanakana.toHiragana(input.value.trim());
 
-    console.log(filter);
 
     // Look up the Kanji in the index and handle special cases
     const results = kanjiIndex[filter] ? [...kanjiIndex[filter]] : [];
