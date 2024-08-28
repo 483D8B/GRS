@@ -190,6 +190,7 @@ function initializeEventListeners() {
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
+    document.getElementById('useLessons').addEventListener('change', handleCheckboxChange);
     document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
     // Initial call to set the initial state
@@ -286,6 +287,7 @@ function searchFunction() {
     const useFurigana = document.getElementById('useFurigana').checked;
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
+    const useLessons = document.getElementById('useLessons').checked;
 
 
     if (useKanji)
@@ -570,8 +572,10 @@ function toggleIMEMode() {
 function handleCheckboxChange() {
     const useFurigana = document.getElementById('useFurigana').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
+    const useLessons = document.getElementById('useLessons').checked;
 
-    if (!useTranslation) {
+    // Bind or unbind IME based on the useTranslation and useLessons checkboxes
+    if (!useTranslation && !useLessons) {
         if (!isBound) {
             bindIME(); // Bind to Hiragana when Translation checkbox is not checked
         }
@@ -580,6 +584,8 @@ function handleCheckboxChange() {
             unbindIME(); // Unbind the input if Translation checkbox is checked
         }
     }
+    // Call the search function to update the display based on the current checkbox states
+    searchFunction();
 }
 
 // Function to clear highlighting from an individual element
