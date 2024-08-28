@@ -190,7 +190,7 @@ function initializeEventListeners() {
     document.getElementById('container').addEventListener('click', toggleVisibility);
     document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
-    document.getElementById('useLessons').addEventListener('change', handleCheckboxChange);
+    document.getElementById('useLessons').addEventListener('change', searchFunction);
     document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
     // Initial call to set the initial state
@@ -292,6 +292,11 @@ function searchFunction() {
 
     if (useKanji)
         debounceKanjiSearch();
+
+    if (useLessons) {
+        displayChapter(data);
+        return;
+    }
 
     // Initialize an empty array to hold filtered results
     filteredData = [];
@@ -650,3 +655,32 @@ function handleNotesVisibility(event) {
 
 //END DO NOT TOUCH FUNCTIONS
 
+function displayChapter(data) {
+    const useLessons = document.getElementById('useLessons').checked;
+    const searchInput = document.getElementById('search').value.trim();
+
+    if (!useLessons || searchInput === '') {
+        // If useLessons is not checked or search input is empty, display all data
+        filteredData = data;
+        loadPage(1);
+        return;
+    }
+
+    const selectedChapter = chapters[searchInput];
+
+    if (selectedChapter) {
+        const startId = parseInt(selectedChapter.start_id);
+        const endId = parseInt(selectedChapter.end_id);
+
+        filteredData = data.filter(item => {
+            const itemId = parseInt(item.id);
+            return itemId >= startId && itemId <= endId;
+        });
+    } else {
+        // If the input doesn't match any chapter, show no results
+        filteredData = [];
+    }
+
+    loadPage(1);
+    updateCounter();
+}
