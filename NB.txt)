@@ -5,7 +5,7 @@ Uncheck Include tags
 rename the file to grs.csv
 executed the script gen.py
 remove from the newly generated output.js the first line:
-document.getElementById("container").innerHTML = `ù
+document.getElementById("container").innerHTML = `
 
 and the last:
 `;

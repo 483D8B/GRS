@@ -63,6 +63,9 @@ with open('grs.csv', 'r', encoding='utf-8') as csv_file:
             # Convert the furigana format to use the HTML <ruby> element
             furigana = re.sub(r'([\w×]+)\s*\[(.*?)\]', r'<ruby>\1<rt>\2</rt></ruby>', row[1])
 
+            # Remove any spaces between <ruby> elements
+            furigana = re.sub(r'</ruby>\s*<ruby>', r'</ruby><ruby>', furigana)
+
             # Enclose each column in a div with the appropriate class and id
             if first_kanji is not None:
                 js_file.write(f'\t<div class="sentence first elem_{first_kanji}">{furigana}</div>\n')
