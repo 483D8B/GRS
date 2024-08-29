@@ -183,6 +183,12 @@ body.dark-mode a {
 }
 
 
+body.dark-mode a:hover,
+body.dark-mode a:active {
+    background-color: var(--white);
+    color: black;
+}
+
 
 
 
@@ -576,7 +582,7 @@ input[type="checkbox"]:checked::before {
 
 
 .pagination button {
-    height: 2.8em;
+    height: 3em;
     aspect-ratio: 1/1;
     display: inline-block;
     background-color: #04AA6D;
