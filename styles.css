@@ -291,6 +291,8 @@ body.dark-mode .kanjiGroup {
     border-radius: 0.1em;
     background-color: var(--white);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 
@@ -677,4 +679,34 @@ input[type="checkbox"]:checked::before {
 
 a {
     color: deeppink;
+    padding: 0.5em;
+}
+
+a:link,
+a:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid deeppink;
+    padding: 0.3em;
+    margin: 0 25svw 0em 25svw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:hover,
+a:active {
+    background-color: deeppink;
+    color: black;
+}
+
+.exerciseNumber {
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    right: 0;
+    bottom: 0;
+    padding: 0.5em;
+    user-select: none;
 }
