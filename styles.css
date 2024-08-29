@@ -175,6 +175,13 @@ body.dark-mode .kanjiGroup {
     box-shadow: 0 0 2px var(--white);
 }
 
+body.dark-mode a {
+    color: var(--white);
+    background-color: var(--black);
+    border-color: var(--white);
+    box-shadow: 0 0 2px var(--white);
+}
+
 
 
 
