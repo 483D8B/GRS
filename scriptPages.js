@@ -529,14 +529,19 @@ function highlightMatchesFuriganaKanji(elements, inputs) {
 //     });
 //     return index;
 // }, {});
-fetch('kanjiSubset.json')
-    .then(response => response.json())
-    .then(filteredDictionary => {
-        // Create an index by pronunciation
+// Cache for memoization
+const kanjiSearchCache = new Map();
+
+// Create a web worker for background processing
+const worker = new Worker(URL.createObjectURL(new Blob([`
+    importScripts('https://unpkg.com/wanakana');
+
+    self.onmessage = function(e) {
+        const filteredDictionary = e.data;
         const kanjiIndex = filteredDictionary.reduce((index, kanji) => {
-            const pronunciations = kanji.kunyomi.concat(kanji.onyomi);
-            pronunciations.forEach(pronunciation => {
-                const hiragana = wanakana.toHiragana(pronunciation);
+            const allReadings = kanji.kunyomi.concat(kanji.onyomi);
+            allReadings.forEach(reading => {
+                const hiragana = wanakana.toHiragana(reading);
                 if (!index[hiragana]) {
                     index[hiragana] = [];
                 }
@@ -544,51 +549,62 @@ fetch('kanjiSubset.json')
             });
             return index;
         }, {});
+        self.postMessage(kanjiIndex);
+    };
+`], { type: 'application/javascript' })));
 
-        // Add the index to the global scope
-        window.kanjiIndex = kanjiIndex;
+// Fetch and process the kanji data
+fetch('kanjiSubset.json')
+    .then(response => response.json())
+    .then(filteredDictionary => {
+        worker.postMessage(filteredDictionary);
     })
     .catch(error => console.error('Error loading the kanji subset:', error));
 
+worker.onmessage = function (e) {
+    window.kanjiIndex = e.data;
+};
 
 
 function kanjiSearchFunction() {
-    // Cache DOM elements and get the search input value
     const input = document.getElementById('search');
-    const filter = wanakana.toHiragana(input.value.trim());
+    const filter = input.value.trim().toLowerCase();
 
+    // Check cache first
+    if (kanjiSearchCache.has(filter)) {
+        renderResults(kanjiSearchCache.get(filter));
+        return;
+    }
 
-    // Look up the Kanji in the index and handle special cases
-    const results = kanjiIndex[filter] ? [...kanjiIndex[filter]] : [];
+    const results = window.kanjiIndex[filter] || [];
     if (filter === 'まるばつ') {
         results.push({ literal: '〇' }, { literal: '×' });
     }
 
-    // Get and clear the results container
+    // Cache the results
+    kanjiSearchCache.set(filter, results);
+
+    renderResults(results);
+}
+// Separate function for rendering results
+function renderResults(results) {
     const container = document.getElementById('kanjiFoundContainer');
     container.innerHTML = '';
-
-    // Create document fragments for efficient DOM insertion
     const fragment = document.createDocumentFragment();
 
     results.forEach(kanji => {
         const kanjiDiv = document.createElement('div');
-        kanjiDiv.textContent = kanji.literal; // Display the matched Kanji
-        kanjiDiv.classList.add('kanji'); // Add class for styling
-
+        kanjiDiv.textContent = kanji.literal;
+        kanjiDiv.className = 'kanji';
         kanjiDiv.addEventListener('click', () => {
-            input.value = ''; // Clear the search input
-            input.value += kanjiDiv.textContent; // Append the Kanji to the search input
-            debounceSearch(); // Trigger the search function
+            document.getElementById('search').value = kanji.literal;
+            debounceSearch();
         });
-
         fragment.appendChild(kanjiDiv);
     });
 
-    // Append all results to the container in one operation
     container.appendChild(fragment);
 }
-
 
 
 // Bind the input to the current IMEMode
