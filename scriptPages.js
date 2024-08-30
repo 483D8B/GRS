@@ -164,6 +164,7 @@ function initializeNotes() {
         const originalText = note.innerHTML;
         note.setAttribute('data-original-text', originalText);
         note.innerHTML = 'Show notes';
+        note.classList.add('show-notes'); // Add the class initially
     }
 }
 
@@ -681,12 +682,14 @@ function handleRubyVisibility(event) {
 function handleCloseNoteVisibility(event) {
     const note = event.target.closest('.notes');
     note.innerHTML = 'Show notes';
+    note.classList.add('show-notes'); // Add the class when showing "Show notes"
 }
 
 function handleNotesVisibility(event) {
     const note = event.target;
     const originalText = note.getAttribute('data-original-text');
     note.innerHTML = `${originalText} <span class="close-note">Close</span>`;
+    note.classList.remove('show-notes'); // Remove the class when showing the content
 }
 
 //END NOTES VISIBILITY

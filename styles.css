@@ -4,6 +4,7 @@
 :root {
     --black: #222222;
     --white: #FAF9F6;
+    --inactiveBorder: rgba(68, 68, 68, 10%);
     --color-1: rgb(191, 64, 64);
     /* Red */
     --color-2: rgb(191, 115, 64);
@@ -177,16 +178,25 @@ body.dark-mode .kanjiGroup {
 
 body.dark-mode a {
     color: var(--white);
-    background-color: var(--black);
+    background: var(--black);
     border-color: var(--white);
-    box-shadow: 0 0 2px var(--white);
 }
+
+body.dark-mode .notes.show-notes:hover,
+.notes.show-notes:active {
+    color: var(--white);
+    border-color: var(--white);
+    box-shadow: 0 0 7px var(--white);
+}
+
 
 
 body.dark-mode a:hover,
 body.dark-mode a:active {
-    background-color: var(--white);
-    color: black;
+    color: var(--white);
+    background-color: var(--black);
+    border-color: var(--white);
+    box-shadow: 0 0 7px var(--white);
 }
 
 
@@ -306,6 +316,16 @@ body.dark-mode a:active {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+}
+
+.notes.show-notes {
+    border-color: var(--inactiveBorder);
+    color: lightgray;
+}
+
+.notes.show-notes:hover,
+.notes.show-notes:active {
+    color: black;
 }
 
 
@@ -699,7 +719,7 @@ a:link,
 a:visited {
     background-color: white;
     color: lightgray;
-    border: 2px solid #FFE4F2;
+    border: 2px solid var(--inactiveBorder);
     padding: 0.3em;
     margin: auto;
     display: block;
