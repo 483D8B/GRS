@@ -10,29 +10,7 @@
     <!-- <script src="readings.min.js"></script> -->
     <script src="scriptPages-min.js"></script>
     <script src="chapters-min.js"></script>
-
-    <!-- Load the Kanji.js script -->
-    <script src="https://unpkg.com/kanji.js@1.6.2/dist/kanji.min.js"></script>
-
-    <!-- Load the Kanji.js module -->
-    <script>
-
-        // Now you can use Kanji in your script
-        const dictionary = Kanji.dump();
-        const kanjiIndex = dictionary.reduce((index, kanji) => {
-            const pronunciations = kanji.kunyomi.concat(kanji.onyomi);
-            pronunciations.forEach(pronunciation => {
-                const hiragana = wanakana.toHiragana(pronunciation);
-                if (!index[hiragana]) {
-                    index[hiragana] = [];
-                }
-                index[hiragana].push(kanji);
-            });
-            return index;
-        }, {});
-
-    </script>
-
+    <script src="kanjiSubset-min.json"></script>
     <script src="https://kit.fontawesome.com/9e1918fedd.js" crossorigin="anonymous"></script>
     <link href="data:;base64,iVBORw0KGgo=" rel="icon" />
     <link rel="stylesheet" href="styles-min.css">

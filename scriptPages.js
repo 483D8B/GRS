@@ -104,7 +104,7 @@ function generateContentHTML(data) {
         exerciseHTML += `<div class="exerciseNumber">${item.id}</div>\n`;
 
         exerciseHTML += `</div>\n`; // End of exercise div
-        
+
         // Append the constructed HTML parts to the array
         htmlParts.push(numberHTML + exerciseHTML);
     });
@@ -513,6 +513,27 @@ function highlightMatchesFuriganaKanji() {
 //     });
 //     return index;
 // }, {});
+fetch('kanjiSubset.json')
+    .then(response => response.json())
+    .then(filteredDictionary => {
+        // Create an index by pronunciation
+        const kanjiIndex = filteredDictionary.reduce((index, kanji) => {
+            const pronunciations = kanji.kunyomi.concat(kanji.onyomi);
+            pronunciations.forEach(pronunciation => {
+                const hiragana = wanakana.toHiragana(pronunciation);
+                if (!index[hiragana]) {
+                    index[hiragana] = [];
+                }
+                index[hiragana].push(kanji);
+            });
+            return index;
+        }, {});
+
+        // Add the index to the global scope
+        window.kanjiIndex = kanjiIndex;
+    })
+    .catch(error => console.error('Error loading the kanji subset:', error));
+
 
 
 function kanjiSearchFunction() {
