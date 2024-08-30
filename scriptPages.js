@@ -458,19 +458,41 @@ function determineHighlightFunction(useFurigana, useKanji) {
 
 // Highlight function for default, useTranslation, and useKanji (without useFurigana)
 function highlightMatchesDefault(elements, inputs) {
-    const regex = new RegExp(`(${inputs.join('|')})`, 'gi');
-    elements.forEach(({ element, text }) => {
+    elements.forEach(({ element }) => {
         let html = element.getAttribute('data-original-content') || element.innerHTML;
 
-        const newHTML = html.replace(regex, `<span class="highlight">$1</span>`);
-        if (newHTML !== element.innerHTML) {
-            element.innerHTML = newHTML;
+        // Regular expression for individual matches within ruby tags
+        const singleMatchRegex = new RegExp(`(${inputs.join('|')})`, 'gi');
+
+        // Create a regular expression that can match multiple adjacent ruby elements
+        const adjacentRubyRegex = inputs.map(input => {
+            const chars = input.split('').map(char => {
+                // Match the character inside a <ruby> tag with hidden <rt>
+                return `<ruby>[^<]*${char}<rt[^>]*>[^<]*<\/rt><\/ruby>`;
+            });
+            return chars.join('');
+        }).join('|');
+
+        // Apply single match regex first
+        html = html.replace(singleMatchRegex, `<span class="highlight">$1</span>`);
+
+        // Apply adjacent ruby match regex if not highlighted by the first one
+        const multiMatchRegex = new RegExp(`(${adjacentRubyRegex})`, 'gi');
+        html = html.replace(multiMatchRegex, `<span class="highlight">$1</span>`);
+
+        // Update the element if the HTML has changed
+        if (html !== element.innerHTML) {
+            element.innerHTML = html;
         }
+
         if (!element.hasAttribute('data-original-content')) {
             element.setAttribute('data-original-content', html);
         }
     });
 }
+
+
+
 
 // Update the highlightMatchesFuriganaKanji function
 function highlightMatchesFuriganaKanji(elements, inputs) {
