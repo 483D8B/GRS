@@ -593,10 +593,12 @@ input[type="checkbox"]:checked::before {
     padding: 1em;
     max-height: 100px;
     overflow-y: auto;
-    scrollbar-color: #04AA6D #ff1493;
-    scrollbar-width: thin;
+    scrollbar-color: #ff1493 #04AA6D;
+    scrollbar-width: auto;
     justify-content: center;
     vertical-align: middle;
+    padding-right: 0.5em;
+    margin-right: 1em;
 }
 
 
