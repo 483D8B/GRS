@@ -191,7 +191,7 @@ function initializeEventListeners() {
     });
 
     document.getElementById('container').addEventListener('click', toggleVisibility);
-    document.getElementById('useFurigana').addEventListener('change', handleCheckboxChange);
+    document.getElementById('useKanji').addEventListener('change', handleCheckboxChange);
     document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
     document.getElementById('useLessons').addEventListener('change', searchFunction);
     document.getElementById('search').addEventListener('input', debounceSearch);
@@ -287,7 +287,6 @@ function searchFunction() {
     });
 
     // 4. Get the states of the checkboxes
-    const useFurigana = document.getElementById('useFurigana').checked;
     const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
     const useLessons = document.getElementById('useLessons').checked;
@@ -315,7 +314,7 @@ function searchFunction() {
         const translationText = replaceNumbers(item.exercise.translation.toLowerCase());
         let furiganaText = "";
 
-        if (useFurigana) {
+        if (useKanji) {
             const rts = sentenceElement.getElementsByTagName('rt');
             furiganaText = Array.from(rts).map(rt => replaceNumbers(rt.textContent.toLowerCase())).join(' ');
         }
@@ -323,7 +322,7 @@ function searchFunction() {
         let shouldDisplay = false;
 
         // Check if none of the checkboxes are checked
-        if (!useFurigana && !useKanji && !useTranslation && !useLessons) {
+        if (!useKanji && !useTranslation && !useLessons) {
             // Extract plain text, including Kanji, even when Furigana is hidden
             const rubyElements = sentenceElement.getElementsByTagName('ruby');
             let sentenceTextWithoutRt = sentenceElement.textContent.toLowerCase();
@@ -352,9 +351,6 @@ function searchFunction() {
             // Check for matches in the sentence, furigana, and translation
             filters.forEach(filter => {
                 if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
-                    shouldDisplay = true;
-                }
-                if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
                     shouldDisplay = true;
                 }
                 if (useTranslation) {
@@ -399,7 +395,7 @@ function searchFunction() {
         const translationText = replaceNumbers(translation.textContent.toLowerCase());
         let furiganaText = "";
 
-        if (useFurigana) {
+        if (useKanji) {
             const rts = sentence.getElementsByTagName('rt');
             for (let j = 0; j < rts.length; j++) {
                 furiganaText += replaceNumbers(rts[j].textContent.toLowerCase());
@@ -408,7 +404,7 @@ function searchFunction() {
 
         let highlightNeeded = false;
 
-        if (!useFurigana && !useKanji && !useTranslation && !useLessons) {
+        if (!useKanji && !useTranslation && !useLessons) {
             // Exclude content inside rt tags
             const sentenceWithoutRt = sentence.cloneNode(true);
             const rts = sentenceWithoutRt.getElementsByTagName('rt');
@@ -428,9 +424,6 @@ function searchFunction() {
                 if (useKanji && (sentenceText.includes(filter.hiragana) || sentenceText.includes(filter.katakana))) {
                     highlightNeeded = true;
                 }
-                if (useFurigana && (furiganaText.includes(filter.hiragana) || furiganaText.includes(filter.katakana))) {
-                    highlightNeeded = true;
-                }
                 if (useTranslation && translationText.includes(input.toLowerCase())) {
                     highlightNeeded = true;
                 }
@@ -445,9 +438,7 @@ function searchFunction() {
     }
 
     // Determine which highlight function to use
-    const highlightFunction = determineHighlightFunction(useFurigana, useKanji);
-
-    // Highlight matching elements
+    const highlightFunction = useKanji ? highlightMatchesFuriganaKanji : highlightMatchesDefault;
     highlightFunction(elementsToHighlight, filters.flatMap(filter => [filter.hiragana, filter.katakana, input.toLowerCase()]));
 
     // Update the filteredNumber div to show how many results were found
@@ -481,23 +472,25 @@ function highlightMatchesDefault(elements, inputs) {
     });
 }
 
-// Highlight function for useFurigana and useKanji
-function highlightMatchesFuriganaKanji() {
+// Update the highlightMatchesFuriganaKanji function
+function highlightMatchesFuriganaKanji(elements, inputs) {
     const userInput = document.getElementById('search').value;
     const kanji = userInput.charAt(0);
     const furigana = userInput.slice(1);
-    const rubyElements = document.querySelectorAll('ruby');
 
-    rubyElements.forEach(ruby => {
-        const furiganaElement = ruby.querySelector('rt');
-        if (furiganaElement) {
-            const rubyFurigana = furiganaElement.textContent;
-            if (ruby.childNodes[0].nodeType === 3 && ruby.childNodes[0].nodeValue.trim() === kanji && rubyFurigana === furigana) {
-                ruby.classList.add('highlight');
-            } else {
-                ruby.classList.remove('highlight');
+    elements.forEach(({ element }) => {
+        const rubyElements = element.querySelectorAll('ruby');
+        rubyElements.forEach(ruby => {
+            const furiganaElement = ruby.querySelector('rt');
+            if (furiganaElement) {
+                const rubyFurigana = furiganaElement.textContent;
+                if (ruby.childNodes[0].nodeType === 3 && ruby.childNodes[0].nodeValue.trim() === kanji && rubyFurigana === furigana) {
+                    ruby.classList.add('highlight');
+                } else {
+                    ruby.classList.remove('highlight');
+                }
             }
-        }
+        });
     });
 }
 
@@ -597,9 +590,9 @@ function toggleIMEMode() {
     }
 }
 
-// Function to handle the state of the checkboxes
+// Update the handleCheckboxChange function
 function handleCheckboxChange() {
-    const useFurigana = document.getElementById('useFurigana').checked;
+    const useKanji = document.getElementById('useKanji').checked;
     const useTranslation = document.getElementById('useTranslation').checked;
     const useLessons = document.getElementById('useLessons').checked;
 
