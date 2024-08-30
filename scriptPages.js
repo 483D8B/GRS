@@ -513,29 +513,6 @@ function highlightMatchesFuriganaKanji() {
 //     });
 //     return index;
 // }, {});
-// Dump the entire dictionary of Kanji objects
-const dictionary = Kanji.dump();
-
-// Efficiently create an index of Kanji by pronunciation
-const kanjiIndex = dictionary.reduce((index, kanji) => {
-    // Combine the kunyomi and onyomi readings
-    const pronunciations = kanji.kunyomi.concat(kanji.onyomi);
-
-    pronunciations.forEach(pronunciation => {
-        // Convert the pronunciation to Hiragana using wanakana
-        const hiragana = wanakana.toHiragana(pronunciation);
-
-        // Initialize the array if the key does not exist
-        if (!index[hiragana]) {
-            index[hiragana] = [];
-        }
-
-        // Push the Kanji object into the array for the given Hiragana pronunciation
-        index[hiragana].push(kanji);
-    });
-
-    return index;
-}, {});
 
 
 function kanjiSearchFunction() {
