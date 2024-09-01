@@ -192,9 +192,9 @@ function initializeEventListeners() {
     });
 
     document.getElementById('container').addEventListener('click', toggleVisibility);
-    document.getElementById('useKanji').addEventListener('change', handleCheckboxChange);
-    document.getElementById('useTranslation').addEventListener('change', handleCheckboxChange);
-    document.getElementById('useLessons').addEventListener('change', searchFunction);
+    // document.getElementById('useLessons').addEventListener('change', debounceSearch);
+    // document.getElementById('useKanji').addEventListener('change', debounceKanjiSearch);
+    // document.getElementById('useTranslation').addEventListener('change', debounceSearch);
     document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
     // Initial call to set the initial state
@@ -273,11 +273,13 @@ function debounceKanjiSearch() {
 function searchFunction() {
     // 1. Get the search input value and trim any surrounding whitespace
     const input = document.getElementById('search').value.trim();
+    const container = document.getElementById('kanjiFoundContainer');
 
     // 2. If the input value is composed only of space characters, reset filteredData and load the first page
     if (/^\s*$/.test(input)) {
         filteredData = data;
         loadPage(1);
+        container.innerHTML = '';
         return;
     }
 
@@ -556,7 +558,7 @@ const worker = new Worker(URL.createObjectURL(new Blob([`
 `], { type: 'application/javascript' })));
 
 // Fetch and process the kanji data
-fetch('kanjiSubset.json')
+fetch('kanjiSubset-min.json')
     .then(response => response.json())
     .then(filteredDictionary => {
         worker.postMessage(filteredDictionary);
