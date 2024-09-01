@@ -787,5 +787,9 @@ a:active {
         padding-right: 0.8em;
     }
 
+    a:link {
+        display: none;
+    }
+
     /* You can apply similar max-width and margin styles to other elements as needed */
 }
