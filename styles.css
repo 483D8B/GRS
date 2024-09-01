@@ -35,6 +35,8 @@
     /* Pink */
     --color-15: rgb(191, 64, 115);
     /* Magenta */
+    --buttons: #479761;
+    --buttons_clicked: #A16E83;
 }
 
 html,
@@ -527,7 +529,7 @@ ruby rt {
 input[type="checkbox"] {
     vertical-align: middle;
     appearance: none;
-    background-color: deeppink;
+    background-color: var(--buttons_clicked);
     margin: 0;
     font: inherit;
     color: black;
@@ -565,7 +567,7 @@ input[type="checkbox"]:checked::before {
     position: relative;
     display: inline-block;
     width: auto;
-    border: 2px solid #ff1493;
+    border: 2px solid var(--buttons_clicked);
     padding: 0.5em;
     margin: 0.5em;
 }
@@ -592,7 +594,7 @@ input[type="checkbox"]:checked::before {
     padding: 1em;
     max-height: 100px;
     overflow-y: auto;
-    scrollbar-color: #ff1493 #04AA6D;
+    scrollbar-color: var(--black) var(--white);
     scrollbar-width: auto;
     justify-content: center;
     vertical-align: middle;
@@ -606,7 +608,7 @@ input[type="checkbox"]:checked::before {
     height: 3em;
     aspect-ratio: 1/1;
     display: inline-block;
-    background-color: #04AA6D;
+    background-color: var(--buttons);
     border: 2px solid #000000;
     color: white;
     font-family: courier;
@@ -626,13 +628,13 @@ input[type="checkbox"]:checked::before {
 .pagination button:hover,
 .pagination button:focus,
 .pagination button:active {
-    background-color: #ff1493;
+    background-color: var(--buttons_clicked);
     color: #222222;
     font-weight: bold;
 }
 
 .pagination button.active {
-    background-color: #ff1493;
+    background-color: var(--buttons_clicked);
     color: #222222;
     font-weight: bold;
 }
