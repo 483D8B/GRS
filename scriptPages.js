@@ -657,6 +657,15 @@ function clearElementHighlight(element) {
     }
 }
 
+function makeCheckboxesMutuallyExclusive(clickedCheckboxId) {
+    const checkboxes = ['useKanji', 'useTranslation', 'useLessons'];
+    checkboxes.forEach(id => {
+        if (id !== clickedCheckboxId) {
+            document.getElementById(id).checked = false;
+        }
+    });
+}
+
 
 // // Function to display all exercises and clear highlighting
 // function displayAllExercises() {

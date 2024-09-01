@@ -26,15 +26,15 @@
     <input type="text" id="search" placeholder="検索...">
     <div class="checkboxContainer">
         <div>
-            <input type="checkbox" id="useKanji">
+            <input type="checkbox" id="useKanji" onchange="makeCheckboxesMutuallyExclusive('useKanji'); handleCheckboxChange();">
             <label for="useKanji">Search Kanji</label>
         </div>
         <div>
-            <input type="checkbox" id="useTranslation">
+            <input type="checkbox" id="useTranslation" onchange="makeCheckboxesMutuallyExclusive('useTranslation'); handleCheckboxChange();">
             <label for="useTranslation">Search in Translation</label>
         </div>
         <div>
-            <input type="checkbox" id="useLessons">
+            <input type="checkbox" id="useLessons" onchange="makeCheckboxesMutuallyExclusive('useLessons'); handleCheckboxChange();">
             <label for="useLessons">Search Lessons</label>
         </div>
     </div>
