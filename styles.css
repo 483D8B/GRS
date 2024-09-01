@@ -39,13 +39,12 @@
 
 html,
 body {
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--white);
-
+    background-color: transparent;
 }
 
+html.dark-mode,
 body.dark-mode {
     background-color: var(--black);
     color: var(--white);
@@ -597,7 +596,7 @@ input[type="checkbox"]:checked::before {
     scrollbar-width: auto;
     justify-content: center;
     vertical-align: middle;
-    padding-right: 0.5em;
+    padding-right: 1em;
     margin-right: 1em;
 }
 
@@ -743,4 +742,50 @@ a:active {
     bottom: 0;
     padding: 0.5em;
     user-select: none;
+}
+
+
+/* Media query for large screens */
+@media (min-width: 1200px) {
+    body {
+        max-width: 960px;
+        margin: 0 auto;
+        /* Center the content horizontally */
+    }
+
+    #container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #search {
+        display: block;
+        margin: 0 auto;
+        /* Center horizontally */
+        transform: none;
+        /* Remove previous transform if it was offsetting the position */
+        width: 25%;
+        /* Adjust the width as needed */
+    }
+
+    #toggleMode {
+        margin: 0.5em;
+        margin-top: 0.5em;
+    }
+
+    #filteredNumber {
+        display: inline-block;
+        position: relative;
+        margin-left: 1em;
+    }
+
+    .exercise {
+        width: 89%;
+    }
+
+    .pagination {
+        padding-right: 0.8em;
+    }
+
+    /* You can apply similar max-width and margin styles to other elements as needed */
 }
