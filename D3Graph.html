@@ -165,8 +165,8 @@
                     }
                     return radius;
                 })
-                .attr("fill", d => d.type === 'kanji' ? 'white' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'white'))
-                .attr("stroke", d => d.type === 'kanji' ? 'black' : 'none');
+                .attr("fill", d => d.type === 'kanji' ? 'white' : (d.type === 'reading' ? d.readingType === 'kun' ? 'white' : 'white' : 'white'))
+                .attr("stroke", d => d.type === 'kanji' ? 'black' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'white'))
 
             node.append("text")
                 .attr("class", d => `reading ${d.type === 'reading' ? d.readingType + '-reading' : ''}`)
