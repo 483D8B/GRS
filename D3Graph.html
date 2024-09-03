@@ -35,7 +35,7 @@
         }
 
         .kanji {
-            font-size: 24px;
+            font-size: 2rem;
             font-weight: bold;
         }
 
@@ -153,7 +153,7 @@
             node.append("circle")
                 .attr("r", d => {
                     // Calculate radius dynamically
-                    let radius = 20;
+                    let radius = 30;
                     const padding = 5;
                     // Find siblings
                     const siblings = nodes.filter(n => n.type === d.type && n.id !== d.id);
@@ -161,18 +161,26 @@
                         const xPositions = siblings.map(s => s.x || 0);
                         const minX = Math.min(...xPositions);
                         const maxX = Math.max(...xPositions);
-                        radius = Math.max((maxX - minX - padding) / 2, 20); // Adjust radius
+                        radius = Math.max((maxX - minX - padding) / 2, 30); // Adjust radius
                     }
                     return radius;
                 })
                 .attr("fill", d => d.type === 'kanji' ? 'white' : (d.type === 'reading' ? d.readingType === 'kun' ? 'white' : 'white' : 'white'))
                 .attr("stroke", d => d.type === 'kanji' ? 'black' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'white'))
+                .attr("stroke-width", 2);
 
             node.append("text")
-                .attr("class", d => `reading ${d.type === 'reading' ? d.readingType + '-reading' : ''}`)
+                .attr("class", d => {
+                    if (d.type === 'kanji') return 'kanji';
+                    if (d.type === 'reading') return `reading ${d.readingType}-reading`;
+                    return 'vocab';
+                })
                 .attr("text-anchor", "middle")
-                .attr("alignment-baseline", "middle")
+                .attr("dominant-baseline", "central")
+                .attr("dy", "-0.1em")
+                .attr("fill", d => d.type === 'kanji' ? 'black' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'black'))
                 .text(d => d.label);
+
 
             // Update node positions
             function update() {
