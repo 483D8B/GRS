@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Kanji Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        svg {
+            flex: 1;
+            display: block;
+        }
+
+        .search-container {
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .kanji {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .reading {
+            font-size: 16px;
+            text-anchor: middle;
+        }
+
+        .kun-reading {
+            fill: blue;
+        }
+
+        .on-reading {
+            fill: green;
+        }
+
+        .vocab {
+            font-size: 20px;
+        }
+
+        .arrow {
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for Kanji..." id="search-bar">
+        </div>
+        <svg></svg>
+    </div>
+
+    <script>
+        const svg = d3.select("svg");
+        const container = d3.select("#container");
+        const searchBar = d3.select("#search-bar");
+        const width = container.node().clientWidth;
+        const height = container.node().clientHeight;
+
+        // Data for the diagram
+        const data = [
+            {
+                kanji: "無",
+                readings: [
+                    { type: "on", reading: "む", vocab: ["無水", "無", "無人", "無足", "無用", "無口", "無言"] },
+                    { type: "kun", reading: "な", vocab: ["無い", "無くす", "無くなる"] }
+                ]
+            },
+            {
+                kanji: "上",
+                readings: [
+                    { type: "kun", reading: "うえ", vocab: ["上", "目上", "上田さん"] },
+                    { type: "on", reading: "じょう", vocab: ["上下", "水上"] },
+                    { type: "kun", reading: "あ", vocab: ["上げる", "上がる"] },
+                    { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] }
+                ]
+            }
+        ];
+        function createGraph(kanjiLabel) {
+            // Prepare nodes and links based on the selected kanji
+            let nodes = [];
+            let links = [];
+
+            const kanjiData = data.find(d => d.kanji === kanjiLabel);
+            if (!kanjiData) return; // Exit if no data found for the kanji
+
+            const kanjiNode = { id: `kanji-${kanjiLabel}`, type: 'kanji', label: kanjiLabel };
+            nodes.push(kanjiNode);
+
+            kanjiData.readings.forEach((reading, readingIndex) => {
+                const readingNode = { id: `reading-${kanjiLabel}-${readingIndex}`, type: 'reading', label: reading.reading, kanji: kanjiLabel, readingType: reading.type };
+                nodes.push(readingNode);
+
+                links.push({ source: kanjiNode.id, target: readingNode.id, color: reading.type === "kun" ? "blue" : "green" });
+
+                reading.vocab.forEach((vocab, vocabIndex) => {
+                    const vocabNode = { id: `vocab-${kanjiLabel}-${readingIndex}-${vocabIndex}`, type: 'vocab', label: vocab };
+                    nodes.push(vocabNode);
+
+                    links.push({ source: readingNode.id, target: vocabNode.id, color: reading.type === "kun" ? "blue" : "green" });
+                });
+            });
+
+            // Define force simulation
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(100)) // Dynamic link distance
+                .force("charge", d3.forceManyBody().strength(-400)) // Adjust strength for more separation
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collide", d3.forceCollide().radius(d => {
+                    // Dynamically adjust radius based on node type
+                    if (d.type === 'kanji') return 60; // Larger radius for kanji
+                    if (d.type === 'reading') return 40; // Medium radius for readings
+                    return 30; // Smaller radius for vocab
+                }));
+
+            // Clear existing SVG content
+            svg.selectAll("*").remove();
+
+            // Draw links
+            const link = svg.append("g")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "arrow")
+                .attr("stroke", d => d.color); // Set color based on the link data
+
+            // Draw nodes
+            const node = svg.append("g")
+                .selectAll("g")
+                .data(nodes)
+                .enter().append("g");
+
+            node.append("circle")
+                .attr("r", d => {
+                    // Calculate radius dynamically
+                    let radius = 20;
+                    const padding = 5;
+                    // Find siblings
+                    const siblings = nodes.filter(n => n.type === d.type && n.id !== d.id);
+                    if (siblings.length > 0) {
+                        const xPositions = siblings.map(s => s.x || 0);
+                        const minX = Math.min(...xPositions);
+                        const maxX = Math.max(...xPositions);
+                        radius = Math.max((maxX - minX - padding) / 2, 20); // Adjust radius
+                    }
+                    return radius;
+                })
+                .attr("fill", d => d.type === 'kanji' ? 'white' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'white'))
+                .attr("stroke", d => d.type === 'kanji' ? 'black' : 'none');
+
+            node.append("text")
+                .attr("class", d => `reading ${d.type === 'reading' ? d.readingType + '-reading' : ''}`)
+                .attr("text-anchor", "middle")
+                .attr("alignment-baseline", "middle")
+                .text(d => d.label);
+
+            // Update node positions
+            function update() {
+                svg.attr("width", width).attr("height", height);
+
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${Math.max(0, Math.min(width, d.x))},${Math.max(0, Math.min(height, d.y))})`);
+            }
+
+            simulation.on("tick", update);
+        }
+
+        searchBar.on("input", function () {
+            const query = this.value;
+            if (query) {
+                createGraph(query);
+            } else {
+                svg.selectAll("*").remove(); // Clear SVG if search is empty
+            }
+        });
+    </script>
+</body>
+
+</html>
