@@ -195,6 +195,7 @@ function initializeEventListeners() {
     // document.getElementById('useLessons').addEventListener('change', debounceSearch);
     // document.getElementById('useKanji').addEventListener('change', debounceKanjiSearch);
     // document.getElementById('useTranslation').addEventListener('change', debounceSearch);
+    document.querySelectorAll('.colouredNumber').addEventListener('click', showDiagram);
     document.getElementById('search').addEventListener('input', debounceSearch);
     bindIME();
     // Initial call to set the initial state
@@ -767,4 +768,9 @@ function displayChapter(data) {
 
     loadPage(1);
     updateCounter();
+}
+
+
+function showDiagram() {
+    console.log("clicked");
 }
