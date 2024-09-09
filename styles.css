@@ -231,11 +231,12 @@ body.dark-mode a:active {
 
 
 .exercise {
+    position: relative;
+    left: 4%;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     width: 92%;
-    transform: translateX(4svw);
     gap: 1em;
     margin-top: -0.6em;
     border-top: transparent;
