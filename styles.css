@@ -608,7 +608,6 @@ input[type="checkbox"]:checked::before {
     border: 2px solid #000000;
     color: white;
     font-family: courier;
-    font-size: 0.6em;
     -webkit-user-select: none;
     touch-action: manipulation;
     cursor: pointer;
