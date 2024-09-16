@@ -222,15 +222,20 @@ function initializeEventListeners() {
             const kanjiHeaderElement = event.target.closest('.colouredNumber').querySelector('.kanjiHeader');
             if (kanjiHeaderElement) {
                 const kanjiHeaderText = kanjiHeaderElement.textContent;
-                toggleGraphVisibility();
+                showGraphContainer();
                 createGraph(kanjiHeaderText);
             }
         }
     });
 
-    function toggleGraphVisibility() {
+    function showGraphContainer() {
         const graphContainer = document.getElementById('graphContainer');
-        graphContainer.style.display = graphContainer.style.display === 'none' ? 'block' : 'none';
+        graphContainer.style.display = 'block';
+    }
+
+    function hideGraphContainer() {
+        const graphContainer = document.getElementById('graphContainer');
+        graphContainer.style.display = 'none';
     }
 
     function createGraph(kanjiLabel) {
@@ -253,6 +258,21 @@ function initializeEventListeners() {
         const svgGroup = svg.append("g");
 
 
+        // Add close button to graph container
+        const closeButton = document.createElement('button');
+        closeButton.innerHTML = '&times;';
+        closeButton.style.position = 'absolute';
+        closeButton.style.top = '10px';
+        closeButton.style.right = '10px';
+        closeButton.style.fontSize = '20px';
+        closeButton.style.background = 'none';
+        closeButton.style.border = 'none';
+        closeButton.style.cursor = 'pointer';
+        closeButton.addEventListener('click', hideGraphContainer);
+
+        const graphContainer = document.getElementById('graphContainer');
+        graphContainer.appendChild(closeButton);
+
         // Prepare nodes and links
         const { nodes, links } = prepareNodesAndLinks(kanjiLabel);
 
@@ -268,7 +288,7 @@ function initializeEventListeners() {
             }));
 
         // Draw links
-        const link = svgGroup .append("g")
+        const link = svgGroup.append("g")
             .selectAll("line")
             .data(links)
             .enter().append("line")
@@ -276,7 +296,7 @@ function initializeEventListeners() {
             .attr("stroke", d => d.color);
 
         // Draw nodes
-        const node = svgGroup .append("g")
+        const node = svgGroup.append("g")
             .selectAll("g")
             .data(nodes)
             .enter().append("g")
