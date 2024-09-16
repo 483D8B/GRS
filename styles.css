@@ -236,11 +236,12 @@ body.dark-mode a:active {
 
 
 .exercise {
+    position: relative;
+    left: 4%;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     width: 92%;
-    transform: translateX(4svw);
     gap: 1em;
     margin-top: -0.6em;
     border-top: transparent;
@@ -591,11 +592,9 @@ input[type="checkbox"]:checked::before {
 
 .pagination {
     position: relative;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-flow: row wrap;
-    gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(40px,1fr));
+    gap: 0.2em;
     padding: 1em;
     max-height: 100px;
     overflow-y: auto;
@@ -603,8 +602,6 @@ input[type="checkbox"]:checked::before {
     scrollbar-width: auto;
     justify-content: center;
     vertical-align: middle;
-    padding-right: 1em;
-    margin-right: 1em;
 }
 
 
@@ -617,7 +614,6 @@ input[type="checkbox"]:checked::before {
     border: 2px solid #000000;
     color: white;
     font-family: courier;
-    font-size: 0.6em;
     -webkit-user-select: none;
     touch-action: manipulation;
     cursor: pointer;
@@ -798,7 +794,7 @@ a:active {
     }
 
     .exercise {
-        width: 89%;
+        /*width: 89%;*/
     }
 
     .pagination {
