@@ -8,14 +8,15 @@
     <link href="data:;base64,iVBORw0KGgo=" rel="icon" />
     <script src="https://unpkg.com/wanakana"></script>
     <!-- <script src="readings.min.js"></script> -->
-    <script src="scriptPages-min.js"></script>
+    <script src="scriptPages.js"></script>
     <script src="chapters-min.js"></script>
     <script src="kanjiSubset-min.json"></script>
     <script src="https://kit.fontawesome.com/9e1918fedd.js" crossorigin="anonymous"></script>
     <link href="data:;base64,iVBORw0KGgo=" rel="icon" />
-    <link rel="stylesheet" href="styles-min.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- <link rel="manifest" href="manifest.json">
     <link rel="manifest" href="manifest.json" /> -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <title>Graded Sentences</title>
 </head>
 
@@ -26,15 +27,18 @@
     <input type="text" id="search" placeholder="検索...">
     <div class="checkboxContainer">
         <div>
-            <input type="checkbox" id="useKanji" onchange="makeCheckboxesMutuallyExclusive('useKanji'); handleCheckboxChange();">
+            <input type="checkbox" id="useKanji"
+                onchange="makeCheckboxesMutuallyExclusive('useKanji'); handleCheckboxChange();">
             <label for="useKanji">Search Kanji</label>
         </div>
         <div>
-            <input type="checkbox" id="useTranslation" onchange="makeCheckboxesMutuallyExclusive('useTranslation'); handleCheckboxChange();">
+            <input type="checkbox" id="useTranslation"
+                onchange="makeCheckboxesMutuallyExclusive('useTranslation'); handleCheckboxChange();">
             <label for="useTranslation">Search in Translation</label>
         </div>
         <div>
-            <input type="checkbox" id="useLessons" onchange="makeCheckboxesMutuallyExclusive('useLessons'); handleCheckboxChange();">
+            <input type="checkbox" id="useLessons"
+                onchange="makeCheckboxesMutuallyExclusive('useLessons'); handleCheckboxChange();">
             <label for="useLessons">Search Lessons</label>
         </div>
     </div>
@@ -50,18 +54,12 @@
 
     </div>
 
-
-
-
-
     <div id="kanjiFoundContainer"></div>
+    <div id="graphContainer"></div>
 
     <div id="container"></div>
 
 
-
-
-    </div>
 
 
 </body>

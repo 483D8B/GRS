@@ -1,5 +1,10 @@
 /* CSS Reset */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --black: #222222;
@@ -746,6 +751,17 @@ a:active {
     user-select: none;
 }
 
+#graphContainer {
+    position: absolute;
+    display: none;
+    border: 2px solid var(--black);
+    margin: 2em;
+    width: calc(100% - 4em);
+    height: 50vh;
+    max-height: 80vh;
+    background-color: white;
+    z-index: 1;
+}
 
 /* Media query for large screens */
 @media (min-width: 1200px) {

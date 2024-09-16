@@ -15,6 +15,26 @@ let currentPage = 1;
 let data = [];
 let filteredData = [];
 
+// Data for the kanji diagrams
+const kanjiData = [
+    {
+        kanji: "無",
+        readings: [
+            { type: "on", reading: "む", vocab: ["無水", "無", "無人", "無足", "無用", "無口", "無言"] },
+            { type: "kun", reading: "な", vocab: ["無い", "無くす", "無くなる"] }
+        ]
+    },
+    {
+        kanji: "上",
+        readings: [
+            { type: "kun", reading: "うえ", vocab: ["上", "目上", "上田さん"] },
+            { type: "on", reading: "じょう", vocab: ["上下", "水上"] },
+            { type: "kun", reading: "あ", vocab: ["上げる", "上がる"] },
+            { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] }
+        ]
+    }
+];
+
 window.onload = function () {
     loadContent()
         .then(setupPage)
@@ -196,6 +216,176 @@ function initializeEventListeners() {
     // document.getElementById('useKanji').addEventListener('change', debounceKanjiSearch);
     // document.getElementById('useTranslation').addEventListener('change', debounceSearch);
     document.getElementById('search').addEventListener('input', debounceSearch);
+
+    document.addEventListener('click', function (event) {
+        if (event.target.closest('.colouredNumber')) {
+            const kanjiHeaderElement = event.target.closest('.colouredNumber').querySelector('.kanjiHeader');
+            if (kanjiHeaderElement) {
+                const kanjiHeaderText = kanjiHeaderElement.textContent;
+                toggleGraphVisibility();
+                createGraph(kanjiHeaderText);
+            }
+        }
+    });
+
+    function toggleGraphVisibility() {
+        const graphContainer = document.getElementById('graphContainer');
+        graphContainer.style.display = graphContainer.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function createGraph(kanjiLabel) {
+        // Clear previous graph
+        d3.select("#graphContainer").selectAll("*").remove();
+
+        // Create SVG with dynamic size
+        const container = d3.select("#graphContainer");
+        const width = container.node().getBoundingClientRect().width;
+        const height = container.node().getBoundingClientRect().height;
+        const svg = container.append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .call(d3.zoom().on("zoom", (event) => {
+                svgGroup.attr("transform", event.transform); // Apply zoom/pan transformations
+            }));
+
+        // Group to apply transformations (zoom and pan)
+        const svgGroup = svg.append("g");
+
+
+        // Prepare nodes and links
+        const { nodes, links } = prepareNodesAndLinks(kanjiLabel);
+
+        // Define force simulation (preserving your original configuration)
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collide", d3.forceCollide().radius(d => {
+                if (d.type === 'kanji') return 60;
+                if (d.type === 'reading') return 40;
+                return 30;
+            }));
+
+        // Draw links
+        const link = svgGroup .append("g")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "arrow")
+            .attr("stroke", d => d.color);
+
+        // Draw nodes
+        const node = svgGroup .append("g")
+            .selectAll("g")
+            .data(nodes)
+            .enter().append("g")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        node.append("circle")
+            .attr("r", d => {
+                let radius = 30;
+                const padding = 5;
+                const siblings = nodes.filter(n => n.type === d.type && n.id !== d.id);
+                if (siblings.length > 0) {
+                    const xPositions = siblings.map(s => s.x || 0);
+                    const minX = Math.min(...xPositions);
+                    const maxX = Math.max(...xPositions);
+                    radius = Math.max((maxX - minX - padding) / 2, 30);
+                }
+                return radius;
+            })
+            .attr("fill", d => d.type === 'kanji' ? 'white' : (d.type === 'reading' ? d.readingType === 'kun' ? 'white' : 'white' : 'white'))
+            .attr("stroke", d => d.type === 'kanji' ? 'black' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'white'))
+            .attr("stroke-width", 2);
+
+        node.append("text")
+            .attr("class", d => {
+                if (d.type === 'kanji') return 'kanji';
+                if (d.type === 'reading') return `reading ${d.readingType}-reading`;
+                return 'vocab';
+            })
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "central")
+            .attr("dy", "-0.1em")
+            .attr("fill", d => d.type === 'kanji' ? 'black' : (d.type === 'reading' ? d.readingType === 'kun' ? 'blue' : 'green' : 'black'))
+            .text(d => d.label);
+
+        // Update node positions
+        function update() {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node.attr("transform", d => `translate(${d.x},${d.y})`);
+        }
+
+        simulation.on("tick", update);
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Resize function
+        function resize() {
+            const newWidth = container.node().getBoundingClientRect().width;
+            const newHeight = container.node().getBoundingClientRect().height;
+
+            svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`);
+            simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+            simulation.alpha(1).restart();
+        }
+
+        // Add resize listener
+        window.addEventListener('resize', resize);
+    }
+
+    function prepareNodesAndLinks(kanjiLabel) {
+        let nodes = [];
+        let links = [];
+
+        const kanjiInfo = kanjiData.find(d => d.kanji === kanjiLabel);
+        if (!kanjiInfo) return { nodes, links }; // Exit if no data found for the kanji
+
+        const kanjiNode = { id: `kanji-${kanjiLabel}`, type: 'kanji', label: kanjiLabel };
+        nodes.push(kanjiNode);
+
+        kanjiInfo.readings.forEach((reading, readingIndex) => {
+            const readingNode = { id: `reading-${kanjiLabel}-${readingIndex}`, type: 'reading', label: reading.reading, kanji: kanjiLabel, readingType: reading.type };
+            nodes.push(readingNode);
+
+            links.push({ source: kanjiNode.id, target: readingNode.id, color: reading.type === "kun" ? "blue" : "green" });
+
+            reading.vocab.forEach((vocab, vocabIndex) => {
+                const vocabNode = { id: `vocab-${kanjiLabel}-${readingIndex}-${vocabIndex}`, type: 'vocab', label: vocab };
+                nodes.push(vocabNode);
+
+                links.push({ source: readingNode.id, target: vocabNode.id, color: reading.type === "kun" ? "blue" : "green" });
+            });
+        });
+
+        return { nodes, links };
+    }
+
     bindIME();
     // Initial call to set the initial state
     handleCheckboxChange();
