@@ -15,26 +15,6 @@ let currentPage = 1;
 let data = [];
 let filteredData = [];
 
-// Data for the kanji diagrams
-const kanjiData = [
-    {
-        kanji: "無",
-        readings: [
-            { type: "on", reading: "む", vocab: ["無水", "無", "無人", "無足", "無用", "無口", "無言"] },
-            { type: "kun", reading: "な", vocab: ["無い", "無くす", "無くなる"] }
-        ]
-    },
-    {
-        kanji: "上",
-        readings: [
-            { type: "kun", reading: "うえ", vocab: ["上", "目上", "上田さん"] },
-            { type: "on", reading: "じょう", vocab: ["上下", "水上"] },
-            { type: "kun", reading: "あ", vocab: ["上げる", "上がる"] },
-            { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] }
-        ]
-    }
-];
-
 window.onload = function () {
     loadContent()
         .then(setupPage)

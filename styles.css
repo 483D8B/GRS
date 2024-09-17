@@ -205,6 +205,10 @@ body.dark-mode a:active {
     box-shadow: 0 0 7px var(--white);
 }
 
+body.dark-mode .pagination {
+    border-color: var(--white);
+}
+
 
 
 
