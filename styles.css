@@ -252,22 +252,24 @@ body.dark-mode a:active {
 
 .sentence {
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     font-size: 1.5em;
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    margin-left: auto;
 }
 
 .translation {
-    margin: auto;
     display: block;
-    text-align: center;
+    text-align: left;
     font-size: 1em;
     font-family: 'Noto Sans JP', sans-serif;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    margin-left: auto;
+    padding: 1em;
 }
 
 
@@ -593,15 +595,17 @@ input[type="checkbox"]:checked::before {
 .pagination {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(40px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
     gap: 0.2em;
     padding: 1em;
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: auto;
     scrollbar-color: var(--black) var(--white);
     scrollbar-width: auto;
     justify-content: center;
     vertical-align: middle;
+    margin: 0 2em;
+    border: 2px solid var(--black);
 }
 
 
@@ -748,15 +752,18 @@ a:active {
 }
 
 #graphContainer {
-    position: absolute;
+    position: fixed;
     display: none;
     border: 2px solid var(--black);
-    margin: 2em;
-    width: calc(100% - 4em);
+    top: 5vh;
+    width: 50vw;
     height: 50vh;
     max-height: 80vh;
     background-color: white;
-    z-index: 1;
+    z-index: 1000;
+    overflow: auto;
+    left: 26%;
+    transform: translateX(-50%);
 }
 
 /* Media query for large screens */
@@ -765,6 +772,11 @@ a:active {
         max-width: 960px;
         margin: 0 auto;
         /* Center the content horizontally */
+    }
+
+    #graphContainer {
+        max-width: 960px;
+        max-height: 50svh;
     }
 
     #container {
@@ -793,9 +805,7 @@ a:active {
         margin-left: 1em;
     }
 
-    .exercise {
-        /*width: 89%;*/
-    }
+    .exercise {}
 
     .pagination {
         padding-right: 0.8em;
