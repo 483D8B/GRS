@@ -40,10 +40,9 @@ const kanjiData = [
         ]
     },
     {
-        kanji: "",
+        kanji: "信",
         readings: [
-            { type: "on", reading: "", vocab: [""] },
-            { type: "kun", reading: "", vocab: [""] },
+            { type: "on", reading: "シン", vocab: ["信じる", "信じられない", "信用"] },
         ]
     }
 
