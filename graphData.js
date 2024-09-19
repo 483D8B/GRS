@@ -630,20 +630,20 @@ const kanjiData = [
     {
         kanji: "以",
         readings: [
-            { type: "kun", reading: "い", vocab: [""] },
-            { type: "kun", reading: "もっ", vocab: [""] }
+            { type: "on", reading: "イ", vocab: ["以上", "以下", "以前", "以後"] },
+            { type: "kun", reading: "もっ", vocab: ["以て"] }
         ]
     },
     {
         kanji: "立",
         readings: [
-            { type: "kun", reading: "た", vocab: [""] },
-            { type: "kun", reading: "たち", vocab: [""] },
+            { type: "kun", reading: "た", vocab: ["立つ", "立ち", "立ちっぱなし"] },
+            { type: "kun", reading: "たち", vocab: ["立川"] },
             { type: "kun", reading: "たて", vocab: [""] },
-            { type: "kun", reading: "だ", vocab: [""] },
-            { type: "kun", reading: "だち", vocab: [""] },
-            { type: "kun", reading: "りっ", vocab: [""] },
-            { type: "kun", reading: "りつ", vocab: [""] }
+            { type: "kun", reading: "だ", vocab: ["目立つ"] },
+            { type: "kun", reading: "だち", vocab: ["足立"] },
+            { type: "on", reading: "リッ", vocab: ["立体"] },
+            { type: "on", reading: "リツ", vocab: ["中立", "成立", "中立国", "成立"] }
         ]
     },
     {
