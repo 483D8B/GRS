@@ -410,7 +410,7 @@ const kanjiData = [
             { type: "kun", reading: "がみ", vocab: [""] },
             { type: "kun", reading: "じょうず", vocab: [""] },
             { type: "kun", reading: "のうえ", vocab: [""] },
-            { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] }
+            { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] },
             { type: "kun", reading: "シャンハイ", vocab: [""] }
         ]
     },
