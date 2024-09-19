@@ -582,9 +582,9 @@ const kanjiData = [
     {
         kanji: "身",
         readings: [
-            { type: "kun", reading: "からだ", vocab: [""] },
-            { type: "kun", reading: "しん", vocab: [""] },
-            { type: "kun", reading: "み", vocab: [""] }
+            { type: "kun", reading: "からだ", vocab: ["身体", "身体中"] },
+            { type: "on", reading: "シン", vocab: ["出身", "心身", "小身", "全身"] },
+            { type: "kun", reading: "み", vocab: ["身なり", "身につける", "中身", "身"] }
         ]
     },
     {
@@ -650,7 +650,7 @@ const kanjiData = [
         kanji: "部",
         readings: [
             { type: "kun", reading: "なべ", vocab: [""] },
-            { type: "kun", reading: "ぶ", vocab: [""] },
+            { type: "on", reading: "ブ", vocab: ["下部", "中部", "三部", "東部", "一部", "上部", "中心部", "部下", "二部", "部", "全部", "部分", "大部分"] },
             { type: "kun", reading: "へ", vocab: [""] },
             { type: "kun", reading: "べ", vocab: [""] },
             { type: "kun", reading: "べや", vocab: [""] }
