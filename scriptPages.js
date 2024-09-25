@@ -389,6 +389,12 @@ function initializeEventListeners() {
     bindIME();
     // Initial call to set the initial state
     handleCheckboxChange();
+
+    const { search, useLessons } = getQueryParams();
+    if (search) {
+        document.getElementById('search').value = search;
+    }
+    document.getElementById('useLessons').checked = useLessons;
 }
 
 
@@ -928,6 +934,14 @@ function handleNotesVisibility(event) {
 
 
 //END DO NOT TOUCH FUNCTIONS
+
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        search: params.get('search'),
+        useLessons: params.get('useLessons') === 'true'
+    };
+}
 
 function displayChapter(data) {
     const useLessons = document.getElementById('useLessons').checked;
