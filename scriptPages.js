@@ -391,10 +391,12 @@ function initializeEventListeners() {
     handleCheckboxChange();
 
     const { search, useLessons } = getQueryParams();
+    document.getElementById('useLessons').checked = useLessons;
     if (search) {
         document.getElementById('search').value = search;
+        document.getElementById('search').dispatchEvent(new Event('input'));
     }
-    document.getElementById('useLessons').checked = useLessons;
+
 }
 
 
