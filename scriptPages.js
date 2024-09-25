@@ -393,10 +393,9 @@ function initializeEventListeners() {
     const { search, useLessons } = getQueryParams();
     if (search) {
         document.getElementById('search').value = search;
-        document.getElementById('search').dispatchEvent(new Event('input'));
     }
     document.getElementById('useLessons').checked = useLessons;
-
+    document.getElementById('search').dispatchEvent(new Event('input'));
 }
 
 
