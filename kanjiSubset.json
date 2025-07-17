@@ -32388,6 +32388,26 @@
     "stroke_count": 18
   },
   {
+    "freq": 9,
+    "grade": 1,
+    "jlpt": 4,
+    "literal": "二",
+    "meanings": [
+      "two",
+      "two radical (no.2)"
+    ],
+    "onyomi": [
+      "ニ",
+      "ジ"
+    ],
+    "kunyomi": [
+      "ふた",
+      "ふたつ",
+      "ふたたび"
+    ],
+    "stroke_count": 2
+  },
+  {
     "freq": 1844,
     "grade": 8,
     "jlpt": 1,

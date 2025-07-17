@@ -51,7 +51,8 @@ const kanjiData = [
             { type: "kun", reading: "さんみ", vocab: [""] },
             { type: "kun", reading: "しゃみせん", vocab: [""] },
             { type: "kun", reading: "み", vocab: [""] },
-            { type: "kun", reading: "みっ", vocab: [""] }
+            { type: "kun", reading: "みっ", vocab: [""] },
+            { type: "kun", reading: "みつ", vocab: [""] }
         ]
     },
     {
@@ -69,6 +70,7 @@ const kanjiData = [
             { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "よ", vocab: [""] },
             { type: "kun", reading: "よっ", vocab: [""] },
+            { type: "kun", reading: "よねん", vocab: [""] },
             { type: "kun", reading: "よん", vocab: [""] },
             { type: "kun", reading: "よんひゃく", vocab: [""] }
         ]
@@ -93,6 +95,7 @@ const kanjiData = [
         kanji: "七",
         readings: [
             { type: "kun", reading: "しち", vocab: [""] },
+            { type: "kun", reading: "しっ", vocab: [""] },
             { type: "kun", reading: "たなばた", vocab: [""] },
             { type: "kun", reading: "なな", vocab: [""] },
             { type: "kun", reading: "なの", vocab: [""] }
@@ -190,6 +193,7 @@ const kanjiData = [
         kanji: "田",
         readings: [
             { type: "kun", reading: "いなか", vocab: [""] },
+            { type: "kun", reading: "すだ", vocab: [""] },
             { type: "kun", reading: "た", vocab: [""] },
             { type: "kun", reading: "だ", vocab: [""] },
             { type: "kun", reading: "でん", vocab: [""] }
@@ -198,6 +202,7 @@ const kanjiData = [
     {
         kanji: "目",
         readings: [
+            { type: "kun", reading: "ぼく", vocab: [""] },
             { type: "kun", reading: "ま", vocab: [""] },
             { type: "kun", reading: "め", vocab: [""] },
             { type: "kun", reading: "もく", vocab: [""] },
@@ -235,6 +240,7 @@ const kanjiData = [
             { type: "kun", reading: "あした", vocab: [""] },
             { type: "kun", reading: "みょう", vocab: [""] },
             { type: "kun", reading: "めい", vocab: [""] },
+            { type: "kun", reading: "めいじてんのう", vocab: [""] },
             { type: "kun", reading: "ミン", vocab: [""] }
         ]
     },
@@ -249,7 +255,9 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "ひ", vocab: [""] },
-            { type: "kun", reading: "び", vocab: [""] }
+            { type: "kun", reading: "び", vocab: [""] },
+            { type: "kun", reading: "ほ", vocab: [""] },
+            { type: "kun", reading: "やけど", vocab: [""] }
         ]
     },
     {
@@ -279,6 +287,8 @@ const kanjiData = [
             { type: "kun", reading: "かね", vocab: [""] },
             { type: "kun", reading: "がね", vocab: [""] },
             { type: "kun", reading: "きん", vocab: [""] },
+            { type: "kun", reading: "ぎん", vocab: [""] },
+            { type: "kun", reading: "こん", vocab: [""] },
             { type: "kun", reading: "ごん", vocab: [""] },
             { type: "kun", reading: "キム", vocab: [""] },
             { type: "kun", reading: "キム・イルソン", vocab: [""] }
@@ -343,9 +353,12 @@ const kanjiData = [
     {
         kanji: "生",
         readings: [
+            { type: "kun", reading: "あいにく", vocab: [""] },
             { type: "kun", reading: "い", vocab: [""] },
             { type: "kun", reading: "いけ", vocab: [""] },
             { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "うま", vocab: [""] },
+            { type: "kun", reading: "お", vocab: [""] },
             { type: "kun", reading: "き", vocab: [""] },
             { type: "kun", reading: "しょう", vocab: [""] },
             { type: "kun", reading: "じょう", vocab: [""] },
@@ -370,7 +383,9 @@ const kanjiData = [
             { type: "kun", reading: "いだ", vocab: [""] },
             { type: "kun", reading: "しゅっ", vocab: [""] },
             { type: "kun", reading: "しゅつ", vocab: [""] },
+            { type: "kun", reading: "すい", vocab: [""] },
             { type: "kun", reading: "だ", vocab: [""] },
+            { type: "kun", reading: "だし", vocab: [""] },
             { type: "kun", reading: "で", vocab: [""] }
         ]
     },
@@ -379,6 +394,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "い", vocab: [""] },
             { type: "kun", reading: "いり", vocab: [""] },
+            { type: "kun", reading: "いれ", vocab: [""] },
             { type: "kun", reading: "にゅう", vocab: [""] },
             { type: "kun", reading: "はい", vocab: [""] }
         ]
@@ -401,16 +417,17 @@ const kanjiData = [
     {
         kanji: "上",
         readings: [
-            { type: "on", reading: "ジョウ", vocab: ["上下", "水上"] },
-            { type: "kun", reading: "あ", vocab: ["上げる", "上がる"] },
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "あが", vocab: [""] },
             { type: "kun", reading: "う", vocab: [""] },
-            { type: "kun", reading: "うえ", vocab: ["上", "目上", "上田さん"] },
+            { type: "kun", reading: "うえ", vocab: [""] },
             { type: "kun", reading: "うわ", vocab: [""] },
             { type: "kun", reading: "かみ", vocab: [""] },
             { type: "kun", reading: "がみ", vocab: [""] },
+            { type: "kun", reading: "じょう", vocab: [""] },
             { type: "kun", reading: "じょうず", vocab: [""] },
             { type: "kun", reading: "のうえ", vocab: [""] },
-            { type: "kun", reading: "のぼ", vocab: ["上る", "上り"] }
+            { type: "kun", reading: "のぼ", vocab: [""] },
             { type: "kun", reading: "シャンハイ", vocab: [""] }
         ]
     },
@@ -476,9 +493,10 @@ const kanjiData = [
     {
         kanji: "無",
         readings: [
-            { type: "on", reading: " ム", vocab: ["無水", "無", "無人", "無足", "無用", "無口", "無言"] },
-            { type: "kun", reading: "な", vocab: ["無い", "無くす", "無くなる"] },
+            { type: "kun", reading: "な", vocab: [""] },
+            { type: "kun", reading: "なし", vocab: [""] },
             { type: "kun", reading: "ぶ", vocab: [""] },
+            { type: "kun", reading: "む", vocab: [""] }
         ]
     },
     {
@@ -519,6 +537,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "はな", vocab: [""] },
             { type: "kun", reading: "はなし", vocab: [""] },
+            { type: "kun", reading: "ばな", vocab: [""] },
             { type: "kun", reading: "ばなし", vocab: [""] },
             { type: "kun", reading: "わ", vocab: [""] }
         ]
@@ -551,6 +570,7 @@ const kanjiData = [
             { type: "kun", reading: "こ", vocab: [""] },
             { type: "kun", reading: "ここち", vocab: [""] },
             { type: "kun", reading: "こころ", vocab: [""] },
+            { type: "kun", reading: "ごこち", vocab: [""] },
             { type: "kun", reading: "ごころ", vocab: [""] },
             { type: "kun", reading: "しん", vocab: [""] },
             { type: "kun", reading: "じん", vocab: [""] }
@@ -598,33 +618,38 @@ const kanjiData = [
         kanji: "体",
         readings: [
             { type: "kun", reading: "からだ", vocab: [""] },
-            { type: "kun", reading: "たい", vocab: [""] }
+            { type: "kun", reading: "たい", vocab: [""] },
+            { type: "kun", reading: "だい", vocab: [""] },
+            { type: "kun", reading: "てい", vocab: [""] }
         ]
     },
     {
         kanji: "信",
         readings: [
-            { type: "on", reading: "シン", vocab: ["信じる", "信じられない", "信用"] },
             { type: "kun", reading: "しが", vocab: [""] },
             { type: "kun", reading: "しな", vocab: [""] },
+            { type: "kun", reading: "しん", vocab: [""] }
         ]
     },
     {
         kanji: "付",
         readings: [
-            { type: "on", reading: "フ", vocab: ["付言"] },
-            { type: "kun", reading: "つ", vocab: ["付ける", "付き", "取り付ける"] },
+            { type: "kun", reading: "えつ", vocab: [""] },
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "つき", vocab: [""] },
             { type: "kun", reading: "つけ", vocab: [""] },
             { type: "kun", reading: "づ", vocab: [""] },
-            { type: "kun", reading: "づけ", vocab: ["日付"] },
+            { type: "kun", reading: "づけ", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぷ", vocab: [""] }
         ]
     },
     {
         kanji: "受",
         readings: [
-            { type: "on", reading: "ジュ", vocab: ["受信"] },
-            { type: "kun", reading: "う", vocab: ["受け止める", "受ける", "受け入れる", "受け身", "受け取る"] },
-            { type: "kun", reading: "うけ", vocab: ["受付"] },
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "うけ", vocab: [""] },
+            { type: "kun", reading: "じゅ", vocab: [""] }
         ]
     },
     {
@@ -642,6 +667,7 @@ const kanjiData = [
             { type: "kun", reading: "たて", vocab: [""] },
             { type: "kun", reading: "だ", vocab: [""] },
             { type: "kun", reading: "だち", vocab: [""] },
+            { type: "kun", reading: "だて", vocab: [""] },
             { type: "kun", reading: "りっ", vocab: [""] },
             { type: "kun", reading: "りつ", vocab: [""] }
         ]
@@ -666,6 +692,7 @@ const kanjiData = [
     {
         kanji: "成",
         readings: [
+            { type: "kun", reading: "じょう", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] },
             { type: "kun", reading: "な", vocab: [""] },
             { type: "kun", reading: "なり", vocab: [""] },
@@ -687,6 +714,7 @@ const kanjiData = [
         kanji: "王",
         readings: [
             { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "のう", vocab: [""] },
             { type: "kun", reading: "ワン", vocab: [""] }
         ]
     },
@@ -702,7 +730,8 @@ const kanjiData = [
         kanji: "宝",
         readings: [
             { type: "kun", reading: "たから", vocab: [""] },
-            { type: "kun", reading: "ほう", vocab: [""] }
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぽう", vocab: [""] }
         ]
     },
     {
@@ -722,7 +751,8 @@ const kanjiData = [
             { type: "kun", reading: "しろ", vocab: [""] },
             { type: "kun", reading: "じろ", vocab: [""] },
             { type: "kun", reading: "はく", vocab: [""] },
-            { type: "kun", reading: "はっ", vocab: [""] }
+            { type: "kun", reading: "はっ", vocab: [""] },
+            { type: "kun", reading: "ぱく", vocab: [""] }
         ]
     },
     {
@@ -743,6 +773,8 @@ const kanjiData = [
         kanji: "書",
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "かき", vocab: [""] },
             { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "がき", vocab: [""] },
             { type: "kun", reading: "しょ", vocab: [""] }
@@ -777,6 +809,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "けん", vocab: [""] },
             { type: "kun", reading: "み", vocab: [""] },
+            { type: "kun", reading: "みい", vocab: [""] },
+            { type: "kun", reading: "みいだ", vocab: [""] },
             { type: "kun", reading: "みこみきゃく", vocab: [""] }
         ]
     },
@@ -807,6 +841,7 @@ const kanjiData = [
             { type: "kun", reading: "ぎ", vocab: [""] },
             { type: "kun", reading: "ぎっ", vocab: [""] },
             { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "せっ", vocab: [""] },
             { type: "kun", reading: "せつ", vocab: [""] }
         ]
     },
@@ -877,7 +912,8 @@ const kanjiData = [
             { type: "kun", reading: "ご", vocab: [""] },
             { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "じ", vocab: [""] },
-            { type: "kun", reading: "す", vocab: [""] }
+            { type: "kun", reading: "す", vocab: [""] },
+            { type: "kun", reading: "りこ", vocab: [""] }
         ]
     },
     {
@@ -896,6 +932,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "あん", vocab: [""] },
+            { type: "kun", reading: "あんていざい", vocab: [""] },
             { type: "kun", reading: "やす", vocab: [""] }
         ]
     },
@@ -922,6 +959,7 @@ const kanjiData = [
     {
         kanji: "父",
         readings: [
+            { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "ちち", vocab: [""] },
             { type: "kun", reading: "とう", vocab: [""] },
             { type: "kun", reading: "ふ", vocab: [""] },
@@ -981,6 +1019,7 @@ const kanjiData = [
     {
         kanji: "者",
         readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
             { type: "kun", reading: "しゃ", vocab: [""] },
             { type: "kun", reading: "じゃ", vocab: [""] },
             { type: "kun", reading: "もの", vocab: [""] }
@@ -1085,6 +1124,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "はな", vocab: [""] },
+            { type: "kun", reading: "はなびら", vocab: [""] },
             { type: "kun", reading: "ばな", vocab: [""] }
         ]
     },
@@ -1102,7 +1142,8 @@ const kanjiData = [
         kanji: "比",
         readings: [
             { type: "kun", reading: "くら", vocab: [""] },
-            { type: "kun", reading: "ひ", vocab: [""] }
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "び", vocab: [""] }
         ]
     },
     {
@@ -1141,6 +1182,7 @@ const kanjiData = [
     {
         kanji: "性",
         readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
             { type: "kun", reading: "じょう", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
@@ -1214,7 +1256,8 @@ const kanjiData = [
             { type: "kun", reading: "こう", vocab: [""] },
             { type: "kun", reading: "ひか", vocab: [""] },
             { type: "kun", reading: "ひかり", vocab: [""] },
-            { type: "kun", reading: "ひかる", vocab: [""] }
+            { type: "kun", reading: "ひかる", vocab: [""] },
+            { type: "kun", reading: "びかり", vocab: [""] }
         ]
     },
     {
@@ -1238,7 +1281,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "そう", vocab: [""] },
             { type: "kun", reading: "はし", vocab: [""] },
-            { type: "kun", reading: "ばし", vocab: [""] }
+            { type: "kun", reading: "ばし", vocab: [""] },
+            { type: "kun", reading: "ぱし", vocab: [""] }
         ]
     },
     {
@@ -1260,15 +1304,19 @@ const kanjiData = [
     {
         kanji: "早",
         readings: [
+            { type: "kun", reading: "さっ", vocab: [""] },
             { type: "kun", reading: "そう", vocab: [""] },
             { type: "kun", reading: "はや", vocab: [""] },
-            { type: "kun", reading: "ばや", vocab: [""] }
+            { type: "kun", reading: "はやばん", vocab: [""] },
+            { type: "kun", reading: "ばや", vocab: [""] },
+            { type: "kun", reading: "わ", vocab: [""] }
         ]
     },
     {
         kanji: "草",
         readings: [
             { type: "kun", reading: "くさ", vocab: [""] },
+            { type: "kun", reading: "ぐさ", vocab: [""] },
             { type: "kun", reading: "そう", vocab: [""] }
         ]
     },
@@ -1282,6 +1330,7 @@ const kanjiData = [
     {
         kanji: "潮",
         readings: [
+            { type: "kun", reading: "うしお", vocab: [""] },
             { type: "kun", reading: "しお", vocab: [""] },
             { type: "kun", reading: "ちょう", vocab: [""] }
         ]
@@ -1289,6 +1338,7 @@ const kanjiData = [
     {
         kanji: "形",
         readings: [
+            { type: "kun", reading: "かた", vocab: [""] },
             { type: "kun", reading: "かたち", vocab: [""] },
             { type: "kun", reading: "がた", vocab: [""] },
             { type: "kun", reading: "ぎょう", vocab: [""] },
@@ -1352,7 +1402,8 @@ const kanjiData = [
             { type: "kun", reading: "あま", vocab: [""] },
             { type: "kun", reading: "あめ", vocab: [""] },
             { type: "kun", reading: "う", vocab: [""] },
-            { type: "kun", reading: "さめ", vocab: [""] }
+            { type: "kun", reading: "さめ", vocab: [""] },
+            { type: "kun", reading: "ゆ", vocab: [""] }
         ]
     },
     {
@@ -1386,6 +1437,7 @@ const kanjiData = [
         kanji: "通",
         readings: [
             { type: "kun", reading: "かよ", vocab: [""] },
+            { type: "kun", reading: "ずう", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] },
             { type: "kun", reading: "つう", vocab: [""] },
             { type: "kun", reading: "とお", vocab: [""] },
@@ -1430,7 +1482,8 @@ const kanjiData = [
     {
         kanji: "矛",
         readings: [
-            { type: "kun", reading: "ほこ", vocab: [""] }
+            { type: "kun", reading: "ほこ", vocab: [""] },
+            { type: "kun", reading: "む", vocab: [""] }
         ]
     },
     {
@@ -1516,6 +1569,7 @@ const kanjiData = [
     {
         kanji: "画",
         readings: [
+            { type: "kun", reading: "えが", vocab: [""] },
             { type: "kun", reading: "かく", vocab: [""] },
             { type: "kun", reading: "かっ", vocab: [""] },
             { type: "kun", reading: "が", vocab: [""] }
@@ -1638,6 +1692,7 @@ const kanjiData = [
     {
         kanji: "込",
         readings: [
+            { type: "kun", reading: "いこみ", vocab: [""] },
             { type: "kun", reading: "こ", vocab: [""] },
             { type: "kun", reading: "こみ", vocab: [""] },
             { type: "kun", reading: "ご", vocab: [""] }
@@ -1673,6 +1728,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "さ", vocab: [""] },
             { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "も", vocab: [""] },
             { type: "kun", reading: "もっと", vocab: [""] }
         ]
     },
@@ -1704,6 +1760,8 @@ const kanjiData = [
         kanji: "湿",
         readings: [
             { type: "kun", reading: "しっ", vocab: [""] },
+            { type: "kun", reading: "しっちたい", vocab: [""] },
+            { type: "kun", reading: "しつ", vocab: [""] },
             { type: "kun", reading: "しめ", vocab: [""] }
         ]
     },
@@ -1746,7 +1804,8 @@ const kanjiData = [
     {
         kanji: "吊",
         readings: [
-            { type: "kun", reading: "つ", vocab: [""] }
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "つる", vocab: [""] }
         ]
     },
     {
@@ -1795,6 +1854,7 @@ const kanjiData = [
     {
         kanji: "錦",
         readings: [
+            { type: "kun", reading: "きん", vocab: [""] },
             { type: "kun", reading: "にしき", vocab: [""] }
         ]
     },
@@ -1840,6 +1900,7 @@ const kanjiData = [
             { type: "kun", reading: "いえ", vocab: [""] },
             { type: "kun", reading: "うち", vocab: [""] },
             { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "け", vocab: [""] },
             { type: "kun", reading: "や", vocab: [""] },
             { type: "kun", reading: "りや", vocab: [""] }
@@ -1897,6 +1958,7 @@ const kanjiData = [
         kanji: "会",
         readings: [
             { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "え", vocab: [""] },
             { type: "kun", reading: "かい", vocab: [""] },
             { type: "kun", reading: "がい", vocab: [""] }
         ]
@@ -1906,6 +1968,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "あい", vocab: [""] },
+            { type: "kun", reading: "あわ", vocab: [""] },
             { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "がっ", vocab: [""] },
             { type: "kun", reading: "ごう", vocab: [""] },
@@ -1919,6 +1982,7 @@ const kanjiData = [
             { type: "kun", reading: "きょう", vocab: [""] },
             { type: "kun", reading: "けさ", vocab: [""] },
             { type: "kun", reading: "ことし", vocab: [""] },
+            { type: "kun", reading: "こよい", vocab: [""] },
             { type: "kun", reading: "こん", vocab: [""] }
         ]
     },
@@ -1939,13 +2003,15 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "いん", vocab: [""] },
             { type: "kun", reading: "しるし", vocab: [""] },
-            { type: "kun", reading: "じるし", vocab: [""] }
+            { type: "kun", reading: "じるし", vocab: [""] },
+            { type: "kun", reading: "インド", vocab: [""] }
         ]
     },
     {
         kanji: "命",
         readings: [
             { type: "kun", reading: "いのち", vocab: [""] },
+            { type: "kun", reading: "みょう", vocab: [""] },
             { type: "kun", reading: "めい", vocab: [""] }
         ]
     },
@@ -2059,13 +2125,15 @@ const kanjiData = [
     {
         kanji: "政",
         readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
     },
     {
         kanji: "府",
         readings: [
-            { type: "kun", reading: "ふ", vocab: [""] }
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "み", vocab: [""] }
         ]
     },
     {
@@ -2142,12 +2210,14 @@ const kanjiData = [
             { type: "kun", reading: "こ", vocab: [""] },
             { type: "kun", reading: "ご", vocab: [""] },
             { type: "kun", reading: "ぜ", vocab: [""] },
+            { type: "kun", reading: "ふる", vocab: [""] },
             { type: "kun", reading: "ゆえ", vocab: [""] }
         ]
     },
     {
         kanji: "胡",
         readings: [
+            { type: "kun", reading: "う", vocab: [""] },
             { type: "kun", reading: "きゅうり", vocab: [""] },
             { type: "kun", reading: "こ", vocab: [""] },
             { type: "kun", reading: "ご", vocab: [""] },
@@ -2288,7 +2358,8 @@ const kanjiData = [
             { type: "kun", reading: "あたら", vocab: [""] },
             { type: "kun", reading: "あら", vocab: [""] },
             { type: "kun", reading: "あらた", vocab: [""] },
-            { type: "kun", reading: "しん", vocab: [""] }
+            { type: "kun", reading: "しん", vocab: [""] },
+            { type: "kun", reading: "しんば", vocab: [""] }
         ]
     },
     {
@@ -2302,6 +2373,7 @@ const kanjiData = [
     {
         kanji: "欠",
         readings: [
+            { type: "kun", reading: "あくび", vocab: [""] },
             { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "けっ", vocab: [""] },
             { type: "kun", reading: "けつ", vocab: [""] }
@@ -2310,6 +2382,7 @@ const kanjiData = [
     {
         kanji: "次",
         readings: [
+            { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] },
             { type: "kun", reading: "つぎ", vocab: [""] }
@@ -2326,6 +2399,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "たく", vocab: [""] },
             { type: "kun", reading: "たび", vocab: [""] },
+            { type: "kun", reading: "たんび", vocab: [""] },
             { type: "kun", reading: "ど", vocab: [""] }
         ]
     },
@@ -2333,7 +2407,8 @@ const kanjiData = [
         kanji: "渡",
         readings: [
             { type: "kun", reading: "と", vocab: [""] },
-            { type: "kun", reading: "わた", vocab: [""] }
+            { type: "kun", reading: "わた", vocab: [""] },
+            { type: "kun", reading: "わたり", vocab: [""] }
         ]
     },
     {
@@ -2383,6 +2458,7 @@ const kanjiData = [
             { type: "kun", reading: "ぐ", vocab: [""] },
             { type: "kun", reading: "しょく", vocab: [""] },
             { type: "kun", reading: "しょっ", vocab: [""] },
+            { type: "kun", reading: "じき", vocab: [""] },
             { type: "kun", reading: "た", vocab: [""] }
         ]
     },
@@ -2487,7 +2563,8 @@ const kanjiData = [
             { type: "kun", reading: "がっ", vocab: [""] },
             { type: "kun", reading: "たの", vocab: [""] },
             { type: "kun", reading: "らき", vocab: [""] },
-            { type: "kun", reading: "らく", vocab: [""] }
+            { type: "kun", reading: "らく", vocab: [""] },
+            { type: "kun", reading: "らっ", vocab: [""] }
         ]
     },
     {
@@ -2495,6 +2572,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "くすり", vocab: [""] },
             { type: "kun", reading: "ぐすり", vocab: [""] },
+            { type: "kun", reading: "や", vocab: [""] },
             { type: "kun", reading: "やく", vocab: [""] },
             { type: "kun", reading: "やっ", vocab: [""] }
         ]
@@ -2542,6 +2620,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "かず", vocab: [""] },
             { type: "kun", reading: "かぞ", vocab: [""] },
+            { type: "kun", reading: "じゅ", vocab: [""] },
             { type: "kun", reading: "すう", vocab: [""] }
         ]
     },
@@ -2549,6 +2628,7 @@ const kanjiData = [
         kanji: "類",
         readings: [
             { type: "kun", reading: "たぐ", vocab: [""] },
+            { type: "kun", reading: "たぐい", vocab: [""] },
             { type: "kun", reading: "るい", vocab: [""] }
         ]
     },
@@ -2709,7 +2789,8 @@ const kanjiData = [
     {
         kanji: "英",
         readings: [
-            { type: "kun", reading: "えい", vocab: [""] }
+            { type: "kun", reading: "えい", vocab: [""] },
+            { type: "kun", reading: "ひで", vocab: [""] }
         ]
     },
     {
@@ -2742,6 +2823,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "うま", vocab: [""] },
             { type: "kun", reading: "ば", vocab: [""] },
+            { type: "kun", reading: "ま", vocab: [""] },
             { type: "kun", reading: "マ", vocab: [""] }
         ]
     },
@@ -2808,14 +2890,17 @@ const kanjiData = [
             { type: "kun", reading: "ざわ", vocab: [""] },
             { type: "kun", reading: "しょく", vocab: [""] },
             { type: "kun", reading: "しょっ", vocab: [""] },
-            { type: "kun", reading: "ふ", vocab: [""] }
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
         ]
     },
     {
         kanji: "解",
         readings: [
             { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "げ", vocab: [""] },
             { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "ど", vocab: [""] },
             { type: "kun", reading: "わか", vocab: [""] }
         ]
     },
@@ -2823,6 +2908,7 @@ const kanjiData = [
         kanji: "独",
         readings: [
             { type: "kun", reading: "どく", vocab: [""] },
+            { type: "kun", reading: "どっ", vocab: [""] },
             { type: "kun", reading: "ひと", vocab: [""] }
         ]
     },
@@ -2851,7 +2937,8 @@ const kanjiData = [
     {
         kanji: "士",
         readings: [
-            { type: "kun", reading: "し", vocab: [""] }
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "じ", vocab: [""] }
         ]
     },
     {
@@ -2866,6 +2953,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "がい", vocab: [""] },
             { type: "kun", reading: "ばい", vocab: [""] }
         ]
@@ -2899,7 +2987,8 @@ const kanjiData = [
         kanji: "共",
         readings: [
             { type: "kun", reading: "きょう", vocab: [""] },
-            { type: "kun", reading: "とも", vocab: [""] }
+            { type: "kun", reading: "とも", vocab: [""] },
+            { type: "kun", reading: "ども", vocab: [""] }
         ]
     },
     {
@@ -2958,7 +3047,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あき", vocab: [""] },
             { type: "kun", reading: "さ", vocab: [""] },
-            { type: "kun", reading: "しゅう", vocab: [""] }
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "じゅう", vocab: [""] }
         ]
     },
     {
@@ -2974,7 +3064,8 @@ const kanjiData = [
         kanji: "住",
         readings: [
             { type: "kun", reading: "じゅう", vocab: [""] },
-            { type: "kun", reading: "す", vocab: [""] }
+            { type: "kun", reading: "す", vocab: [""] },
+            { type: "kun", reading: "すみ", vocab: [""] }
         ]
     },
     {
@@ -3025,7 +3116,9 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "ささ", vocab: [""] },
             { type: "kun", reading: "し", vocab: [""] },
-            { type: "kun", reading: "じ", vocab: [""] }
+            { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "つか", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
         ]
     },
     {
@@ -3054,6 +3147,7 @@ const kanjiData = [
         kanji: "飯",
         readings: [
             { type: "kun", reading: "はん", vocab: [""] },
+            { type: "kun", reading: "ぱん", vocab: [""] },
             { type: "kun", reading: "めし", vocab: [""] }
         ]
     },
@@ -3098,6 +3192,7 @@ const kanjiData = [
         kanji: "時",
         readings: [
             { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "じかん", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] },
             { type: "kun", reading: "とき", vocab: [""] },
             { type: "kun", reading: "とけい", vocab: [""] },
@@ -3117,7 +3212,8 @@ const kanjiData = [
     {
         kanji: "特",
         readings: [
-            { type: "kun", reading: "とく", vocab: [""] }
+            { type: "kun", reading: "とく", vocab: [""] },
+            { type: "kun", reading: "とっ", vocab: [""] }
         ]
     },
     {
@@ -3214,6 +3310,7 @@ const kanjiData = [
         kanji: "空",
         readings: [
             { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "あき", vocab: [""] },
             { type: "kun", reading: "から", vocab: [""] },
             { type: "kun", reading: "くう", vocab: [""] },
             { type: "kun", reading: "す", vocab: [""] },
@@ -3235,6 +3332,7 @@ const kanjiData = [
             { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "あり", vocab: [""] },
             { type: "kun", reading: "ありがと", vocab: [""] },
+            { type: "kun", reading: "う", vocab: [""] },
             { type: "kun", reading: "ゆう", vocab: [""] }
         ]
     },
@@ -3257,6 +3355,7 @@ const kanjiData = [
         kanji: "石",
         readings: [
             { type: "kun", reading: "いし", vocab: [""] },
+            { type: "kun", reading: "こく", vocab: [""] },
             { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "せき", vocab: [""] },
             { type: "kun", reading: "せっ", vocab: [""] }
@@ -3277,6 +3376,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "く", vocab: [""] },
             { type: "kun", reading: "くる", vocab: [""] },
+            { type: "kun", reading: "ぐ", vocab: [""] },
             { type: "kun", reading: "ぐる", vocab: [""] },
             { type: "kun", reading: "にが", vocab: [""] }
         ]
@@ -3290,6 +3390,7 @@ const kanjiData = [
     {
         kanji: "存",
         readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "そん", vocab: [""] },
             { type: "kun", reading: "ぞん", vocab: [""] }
         ]
@@ -3297,6 +3398,7 @@ const kanjiData = [
     {
         kanji: "干",
         readings: [
+            { type: "kun", reading: "え", vocab: [""] },
             { type: "kun", reading: "かん", vocab: [""] },
             { type: "kun", reading: "ひ", vocab: [""] },
             { type: "kun", reading: "ほ", vocab: [""] },
@@ -3347,12 +3449,14 @@ const kanjiData = [
         kanji: "溢",
         readings: [
             { type: "kun", reading: "あふ", vocab: [""] },
-            { type: "kun", reading: "いっ", vocab: [""] }
+            { type: "kun", reading: "いっ", vocab: [""] },
+            { type: "kun", reading: "こぼ", vocab: [""] }
         ]
     },
     {
         kanji: "割",
         readings: [
+            { type: "kun", reading: "かっ", vocab: [""] },
             { type: "kun", reading: "かつ", vocab: [""] },
             { type: "kun", reading: "わ", vocab: [""] },
             { type: "kun", reading: "わり", vocab: [""] }
@@ -3410,7 +3514,10 @@ const kanjiData = [
         kanji: "強",
         readings: [
             { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "ごう", vocab: [""] },
+            { type: "kun", reading: "ごわ", vocab: [""] },
             { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "つよ", vocab: [""] },
             { type: "kun", reading: "づよ", vocab: [""] }
         ]
@@ -3427,7 +3534,9 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "かざ", vocab: [""] },
             { type: "kun", reading: "かぜ", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] },
             { type: "kun", reading: "ふう", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] },
             { type: "kun", reading: "ぷう", vocab: [""] }
         ]
     },
@@ -3435,6 +3544,7 @@ const kanjiData = [
         kanji: "己",
         readings: [
             { type: "kun", reading: "おのれ", vocab: [""] },
+            { type: "kun", reading: "き", vocab: [""] },
             { type: "kun", reading: "こ", vocab: [""] }
         ]
     },
@@ -3479,6 +3589,7 @@ const kanjiData = [
         kanji: "由",
         readings: [
             { type: "kun", reading: "ゆ", vocab: [""] },
+            { type: "kun", reading: "ゆい", vocab: [""] },
             { type: "kun", reading: "ゆう", vocab: [""] },
             { type: "kun", reading: "よし", vocab: [""] }
         ]
@@ -3487,7 +3598,8 @@ const kanjiData = [
         kanji: "油",
         readings: [
             { type: "kun", reading: "あぶら", vocab: [""] },
-            { type: "kun", reading: "ゆ", vocab: [""] }
+            { type: "kun", reading: "ゆ", vocab: [""] },
+            { type: "kun", reading: "ゆようせい", vocab: [""] }
         ]
     },
     {
@@ -3502,6 +3614,7 @@ const kanjiData = [
         kanji: "囲",
         readings: [
             { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "いな", vocab: [""] },
             { type: "kun", reading: "かこ", vocab: [""] }
         ]
     },
@@ -3582,6 +3695,7 @@ const kanjiData = [
     {
         kanji: "湯",
         readings: [
+            { type: "kun", reading: "とう", vocab: [""] },
             { type: "kun", reading: "のゆ", vocab: [""] },
             { type: "kun", reading: "ゆ", vocab: [""] }
         ]
@@ -3590,12 +3704,14 @@ const kanjiData = [
         kanji: "門",
         readings: [
             { type: "kun", reading: "かど", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
             { type: "kun", reading: "もん", vocab: [""] }
         ]
     },
     {
         kanji: "間",
         readings: [
+            { type: "kun", reading: "あい", vocab: [""] },
             { type: "kun", reading: "あいだ", vocab: [""] },
             { type: "kun", reading: "かん", vocab: [""] },
             { type: "kun", reading: "けん", vocab: [""] },
@@ -3608,7 +3724,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "と", vocab: [""] },
-            { type: "kun", reading: "へい", vocab: [""] }
+            { type: "kun", reading: "へい", vocab: [""] },
+            { type: "kun", reading: "ぺい", vocab: [""] }
         ]
     },
     {
@@ -3728,7 +3845,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あやま", vocab: [""] },
             { type: "kun", reading: "か", vocab: [""] },
-            { type: "kun", reading: "す", vocab: [""] }
+            { type: "kun", reading: "す", vocab: [""] },
+            { type: "kun", reading: "すご", vocab: [""] }
         ]
     },
     {
@@ -3804,13 +3922,15 @@ const kanjiData = [
         kanji: "飛",
         readings: [
             { type: "kun", reading: "と", vocab: [""] },
-            { type: "kun", reading: "ひ", vocab: [""] }
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "ぴ", vocab: [""] }
         ]
     },
     {
         kanji: "氏",
         readings: [
             { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "っし", vocab: [""] }
         ]
     },
@@ -3880,7 +4000,8 @@ const kanjiData = [
     {
         kanji: "期",
         readings: [
-            { type: "kun", reading: "き", vocab: [""] }
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "ご", vocab: [""] }
         ]
     },
     {
@@ -3902,7 +4023,8 @@ const kanjiData = [
         kanji: "育",
         readings: [
             { type: "kun", reading: "いく", vocab: [""] },
-            { type: "kun", reading: "そだ", vocab: [""] }
+            { type: "kun", reading: "そだ", vocab: [""] },
+            { type: "kun", reading: "はぐく", vocab: [""] }
         ]
     },
     {
@@ -3939,7 +4061,8 @@ const kanjiData = [
         kanji: "蘇",
         readings: [
             { type: "kun", reading: "そ", vocab: [""] },
-            { type: "kun", reading: "よみがえ", vocab: [""] }
+            { type: "kun", reading: "よみがえ", vocab: [""] },
+            { type: "kun", reading: "スー", vocab: [""] }
         ]
     },
     {
@@ -4053,7 +4176,8 @@ const kanjiData = [
         kanji: "籠",
         readings: [
             { type: "kun", reading: "かご", vocab: [""] },
-            { type: "kun", reading: "こも", vocab: [""] }
+            { type: "kun", reading: "こも", vocab: [""] },
+            { type: "kun", reading: "ろう", vocab: [""] }
         ]
     },
     {
@@ -4149,6 +4273,7 @@ const kanjiData = [
         kanji: "殺",
         readings: [
             { type: "kun", reading: "ころ", vocab: [""] },
+            { type: "kun", reading: "ごろ", vocab: [""] },
             { type: "kun", reading: "さい", vocab: [""] },
             { type: "kun", reading: "さっ", vocab: [""] },
             { type: "kun", reading: "さつ", vocab: [""] }
@@ -4157,13 +4282,15 @@ const kanjiData = [
     {
         kanji: "刹",
         readings: [
-            { type: "kun", reading: "さつ", vocab: [""] }
+            { type: "kun", reading: "さつ", vocab: [""] },
+            { type: "kun", reading: "せつ", vocab: [""] }
         ]
     },
     {
         kanji: "刈",
         readings: [
-            { type: "kun", reading: "か", vocab: [""] }
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かり", vocab: [""] }
         ]
     },
     {
@@ -4197,6 +4324,7 @@ const kanjiData = [
         kanji: "声",
         readings: [
             { type: "kun", reading: "こえ", vocab: [""] },
+            { type: "kun", reading: "こわ", vocab: [""] },
             { type: "kun", reading: "ごえ", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
@@ -4269,6 +4397,7 @@ const kanjiData = [
     {
         kanji: "重",
         readings: [
+            { type: "kun", reading: "え", vocab: [""] },
             { type: "kun", reading: "おも", vocab: [""] },
             { type: "kun", reading: "かさ", vocab: [""] },
             { type: "kun", reading: "じゅう", vocab: [""] },
@@ -4305,7 +4434,8 @@ const kanjiData = [
         kanji: "種",
         readings: [
             { type: "kun", reading: "しゅ", vocab: [""] },
-            { type: "kun", reading: "たね", vocab: [""] }
+            { type: "kun", reading: "たね", vocab: [""] },
+            { type: "kun", reading: "だね", vocab: [""] }
         ]
     },
     {
@@ -4320,6 +4450,7 @@ const kanjiData = [
             { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "あく", vocab: [""] },
             { type: "kun", reading: "あっ", vocab: [""] },
+            { type: "kun", reading: "お", vocab: [""] },
             { type: "kun", reading: "わる", vocab: [""] }
         ]
     },
@@ -4347,6 +4478,7 @@ const kanjiData = [
     {
         kanji: "証",
         readings: [
+            { type: "kun", reading: "あかし", vocab: [""] },
             { type: "kun", reading: "しょう", vocab: [""] }
         ]
     },
@@ -4361,12 +4493,15 @@ const kanjiData = [
         kanji: "否",
         readings: [
             { type: "kun", reading: "いな", vocab: [""] },
-            { type: "kun", reading: "ひ", vocab: [""] }
+            { type: "kun", reading: "いや", vocab: [""] },
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "ぴ", vocab: [""] }
         ]
     },
     {
         kanji: "処",
         readings: [
+            { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "こ", vocab: [""] },
             { type: "kun", reading: "しょ", vocab: [""] },
             { type: "kun", reading: "ところ", vocab: [""] }
@@ -4418,6 +4553,8 @@ const kanjiData = [
         kanji: "知",
         readings: [
             { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "しれ", vocab: [""] },
+            { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "ち", vocab: [""] },
             { type: "kun", reading: "ぢ", vocab: [""] }
         ]
@@ -4432,12 +4569,15 @@ const kanjiData = [
         kanji: "短",
         readings: [
             { type: "kun", reading: "たん", vocab: [""] },
+            { type: "kun", reading: "みじ", vocab: [""] },
             { type: "kun", reading: "みじか", vocab: [""] }
         ]
     },
     {
         kanji: "失",
         readings: [
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "うし", vocab: [""] },
             { type: "kun", reading: "うしな", vocab: [""] },
             { type: "kun", reading: "しっ", vocab: [""] },
             { type: "kun", reading: "しつ", vocab: [""] }
@@ -4453,6 +4593,7 @@ const kanjiData = [
     {
         kanji: "夫",
         readings: [
+            { type: "kun", reading: "お", vocab: [""] },
             { type: "kun", reading: "おっと", vocab: [""] },
             { type: "kun", reading: "ふ", vocab: [""] },
             { type: "kun", reading: "ふう", vocab: [""] },
@@ -4559,6 +4700,7 @@ const kanjiData = [
         kanji: "笑",
         readings: [
             { type: "kun", reading: "え", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] },
             { type: "kun", reading: "わら", vocab: [""] }
         ]
     },
@@ -4581,6 +4723,7 @@ const kanjiData = [
     {
         kanji: "連",
         readings: [
+            { type: "kun", reading: "それん", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] },
             { type: "kun", reading: "つら", vocab: [""] },
             { type: "kun", reading: "づ", vocab: [""] },
@@ -4671,7 +4814,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "かわ", vocab: [""] },
             { type: "kun", reading: "がわ", vocab: [""] },
-            { type: "kun", reading: "ひ", vocab: [""] }
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "ぴ", vocab: [""] }
         ]
     },
     {
@@ -4705,7 +4849,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
             { type: "kun", reading: "くだもの", vocab: [""] },
-            { type: "kun", reading: "は", vocab: [""] }
+            { type: "kun", reading: "は", vocab: [""] },
+            { type: "kun", reading: "はた", vocab: [""] }
         ]
     },
     {
@@ -4731,6 +4876,7 @@ const kanjiData = [
     {
         kanji: "茶",
         readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
             { type: "kun", reading: "ちゃ", vocab: [""] }
         ]
     },
@@ -4776,6 +4922,7 @@ const kanjiData = [
         kanji: "剥",
         readings: [
             { type: "kun", reading: "は", vocab: [""] },
+            { type: "kun", reading: "はく", vocab: [""] },
             { type: "kun", reading: "む", vocab: [""] }
         ]
     },
@@ -4804,6 +4951,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "う", vocab: [""] },
             { type: "kun", reading: "うか", vocab: [""] },
+            { type: "kun", reading: "うき", vocab: [""] },
             { type: "kun", reading: "うわ", vocab: [""] },
             { type: "kun", reading: "ふ", vocab: [""] }
         ]
@@ -4898,6 +5046,7 @@ const kanjiData = [
         kanji: "測",
         readings: [
             { type: "kun", reading: "そく", vocab: [""] },
+            { type: "kun", reading: "そっ", vocab: [""] },
             { type: "kun", reading: "はか", vocab: [""] }
         ]
     },
@@ -4966,7 +5115,8 @@ const kanjiData = [
         kanji: "祭",
         readings: [
             { type: "kun", reading: "さい", vocab: [""] },
-            { type: "kun", reading: "まつ", vocab: [""] }
+            { type: "kun", reading: "まつ", vocab: [""] },
+            { type: "kun", reading: "まつり", vocab: [""] }
         ]
     },
     {
@@ -4974,7 +5124,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "きわ", vocab: [""] },
             { type: "kun", reading: "ぎわ", vocab: [""] },
-            { type: "kun", reading: "さい", vocab: [""] }
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "ざい", vocab: [""] }
         ]
     },
     {
@@ -5034,7 +5185,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "たも", vocab: [""] },
             { type: "kun", reading: "ほ", vocab: [""] },
-            { type: "kun", reading: "ぼ", vocab: [""] }
+            { type: "kun", reading: "ぼ", vocab: [""] },
+            { type: "kun", reading: "ぽ", vocab: [""] }
         ]
     },
     {
@@ -5042,6 +5194,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あき", vocab: [""] },
             { type: "kun", reading: "あっ", vocab: [""] },
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぼ", vocab: [""] },
             { type: "kun", reading: "ぼう", vocab: [""] }
         ]
     },
@@ -5049,6 +5203,7 @@ const kanjiData = [
         kanji: "守",
         readings: [
             { type: "kun", reading: "しゅ", vocab: [""] },
+            { type: "kun", reading: "す", vocab: [""] },
             { type: "kun", reading: "まも", vocab: [""] },
             { type: "kun", reading: "も", vocab: [""] },
             { type: "kun", reading: "もり", vocab: [""] }
@@ -5058,14 +5213,16 @@ const kanjiData = [
         kanji: "団",
         readings: [
             { type: "kun", reading: "だん", vocab: [""] },
-            { type: "kun", reading: "とん", vocab: [""] }
+            { type: "kun", reading: "とん", vocab: [""] },
+            { type: "kun", reading: "どん", vocab: [""] }
         ]
     },
     {
         kanji: "対",
         readings: [
             { type: "kun", reading: "たい", vocab: [""] },
-            { type: "kun", reading: "つい", vocab: [""] }
+            { type: "kun", reading: "つい", vocab: [""] },
+            { type: "kun", reading: "つし", vocab: [""] }
         ]
     },
     {
@@ -5160,7 +5317,8 @@ const kanjiData = [
             { type: "kun", reading: "いだ", vocab: [""] },
             { type: "kun", reading: "かか", vocab: [""] },
             { type: "kun", reading: "だ", vocab: [""] },
-            { type: "kun", reading: "ほう", vocab: [""] }
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぼう", vocab: [""] }
         ]
     },
     {
@@ -5261,6 +5419,7 @@ const kanjiData = [
         kanji: "砂",
         readings: [
             { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "しゃ", vocab: [""] },
             { type: "kun", reading: "じゃ", vocab: [""] },
             { type: "kun", reading: "すな", vocab: [""] }
         ]
@@ -5295,7 +5454,9 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あい", vocab: [""] },
             { type: "kun", reading: "しょう", vocab: [""] },
-            { type: "kun", reading: "そう", vocab: [""] }
+            { type: "kun", reading: "ずもう", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "ふさわ", vocab: [""] }
         ]
     },
     {
@@ -5384,6 +5545,8 @@ const kanjiData = [
         kanji: "蔵",
         readings: [
             { type: "kun", reading: "くら", vocab: [""] },
+            { type: "kun", reading: "ぐら", vocab: [""] },
+            { type: "kun", reading: "ざ", vocab: [""] },
             { type: "kun", reading: "ぞう", vocab: [""] }
         ]
     },
@@ -5429,7 +5592,8 @@ const kanjiData = [
     {
         kanji: "依",
         readings: [
-            { type: "kun", reading: "い", vocab: [""] }
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "よ", vocab: [""] }
         ]
     },
     {
@@ -5469,6 +5633,7 @@ const kanjiData = [
     {
         kanji: "現",
         readings: [
+            { type: "kun", reading: "あら", vocab: [""] },
             { type: "kun", reading: "あらわ", vocab: [""] },
             { type: "kun", reading: "げん", vocab: [""] }
         ]
@@ -5514,8 +5679,10 @@ const kanjiData = [
     {
         kanji: "難",
         readings: [
+            { type: "kun", reading: "かた", vocab: [""] },
             { type: "kun", reading: "がた", vocab: [""] },
             { type: "kun", reading: "なん", vocab: [""] },
+            { type: "kun", reading: "にく", vocab: [""] },
             { type: "kun", reading: "むずか", vocab: [""] }
         ]
     },
@@ -5629,6 +5796,7 @@ const kanjiData = [
         kanji: "怨",
         readings: [
             { type: "kun", reading: "うら", vocab: [""] },
+            { type: "kun", reading: "えん", vocab: [""] },
             { type: "kun", reading: "おん", vocab: [""] }
         ]
     },
@@ -5683,7 +5851,8 @@ const kanjiData = [
         kanji: "狂",
         readings: [
             { type: "kun", reading: "きょう", vocab: [""] },
-            { type: "kun", reading: "くる", vocab: [""] }
+            { type: "kun", reading: "くる", vocab: [""] },
+            { type: "kun", reading: "ぐる", vocab: [""] }
         ]
     },
     {
@@ -5720,6 +5889,7 @@ const kanjiData = [
     {
         kanji: "罰",
         readings: [
+            { type: "kun", reading: "ばち", vocab: [""] },
             { type: "kun", reading: "ばっ", vocab: [""] },
             { type: "kun", reading: "ばつ", vocab: [""] }
         ]
@@ -5727,6 +5897,7 @@ const kanjiData = [
     {
         kanji: "伴",
         readings: [
+            { type: "kun", reading: "とも", vocab: [""] },
             { type: "kun", reading: "ともな", vocab: [""] },
             { type: "kun", reading: "はん", vocab: [""] }
         ]
@@ -5735,7 +5906,9 @@ const kanjiData = [
         kanji: "判",
         readings: [
             { type: "kun", reading: "はん", vocab: [""] },
-            { type: "kun", reading: "ばん", vocab: [""] }
+            { type: "kun", reading: "ばん", vocab: [""] },
+            { type: "kun", reading: "ぱん", vocab: [""] },
+            { type: "kun", reading: "わか", vocab: [""] }
         ]
     },
     {
@@ -5810,6 +5983,7 @@ const kanjiData = [
     {
         kanji: "星",
         readings: [
+            { type: "kun", reading: "じょう", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] },
             { type: "kun", reading: "ほし", vocab: [""] },
             { type: "kun", reading: "ぼし", vocab: [""] }
@@ -5818,6 +5992,7 @@ const kanjiData = [
     {
         kanji: "汁",
         readings: [
+            { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "しる", vocab: [""] },
             { type: "kun", reading: "じゅう", vocab: [""] },
             { type: "kun", reading: "じる", vocab: [""] }
@@ -5894,6 +6069,7 @@ const kanjiData = [
     {
         kanji: "猛",
         readings: [
+            { type: "kun", reading: "も", vocab: [""] },
             { type: "kun", reading: "もう", vocab: [""] }
         ]
     },
@@ -5911,6 +6087,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "しょう", vocab: [""] },
             { type: "kun", reading: "や", vocab: [""] },
+            { type: "kun", reading: "やき", vocab: [""] },
             { type: "kun", reading: "やけ", vocab: [""] }
         ]
     },
@@ -5955,7 +6132,8 @@ const kanjiData = [
             { type: "kun", reading: "かわ", vocab: [""] },
             { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "がわ", vocab: [""] },
-            { type: "kun", reading: "へん", vocab: [""] }
+            { type: "kun", reading: "へん", vocab: [""] },
+            { type: "kun", reading: "ぺん", vocab: [""] }
         ]
     },
     {
@@ -5976,7 +6154,10 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "あ", vocab: [""] },
             { type: "kun", reading: "あい", vocab: [""] },
-            { type: "kun", reading: "いと", vocab: [""] }
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "いと", vocab: [""] },
+            { type: "kun", reading: "え", vocab: [""] },
+            { type: "kun", reading: "わい", vocab: [""] }
         ]
     },
     {
@@ -5999,7 +6180,8 @@ const kanjiData = [
     {
         kanji: "栗",
         readings: [
-            { type: "kun", reading: "くり", vocab: [""] }
+            { type: "kun", reading: "くり", vocab: [""] },
+            { type: "kun", reading: "ぐり", vocab: [""] }
         ]
     },
     {
@@ -6041,13 +6223,15 @@ const kanjiData = [
         kanji: "客",
         readings: [
             { type: "kun", reading: "かく", vocab: [""] },
-            { type: "kun", reading: "きゃく", vocab: [""] }
+            { type: "kun", reading: "きゃく", vocab: [""] },
+            { type: "kun", reading: "きゃっ", vocab: [""] }
         ]
     },
     {
         kanji: "路",
         readings: [
             { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "みち", vocab: [""] },
             { type: "kun", reading: "ろ", vocab: [""] }
         ]
     },
@@ -6056,7 +6240,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "かく", vocab: [""] },
             { type: "kun", reading: "かっ", vocab: [""] },
-            { type: "kun", reading: "こう", vocab: [""] }
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "ごう", vocab: [""] }
         ]
     },
     {
@@ -6083,6 +6268,7 @@ const kanjiData = [
         kanji: "落",
         readings: [
             { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "おち", vocab: [""] },
             { type: "kun", reading: "おと", vocab: [""] },
             { type: "kun", reading: "らく", vocab: [""] },
             { type: "kun", reading: "らっ", vocab: [""] }
@@ -6092,12 +6278,14 @@ const kanjiData = [
         kanji: "南",
         readings: [
             { type: "kun", reading: "なん", vocab: [""] },
-            { type: "kun", reading: "みなみ", vocab: [""] }
+            { type: "kun", reading: "みなみ", vocab: [""] },
+            { type: "kun", reading: "ナン", vocab: [""] }
         ]
     },
     {
         kanji: "西",
         readings: [
+            { type: "kun", reading: "さい", vocab: [""] },
             { type: "kun", reading: "ざい", vocab: [""] },
             { type: "kun", reading: "すい", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] },
@@ -6130,6 +6318,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "くば", vocab: [""] },
             { type: "kun", reading: "はい", vocab: [""] },
+            { type: "kun", reading: "はいたついん", vocab: [""] },
             { type: "kun", reading: "ぱい", vocab: [""] }
         ]
     },
@@ -6177,6 +6366,7 @@ const kanjiData = [
     {
         kanji: "警",
         readings: [
+            { type: "kun", reading: "えい", vocab: [""] },
             { type: "kun", reading: "けい", vocab: [""] }
         ]
     },
@@ -6207,7 +6397,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "おごそ", vocab: [""] },
             { type: "kun", reading: "きび", vocab: [""] },
-            { type: "kun", reading: "げん", vocab: [""] }
+            { type: "kun", reading: "げん", vocab: [""] },
+            { type: "kun", reading: "ごん", vocab: [""] }
         ]
     },
     {
@@ -6225,7 +6416,8 @@ const kanjiData = [
             { type: "kun", reading: "はら", vocab: [""] },
             { type: "kun", reading: "はらい", vocab: [""] },
             { type: "kun", reading: "ばら", vocab: [""] },
-            { type: "kun", reading: "ばらい", vocab: [""] }
+            { type: "kun", reading: "ばらい", vocab: [""] },
+            { type: "kun", reading: "ふっ", vocab: [""] }
         ]
     },
     {
@@ -6238,6 +6430,7 @@ const kanjiData = [
         kanji: "可",
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かわ", vocab: [""] },
             { type: "kun", reading: "かわい", vocab: [""] }
         ]
     },
@@ -6258,7 +6451,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "いじ", vocab: [""] },
             { type: "kun", reading: "いら", vocab: [""] },
-            { type: "kun", reading: "か", vocab: [""] }
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "さいな", vocab: [""] }
         ]
     },
     {
@@ -6272,6 +6466,7 @@ const kanjiData = [
         kanji: "河",
         readings: [
             { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かなんしょう", vocab: [""] },
             { type: "kun", reading: "かわ", vocab: [""] },
             { type: "kun", reading: "が", vocab: [""] },
             { type: "kun", reading: "ふ", vocab: [""] }
@@ -6286,7 +6481,8 @@ const kanjiData = [
     {
         kanji: "司",
         readings: [
-            { type: "kun", reading: "し", vocab: [""] }
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "つかさ", vocab: [""] }
         ]
     },
     {
@@ -6385,6 +6581,7 @@ const kanjiData = [
     {
         kanji: "漬",
         readings: [
+            { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] },
             { type: "kun", reading: "づ", vocab: [""] }
         ]
@@ -6419,11 +6616,13 @@ const kanjiData = [
     {
         kanji: "直",
         readings: [
+            { type: "kun", reading: "じか", vocab: [""] },
             { type: "kun", reading: "じき", vocab: [""] },
             { type: "kun", reading: "す", vocab: [""] },
             { type: "kun", reading: "ただ", vocab: [""] },
             { type: "kun", reading: "ちょく", vocab: [""] },
             { type: "kun", reading: "ちょっ", vocab: [""] },
+            { type: "kun", reading: "っす", vocab: [""] },
             { type: "kun", reading: "なお", vocab: [""] }
         ]
     },
@@ -6454,6 +6653,7 @@ const kanjiData = [
         kanji: "置",
         readings: [
             { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "おき", vocab: [""] },
             { type: "kun", reading: "ち", vocab: [""] }
         ]
     },
@@ -6467,7 +6667,8 @@ const kanjiData = [
         kanji: "州",
         readings: [
             { type: "kun", reading: "しゅう", vocab: [""] },
-            { type: "kun", reading: "しゅうりつ", vocab: [""] }
+            { type: "kun", reading: "しゅうりつ", vocab: [""] },
+            { type: "kun", reading: "す", vocab: [""] }
         ]
     },
     {
@@ -6531,6 +6732,7 @@ const kanjiData = [
     {
         kanji: "暦",
         readings: [
+            { type: "kun", reading: "こよみ", vocab: [""] },
             { type: "kun", reading: "れき", vocab: [""] }
         ]
     },
@@ -6560,6 +6762,7 @@ const kanjiData = [
     {
         kanji: "与",
         readings: [
+            { type: "kun", reading: "あずか", vocab: [""] },
             { type: "kun", reading: "あた", vocab: [""] },
             { type: "kun", reading: "よ", vocab: [""] }
         ]
@@ -6643,6 +6846,7 @@ const kanjiData = [
     {
         kanji: "従",
         readings: [
+            { type: "kun", reading: "い", vocab: [""] },
             { type: "kun", reading: "したが", vocab: [""] },
             { type: "kun", reading: "じゅう", vocab: [""] }
         ]
@@ -6723,14 +6927,16 @@ const kanjiData = [
         kanji: "殿",
         readings: [
             { type: "kun", reading: "てん", vocab: [""] },
-            { type: "kun", reading: "でん", vocab: [""] }
+            { type: "kun", reading: "でん", vocab: [""] },
+            { type: "kun", reading: "との", vocab: [""] }
         ]
     },
     {
         kanji: "異",
         readings: [
             { type: "kun", reading: "い", vocab: [""] },
-            { type: "kun", reading: "こと", vocab: [""] }
+            { type: "kun", reading: "こと", vocab: [""] },
+            { type: "kun", reading: "ことな", vocab: [""] }
         ]
     },
     {
@@ -6762,7 +6968,9 @@ const kanjiData = [
         kanji: "使",
         readings: [
             { type: "kun", reading: "し", vocab: [""] },
-            { type: "kun", reading: "つか", vocab: [""] }
+            { type: "kun", reading: "つか", vocab: [""] },
+            { type: "kun", reading: "つかい", vocab: [""] },
+            { type: "kun", reading: "づか", vocab: [""] }
         ]
     },
     {
@@ -6803,7 +7011,8 @@ const kanjiData = [
     {
         kanji: "態",
         readings: [
-            { type: "kun", reading: "たい", vocab: [""] }
+            { type: "kun", reading: "たい", vocab: [""] },
+            { type: "kun", reading: "だい", vocab: [""] }
         ]
     },
     {
@@ -6828,6 +7037,7 @@ const kanjiData = [
     {
         kanji: "雲",
         readings: [
+            { type: "kun", reading: "うん", vocab: [""] },
             { type: "kun", reading: "うんなんしょう", vocab: [""] },
             { type: "kun", reading: "くも", vocab: [""] }
         ]
@@ -6910,7 +7120,8 @@ const kanjiData = [
     {
         kanji: "岳",
         readings: [
-            { type: "kun", reading: "がく", vocab: [""] }
+            { type: "kun", reading: "がく", vocab: [""] },
+            { type: "kun", reading: "だけ", vocab: [""] }
         ]
     },
     {
@@ -6958,6 +7169,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "おう", vocab: [""] },
             { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
             { type: "kun", reading: "フアン", vocab: [""] }
         ]
     },
@@ -6972,7 +7184,9 @@ const kanjiData = [
         kanji: "構",
         readings: [
             { type: "kun", reading: "かま", vocab: [""] },
-            { type: "kun", reading: "こう", vocab: [""] }
+            { type: "kun", reading: "がま", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "こうぞうか", vocab: [""] }
         ]
     },
     {
@@ -7111,7 +7325,9 @@ const kanjiData = [
     {
         kanji: "差",
         readings: [
-            { type: "kun", reading: "さ", vocab: [""] }
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "さし", vocab: [""] },
+            { type: "kun", reading: "ざ", vocab: [""] }
         ]
     },
     {
@@ -7119,6 +7335,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "き", vocab: [""] },
             { type: "kun", reading: "ぎ", vocab: [""] },
+            { type: "kun", reading: "ちつ", vocab: [""] },
             { type: "kun", reading: "ちゃく", vocab: [""] },
             { type: "kun", reading: "つ", vocab: [""] }
         ]
@@ -7140,6 +7357,7 @@ const kanjiData = [
         kanji: "倒",
         readings: [
             { type: "kun", reading: "たお", vocab: [""] },
+            { type: "kun", reading: "だお", vocab: [""] },
             { type: "kun", reading: "とう", vocab: [""] },
             { type: "kun", reading: "どう", vocab: [""] }
         ]
@@ -7172,7 +7390,8 @@ const kanjiData = [
     {
         kanji: "諭",
         readings: [
-            { type: "kun", reading: "さと", vocab: [""] }
+            { type: "kun", reading: "さと", vocab: [""] },
+            { type: "kun", reading: "ゆ", vocab: [""] }
         ]
     },
     {
@@ -7193,7 +7412,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "せりふ", vocab: [""] },
             { type: "kun", reading: "たい", vocab: [""] },
-            { type: "kun", reading: "だい", vocab: [""] }
+            { type: "kun", reading: "だい", vocab: [""] },
+            { type: "kun", reading: "タイペイ", vocab: [""] }
         ]
     },
     {
@@ -7281,6 +7501,7 @@ const kanjiData = [
     {
         kanji: "隣",
         readings: [
+            { type: "kun", reading: "とな", vocab: [""] },
             { type: "kun", reading: "となり", vocab: [""] },
             { type: "kun", reading: "どなり", vocab: [""] },
             { type: "kun", reading: "りん", vocab: [""] }
@@ -7303,7 +7524,9 @@ const kanjiData = [
     {
         kanji: "枝",
         readings: [
+            { type: "kun", reading: "え", vocab: [""] },
             { type: "kun", reading: "えだ", vocab: [""] },
+            { type: "kun", reading: "し", vocab: [""] },
             { type: "kun", reading: "ずえ", vocab: [""] }
         ]
     },
@@ -7364,6 +7587,7 @@ const kanjiData = [
         kanji: "清",
         readings: [
             { type: "kun", reading: "きよ", vocab: [""] },
+            { type: "kun", reading: "しみず", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
     },
@@ -7387,6 +7611,8 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "う", vocab: [""] },
             { type: "kun", reading: "うけ", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "しん", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
     },
@@ -7395,6 +7621,7 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "しず", vocab: [""] },
             { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "じょう", vocab: [""] },
             { type: "kun", reading: "せい", vocab: [""] }
         ]
     },
@@ -7433,7 +7660,9 @@ const kanjiData = [
         readings: [
             { type: "kun", reading: "はか", vocab: [""] },
             { type: "kun", reading: "はかせ", vocab: [""] },
-            { type: "kun", reading: "はく", vocab: [""] }
+            { type: "kun", reading: "はく", vocab: [""] },
+            { type: "kun", reading: "ばく", vocab: [""] },
+            { type: "kun", reading: "ばくち", vocab: [""] }
         ]
     },
     {
@@ -7453,7 +7682,8 @@ const kanjiData = [
         kanji: "薄",
         readings: [
             { type: "kun", reading: "うす", vocab: [""] },
-            { type: "kun", reading: "はく", vocab: [""] }
+            { type: "kun", reading: "はく", vocab: [""] },
+            { type: "kun", reading: "ばく", vocab: [""] }
         ]
     },
     {
@@ -7465,6 +7695,7 @@ const kanjiData = [
     {
         kanji: "菜",
         readings: [
+            { type: "kun", reading: "いな", vocab: [""] },
             { type: "kun", reading: "さい", vocab: [""] },
             { type: "kun", reading: "な", vocab: [""] }
         ]
@@ -7479,6 +7710,7 @@ const kanjiData = [
     {
         kanji: "彩",
         readings: [
+            { type: "kun", reading: "あや", vocab: [""] },
             { type: "kun", reading: "いろど", vocab: [""] },
             { type: "kun", reading: "さい", vocab: [""] }
         ]
@@ -7520,8 +7752,10 @@ const kanjiData = [
     {
         kanji: "除",
         readings: [
+            { type: "kun", reading: "じ", vocab: [""] },
             { type: "kun", reading: "じょ", vocab: [""] },
-            { type: "kun", reading: "のぞ", vocab: [""] }
+            { type: "kun", reading: "のぞ", vocab: [""] },
+            { type: "kun", reading: "よ", vocab: [""] }
         ]
     },
     {
@@ -7540,13 +7774,4253 @@ const kanjiData = [
     {
         kanji: "斜",
         readings: [
-            { type: "kun", reading: "しゃ", vocab: [""] }
+            { type: "kun", reading: "しゃ", vocab: [""] },
+            { type: "kun", reading: "なな", vocab: [""] }
         ]
     },
     {
         kanji: "途",
         readings: [
             { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "塗",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "ぬ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "漆",
+        readings: [
+            { type: "kun", reading: "しっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "仙",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "垂",
+        readings: [
+            { type: "kun", reading: "すい", vocab: [""] },
+            { type: "kun", reading: "た", vocab: [""] },
+            { type: "kun", reading: "だ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "乗",
+        readings: [
+            { type: "kun", reading: "じょう", vocab: [""] },
+            { type: "kun", reading: "の", vocab: [""] },
+            { type: "kun", reading: "のり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "兼",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] },
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "剰",
+        readings: [
+            { type: "kun", reading: "じょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "睡",
+        readings: [
+            { type: "kun", reading: "すい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "眠",
+        readings: [
+            { type: "kun", reading: "ねむ", vocab: [""] },
+            { type: "kun", reading: "みん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "郵",
+        readings: [
+            { type: "kun", reading: "ゆう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "錘",
+        readings: [
+            { type: "kun", reading: "すい", vocab: [""] },
+            { type: "kun", reading: "つむ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "華",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "げ", vocab: [""] },
+            { type: "kun", reading: "はな", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "侵",
+        readings: [
+            { type: "kun", reading: "おか", vocab: [""] },
+            { type: "kun", reading: "しん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "浸",
+        readings: [
+            { type: "kun", reading: "しん", vocab: [""] },
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "ひた", vocab: [""] },
+            { type: "kun", reading: "びた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "寝",
+        readings: [
+            { type: "kun", reading: "しん", vocab: [""] },
+            { type: "kun", reading: "ね", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "掃",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "は", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "婦",
+        readings: [
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぷ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "帰",
+        readings: [
+            { type: "kun", reading: "かえ", vocab: [""] },
+            { type: "kun", reading: "き", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "戻",
+        readings: [
+            { type: "kun", reading: "もど", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "涙",
+        readings: [
+            { type: "kun", reading: "なみだ", vocab: [""] },
+            { type: "kun", reading: "るい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "射",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "しゃ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "謝",
+        readings: [
+            { type: "kun", reading: "あやま", vocab: [""] },
+            { type: "kun", reading: "しゃ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "討",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "とう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "訂",
+        readings: [
+            { type: "kun", reading: "てい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "打",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "だ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "撃",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "げき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "拭",
+        readings: [
+            { type: "kun", reading: "しょく", vocab: [""] },
+            { type: "kun", reading: "ぬぐ", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "試",
+        readings: [
+            { type: "kun", reading: "こころ", vocab: [""] },
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "ため", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "検",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "験",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "険",
+        readings: [
+            { type: "kun", reading: "けわ", vocab: [""] },
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "倹",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "剣",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "谷",
+        readings: [
+            { type: "kun", reading: "こく", vocab: [""] },
+            { type: "kun", reading: "たに", vocab: [""] },
+            { type: "kun", reading: "や", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "欲",
+        readings: [
+            { type: "kun", reading: "ほ", vocab: [""] },
+            { type: "kun", reading: "ほっ", vocab: [""] },
+            { type: "kun", reading: "よく", vocab: [""] },
+            { type: "kun", reading: "よっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "浴",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "ゆかた", vocab: [""] },
+            { type: "kun", reading: "よく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "容",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "溶",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "俗",
+        readings: [
+            { type: "kun", reading: "ぞく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "裕",
+        readings: [
+            { type: "kun", reading: "ひろ", vocab: [""] },
+            { type: "kun", reading: "ゆう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "寛",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "くつろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "甘",
+        readings: [
+            { type: "kun", reading: "あま", vocab: [""] },
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "紺",
+        readings: [
+            { type: "kun", reading: "こん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "紅",
+        readings: [
+            { type: "kun", reading: "く", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "べに", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "攻",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "せ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "功",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "巧",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "たく", vocab: [""] },
+            { type: "kun", reading: "たくみ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "朽",
+        readings: [
+            { type: "kun", reading: "きゅう", vocab: [""] },
+            { type: "kun", reading: "く", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "枯",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "汚",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "きたな", vocab: [""] },
+            { type: "kun", reading: "ぎたな", vocab: [""] },
+            { type: "kun", reading: "けが", vocab: [""] },
+            { type: "kun", reading: "よご", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "升",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "ます", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "弁",
+        readings: [
+            { type: "kun", reading: "びら", vocab: [""] },
+            { type: "kun", reading: "べん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "昇",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "のぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "登",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "とう", vocab: [""] },
+            { type: "kun", reading: "のぼ", vocab: [""] },
+            { type: "kun", reading: "のぼる", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "澄",
+        readings: [
+            { type: "kun", reading: "す", vocab: [""] },
+            { type: "kun", reading: "すみ", vocab: [""] },
+            { type: "kun", reading: "ちょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "充",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "じゅう", vocab: [""] },
+            { type: "kun", reading: "み", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "銃",
+        readings: [
+            { type: "kun", reading: "じゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "統",
+        readings: [
+            { type: "kun", reading: "とう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "流",
+        readings: [
+            { type: "kun", reading: "なが", vocab: [""] },
+            { type: "kun", reading: "りゅう", vocab: [""] },
+            { type: "kun", reading: "る", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "硫",
+        readings: [
+            { type: "kun", reading: "いおう", vocab: [""] },
+            { type: "kun", reading: "りゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盲",
+        readings: [
+            { type: "kun", reading: "もう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "忘",
+        readings: [
+            { type: "kun", reading: "ぼう", vocab: [""] },
+            { type: "kun", reading: "わす", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "忙",
+        readings: [
+            { type: "kun", reading: "いそが", vocab: [""] },
+            { type: "kun", reading: "ぼう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "荒",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "あら", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "すさ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "慌",
+        readings: [
+            { type: "kun", reading: "あわ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "望",
+        readings: [
+            { type: "kun", reading: "のぞ", vocab: [""] },
+            { type: "kun", reading: "ぼう", vocab: [""] },
+            { type: "kun", reading: "もう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "希",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "ずき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "稀",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "け", vocab: [""] },
+            { type: "kun", reading: "まれ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "括",
+        readings: [
+            { type: "kun", reading: "かっ", vocab: [""] },
+            { type: "kun", reading: "かつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "拘",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "こだわ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "拾",
+        readings: [
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "ひろ", vocab: [""] },
+            { type: "kun", reading: "びろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "捨",
+        readings: [
+            { type: "kun", reading: "しゃ", vocab: [""] },
+            { type: "kun", reading: "す", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "孤",
+        readings: [
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "こほん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "弧",
+        readings: [
+            { type: "kun", reading: "こ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "弾",
+        readings: [
+            { type: "kun", reading: "だま", vocab: [""] },
+            { type: "kun", reading: "だん", vocab: [""] },
+            { type: "kun", reading: "はじ", vocab: [""] },
+            { type: "kun", reading: "はず", vocab: [""] },
+            { type: "kun", reading: "ひ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "禅",
+        readings: [
+            { type: "kun", reading: "ぜん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "系",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "係",
+        readings: [
+            { type: "kun", reading: "かか", vocab: [""] },
+            { type: "kun", reading: "かかり", vocab: [""] },
+            { type: "kun", reading: "がかり", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "孫",
+        readings: [
+            { type: "kun", reading: "そん", vocab: [""] },
+            { type: "kun", reading: "まご", vocab: [""] },
+            { type: "kun", reading: "スン", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "懸",
+        readings: [
+            { type: "kun", reading: "け", vocab: [""] },
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "偏",
+        readings: [
+            { type: "kun", reading: "かたよ", vocab: [""] },
+            { type: "kun", reading: "へん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "遍",
+        readings: [
+            { type: "kun", reading: "へん", vocab: [""] },
+            { type: "kun", reading: "べん", vocab: [""] },
+            { type: "kun", reading: "ぺん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "編",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "へん", vocab: [""] },
+            { type: "kun", reading: "ぺん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "篇",
+        readings: [
+            { type: "kun", reading: "へん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "普",
+        readings: [
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "譜",
+        readings: [
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぷ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "職",
+        readings: [
+            { type: "kun", reading: "しょく", vocab: [""] },
+            { type: "kun", reading: "しょっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "織",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "おり", vocab: [""] },
+            { type: "kun", reading: "しき", vocab: [""] },
+            { type: "kun", reading: "しょっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "識",
+        readings: [
+            { type: "kun", reading: "しき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "殉",
+        readings: [
+            { type: "kun", reading: "じゅん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "退",
+        readings: [
+            { type: "kun", reading: "しりぞ", vocab: [""] },
+            { type: "kun", reading: "たい", vocab: [""] },
+            { type: "kun", reading: "の", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "眼",
+        readings: [
+            { type: "kun", reading: "がん", vocab: [""] },
+            { type: "kun", reading: "まな", vocab: [""] },
+            { type: "kun", reading: "まなこ", vocab: [""] },
+            { type: "kun", reading: "め", vocab: [""] },
+            { type: "kun", reading: "めがね", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "智",
+        readings: [
+            { type: "kun", reading: "ち", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "仁",
+        readings: [
+            { type: "kun", reading: "じん", vocab: [""] },
+            { type: "kun", reading: "ひと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "忍",
+        readings: [
+            { type: "kun", reading: "しの", vocab: [""] },
+            { type: "kun", reading: "しのぶ", vocab: [""] },
+            { type: "kun", reading: "にん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "認",
+        readings: [
+            { type: "kun", reading: "にん", vocab: [""] },
+            { type: "kun", reading: "みと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "求",
+        readings: [
+            { type: "kun", reading: "きゅう", vocab: [""] },
+            { type: "kun", reading: "もと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "救",
+        readings: [
+            { type: "kun", reading: "きゅう", vocab: [""] },
+            { type: "kun", reading: "すく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "球",
+        readings: [
+            { type: "kun", reading: "きゅう", vocab: [""] },
+            { type: "kun", reading: "たま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "屯",
+        readings: [
+            { type: "kun", reading: "たむろ", vocab: [""] },
+            { type: "kun", reading: "とん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "純",
+        readings: [
+            { type: "kun", reading: "じゅん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鈍",
+        readings: [
+            { type: "kun", reading: "どん", vocab: [""] },
+            { type: "kun", reading: "にぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "召",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "め", vocab: [""] },
+            { type: "kun", reading: "めし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "招",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "まね", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "沼",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "ぬま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "紹",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "詔",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "みことのり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "勅",
+        readings: [
+            { type: "kun", reading: "ちょく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "昭",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "照",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "て", vocab: [""] },
+            { type: "kun", reading: "てら", vocab: [""] },
+            { type: "kun", reading: "で", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "超",
+        readings: [
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "ちょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "越",
+        readings: [
+            { type: "kun", reading: "えつ", vocab: [""] },
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "ご", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "趣",
+        readings: [
+            { type: "kun", reading: "おもむき", vocab: [""] },
+            { type: "kun", reading: "しゅ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "赴",
+        readings: [
+            { type: "kun", reading: "おもむ", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "訃",
+        readings: [
+            { type: "kun", reading: "ふ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "朴",
+        readings: [
+            { type: "kun", reading: "ぼく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "掛",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かけ", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "摘",
+        readings: [
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "つま", vocab: [""] },
+            { type: "kun", reading: "てき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "滴",
+        readings: [
+            { type: "kun", reading: "しずく", vocab: [""] },
+            { type: "kun", reading: "したた", vocab: [""] },
+            { type: "kun", reading: "てき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "嫡",
+        readings: [
+            { type: "kun", reading: "ちゃく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "適",
+        readings: [
+            { type: "kun", reading: "かな", vocab: [""] },
+            { type: "kun", reading: "てき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "敵",
+        readings: [
+            { type: "kun", reading: "かな", vocab: [""] },
+            { type: "kun", reading: "てき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "授",
+        readings: [
+            { type: "kun", reading: "さず", vocab: [""] },
+            { type: "kun", reading: "じゅ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "援",
+        readings: [
+            { type: "kun", reading: "えん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "媛",
+        readings: [
+            { type: "kun", reading: "ひめ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "緩",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "ゆる", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暖",
+        readings: [
+            { type: "kun", reading: "あたた", vocab: [""] },
+            { type: "kun", reading: "だん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "観",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "み", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "勧",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "すす", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "権",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "歓",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "よろこ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鶴",
+        readings: [
+            { type: "kun", reading: "かく", vocab: [""] },
+            { type: "kun", reading: "つる", vocab: [""] },
+            { type: "kun", reading: "づる", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "確",
+        readings: [
+            { type: "kun", reading: "かく", vocab: [""] },
+            { type: "kun", reading: "かっ", vocab: [""] },
+            { type: "kun", reading: "たし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "慢",
+        readings: [
+            { type: "kun", reading: "まん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "漫",
+        readings: [
+            { type: "kun", reading: "まん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "卯",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "抑",
+        readings: [
+            { type: "kun", reading: "おさ", vocab: [""] },
+            { type: "kun", reading: "よく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "仰",
+        readings: [
+            { type: "kun", reading: "あお", vocab: [""] },
+            { type: "kun", reading: "おお", vocab: [""] },
+            { type: "kun", reading: "ぎょう", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "迎",
+        readings: [
+            { type: "kun", reading: "げい", vocab: [""] },
+            { type: "kun", reading: "むか", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "柳",
+        readings: [
+            { type: "kun", reading: "やなぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "卵",
+        readings: [
+            { type: "kun", reading: "たまご", vocab: [""] },
+            { type: "kun", reading: "らん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "疎",
+        readings: [
+            { type: "kun", reading: "うと", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "速",
+        readings: [
+            { type: "kun", reading: "すみ", vocab: [""] },
+            { type: "kun", reading: "そく", vocab: [""] },
+            { type: "kun", reading: "そっ", vocab: [""] },
+            { type: "kun", reading: "はや", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "遅",
+        readings: [
+            { type: "kun", reading: "おく", vocab: [""] },
+            { type: "kun", reading: "おそ", vocab: [""] },
+            { type: "kun", reading: "ち", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "辻",
+        readings: [
+            { type: "kun", reading: "つじ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "迅",
+        readings: [
+            { type: "kun", reading: "じん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "加",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "くわ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "減",
+        readings: [
+            { type: "kun", reading: "げん", vocab: [""] },
+            { type: "kun", reading: "へ", vocab: [""] },
+            { type: "kun", reading: "へら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "滅",
+        readings: [
+            { type: "kun", reading: "ほろ", vocab: [""] },
+            { type: "kun", reading: "ほろぼ", vocab: [""] },
+            { type: "kun", reading: "め", vocab: [""] },
+            { type: "kun", reading: "めっ", vocab: [""] },
+            { type: "kun", reading: "めつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "威",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "嚇",
+        readings: [
+            { type: "kun", reading: "かく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "或",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "ある", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "惑",
+        readings: [
+            { type: "kun", reading: "まど", vocab: [""] },
+            { type: "kun", reading: "わく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "域",
+        readings: [
+            { type: "kun", reading: "いき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "収",
+        readings: [
+            { type: "kun", reading: "おさ", vocab: [""] },
+            { type: "kun", reading: "しゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "納",
+        readings: [
+            { type: "kun", reading: "おさ", vocab: [""] },
+            { type: "kun", reading: "とう", vocab: [""] },
+            { type: "kun", reading: "な", vocab: [""] },
+            { type: "kun", reading: "なっ", vocab: [""] },
+            { type: "kun", reading: "のう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "献",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] },
+            { type: "kun", reading: "こん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貢",
+        readings: [
+            { type: "kun", reading: "ぐ", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "みつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貪",
+        readings: [
+            { type: "kun", reading: "どん", vocab: [""] },
+            { type: "kun", reading: "むさぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貰",
+        readings: [
+            { type: "kun", reading: "もら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貧",
+        readings: [
+            { type: "kun", reading: "ひん", vocab: [""] },
+            { type: "kun", reading: "まず", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賃",
+        readings: [
+            { type: "kun", reading: "ちん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貸",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かし", vocab: [""] },
+            { type: "kun", reading: "たい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貨",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "資",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賛",
+        readings: [
+            { type: "kun", reading: "さん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "替",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] },
+            { type: "kun", reading: "がえ", vocab: [""] },
+            { type: "kun", reading: "たい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "潜",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] },
+            { type: "kun", reading: "ひそ", vocab: [""] },
+            { type: "kun", reading: "ひそん", vocab: [""] },
+            { type: "kun", reading: "もぐ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貿",
+        readings: [
+            { type: "kun", reading: "ぼう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "留",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "とど", vocab: [""] },
+            { type: "kun", reading: "とめ", vocab: [""] },
+            { type: "kun", reading: "ど", vocab: [""] },
+            { type: "kun", reading: "どめ", vocab: [""] },
+            { type: "kun", reading: "りゅう", vocab: [""] },
+            { type: "kun", reading: "る", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "溜",
+        readings: [
+            { type: "kun", reading: "た", vocab: [""] },
+            { type: "kun", reading: "たま", vocab: [""] },
+            { type: "kun", reading: "ため", vocab: [""] },
+            { type: "kun", reading: "りゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賀",
+        readings: [
+            { type: "kun", reading: "が", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "架",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "染",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "せん", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "梨",
+        readings: [
+            { type: "kun", reading: "なし", vocab: [""] },
+            { type: "kun", reading: "り", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "傑",
+        readings: [
+            { type: "kun", reading: "けっ", vocab: [""] },
+            { type: "kun", reading: "けつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貴",
+        readings: [
+            { type: "kun", reading: "あなた", vocab: [""] },
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "とうと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "潰",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "つぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "遺",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "のこ", vocab: [""] },
+            { type: "kun", reading: "ゆい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "遣",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] },
+            { type: "kun", reading: "づか", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "追",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "つい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "迫",
+        readings: [
+            { type: "kun", reading: "せま", vocab: [""] },
+            { type: "kun", reading: "はく", vocab: [""] },
+            { type: "kun", reading: "ぱく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "泊",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "はく", vocab: [""] },
+            { type: "kun", reading: "ぱく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "伯",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "はく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "拍",
+        readings: [
+            { type: "kun", reading: "はく", vocab: [""] },
+            { type: "kun", reading: "ぱく", vocab: [""] },
+            { type: "kun", reading: "びょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "弔",
+        readings: [
+            { type: "kun", reading: "ちょう", vocab: [""] },
+            { type: "kun", reading: "とむら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "沸",
+        readings: [
+            { type: "kun", reading: "ふっ", vocab: [""] },
+            { type: "kun", reading: "ふつ", vocab: [""] },
+            { type: "kun", reading: "わ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "煮",
+        readings: [
+            { type: "kun", reading: "しゃ", vocab: [""] },
+            { type: "kun", reading: "に", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "費",
+        readings: [
+            { type: "kun", reading: "つい", vocab: [""] },
+            { type: "kun", reading: "ついや", vocab: [""] },
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "ぴ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "弟",
+        readings: [
+            { type: "kun", reading: "おとうと", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "だい", vocab: [""] },
+            { type: "kun", reading: "てい", vocab: [""] },
+            { type: "kun", reading: "で", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "第",
+        readings: [
+            { type: "kun", reading: "だい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "剃",
+        readings: [
+            { type: "kun", reading: "かみそり", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "兄",
+        readings: [
+            { type: "kun", reading: "あに", vocab: [""] },
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "にい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "只",
+        readings: [
+            { type: "kun", reading: "ただ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "税",
+        readings: [
+            { type: "kun", reading: "ぜい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鋭",
+        readings: [
+            { type: "kun", reading: "えい", vocab: [""] },
+            { type: "kun", reading: "するど", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "説",
+        readings: [
+            { type: "kun", reading: "せっ", vocab: [""] },
+            { type: "kun", reading: "せつ", vocab: [""] },
+            { type: "kun", reading: "ぜつ", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "ど", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "脱",
+        readings: [
+            { type: "kun", reading: "だっ", vocab: [""] },
+            { type: "kun", reading: "だつ", vocab: [""] },
+            { type: "kun", reading: "ぬ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "閲",
+        readings: [
+            { type: "kun", reading: "えつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "祝",
+        readings: [
+            { type: "kun", reading: "いわ", vocab: [""] },
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "しゅく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "況",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "悦",
+        readings: [
+            { type: "kun", reading: "えつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "克",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "こく", vocab: [""] },
+            { type: "kun", reading: "こっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "競",
+        readings: [
+            { type: "kun", reading: "きそ", vocab: [""] },
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "ぜ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "姉",
+        readings: [
+            { type: "kun", reading: "あね", vocab: [""] },
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "ねえ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "妹",
+        readings: [
+            { type: "kun", reading: "いもうと", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "まい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "珠",
+        readings: [
+            { type: "kun", reading: "しゅ", vocab: [""] },
+            { type: "kun", reading: "じゅ", vocab: [""] },
+            { type: "kun", reading: "ず", vocab: [""] },
+            { type: "kun", reading: "たま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "殊",
+        readings: [
+            { type: "kun", reading: "こと", vocab: [""] },
+            { type: "kun", reading: "しゅ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "序",
+        readings: [
+            { type: "kun", reading: "じょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "秩",
+        readings: [
+            { type: "kun", reading: "ちつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "迭",
+        readings: [
+            { type: "kun", reading: "てつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "喜",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "よろこ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "善",
+        readings: [
+            { type: "kun", reading: "ぜん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "繕",
+        readings: [
+            { type: "kun", reading: "つくろ", vocab: [""] },
+            { type: "kun", reading: "づくろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "膳",
+        readings: [
+            { type: "kun", reading: "ぜん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "憾",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "恨",
+        readings: [
+            { type: "kun", reading: "うら", vocab: [""] },
+            { type: "kun", reading: "こん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "惜",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "せき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "措",
+        readings: [
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "借",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かり", vocab: [""] },
+            { type: "kun", reading: "しゃく", vocab: [""] },
+            { type: "kun", reading: "しゃっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "錯",
+        readings: [
+            { type: "kun", reading: "さく", vocab: [""] },
+            { type: "kun", reading: "さっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "曽",
+        readings: [
+            { type: "kun", reading: "かつ", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "ぞ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "増",
+        readings: [
+            { type: "kun", reading: "ぞう", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "層",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "憎",
+        readings: [
+            { type: "kun", reading: "ぞう", vocab: [""] },
+            { type: "kun", reading: "にく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "僧",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "ぞう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "贈",
+        readings: [
+            { type: "kun", reading: "おく", vocab: [""] },
+            { type: "kun", reading: "ぞう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賄",
+        readings: [
+            { type: "kun", reading: "まかな", vocab: [""] },
+            { type: "kun", reading: "わい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賂",
+        readings: [
+            { type: "kun", reading: "ろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賦",
+        readings: [
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぷ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賊",
+        readings: [
+            { type: "kun", reading: "ぞく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "帯",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "おび", vocab: [""] },
+            { type: "kun", reading: "たい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "滞",
+        readings: [
+            { type: "kun", reading: "たい", vocab: [""] },
+            { type: "kun", reading: "とどこお", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "渋",
+        readings: [
+            { type: "kun", reading: "しぶ", vocab: [""] },
+            { type: "kun", reading: "じゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "摂",
+        readings: [
+            { type: "kun", reading: "せっ", vocab: [""] },
+            { type: "kun", reading: "せつ", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "為",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "かわせ", vocab: [""] },
+            { type: "kun", reading: "ため", vocab: [""] },
+            { type: "kun", reading: "な", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "偽",
+        readings: [
+            { type: "kun", reading: "いつわ", vocab: [""] },
+            { type: "kun", reading: "ぎ", vocab: [""] },
+            { type: "kun", reading: "にせ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "参",
+        readings: [
+            { type: "kun", reading: "さん", vocab: [""] },
+            { type: "kun", reading: "ざん", vocab: [""] },
+            { type: "kun", reading: "まい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "惨",
+        readings: [
+            { type: "kun", reading: "さん", vocab: [""] },
+            { type: "kun", reading: "ざん", vocab: [""] },
+            { type: "kun", reading: "みじ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "呂",
+        readings: [
+            { type: "kun", reading: "ろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "侶",
+        readings: [
+            { type: "kun", reading: "りょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宮",
+        readings: [
+            { type: "kun", reading: "きゅう", vocab: [""] },
+            { type: "kun", reading: "く", vocab: [""] },
+            { type: "kun", reading: "ぐう", vocab: [""] },
+            { type: "kun", reading: "みや", vocab: [""] },
+            { type: "kun", reading: "みやぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "営",
+        readings: [
+            { type: "kun", reading: "いとな", vocab: [""] },
+            { type: "kun", reading: "えい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "蛍",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "ほたる", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "栄",
+        readings: [
+            { type: "kun", reading: "えい", vocab: [""] },
+            { type: "kun", reading: "さか", vocab: [""] },
+            { type: "kun", reading: "ば", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "誉",
+        readings: [
+            { type: "kun", reading: "ほま", vocab: [""] },
+            { type: "kun", reading: "よ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "挙",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "きょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "拳",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] },
+            { type: "kun", reading: "げん", vocab: [""] },
+            { type: "kun", reading: "こぶし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "桜",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "さくら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "妥",
+        readings: [
+            { type: "kun", reading: "だ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "咲",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "さき", vocab: [""] },
+            { type: "kun", reading: "ざ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "朕",
+        readings: [
+            { type: "kun", reading: "ちん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "茎",
+        readings: [
+            { type: "kun", reading: "くき", vocab: [""] },
+            { type: "kun", reading: "ぐき", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "径",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "怪",
+        readings: [
+            { type: "kun", reading: "あや", vocab: [""] },
+            { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "け", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "軽",
+        readings: [
+            { type: "kun", reading: "かる", vocab: [""] },
+            { type: "kun", reading: "かろ", vocab: [""] },
+            { type: "kun", reading: "がる", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "経",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "た", vocab: [""] },
+            { type: "kun", reading: "へ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "斉",
+        readings: [
+            { type: "kun", reading: "せい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "斎",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "済",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "ざい", vocab: [""] },
+            { type: "kun", reading: "す", vocab: [""] },
+            { type: "kun", reading: "ず", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "剤",
+        readings: [
+            { type: "kun", reading: "ざい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "剖",
+        readings: [
+            { type: "kun", reading: "ぼう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陪",
+        readings: [
+            { type: "kun", reading: "ばい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "培",
+        readings: [
+            { type: "kun", reading: "つちか", vocab: [""] },
+            { type: "kun", reading: "ばい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賠",
+        readings: [
+            { type: "kun", reading: "ばい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "貼",
+        readings: [
+            { type: "kun", reading: "は", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "粘",
+        readings: [
+            { type: "kun", reading: "ねば", vocab: [""] },
+            { type: "kun", reading: "ねん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "衡",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "換",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "喚",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "わめ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "絶",
+        readings: [
+            { type: "kun", reading: "ぜっ", vocab: [""] },
+            { type: "kun", reading: "ぜつ", vocab: [""] },
+            { type: "kun", reading: "た", vocab: [""] },
+            { type: "kun", reading: "だ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "免",
+        readings: [
+            { type: "kun", reading: "まぬか", vocab: [""] },
+            { type: "kun", reading: "まぬが", vocab: [""] },
+            { type: "kun", reading: "めん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "逸",
+        readings: [
+            { type: "kun", reading: "いっ", vocab: [""] },
+            { type: "kun", reading: "いつ", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "勉",
+        readings: [
+            { type: "kun", reading: "べん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "晩",
+        readings: [
+            { type: "kun", reading: "ばん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "許",
+        readings: [
+            { type: "kun", reading: "きょ", vocab: [""] },
+            { type: "kun", reading: "ゆる", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "象",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "ぞう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "像",
+        readings: [
+            { type: "kun", reading: "ぞう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "彫",
+        readings: [
+            { type: "kun", reading: "ちょう", vocab: [""] },
+            { type: "kun", reading: "ほ", vocab: [""] },
+            { type: "kun", reading: "ぼ", vocab: [""] },
+            { type: "kun", reading: "ぼり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "景",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "けしき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "影",
+        readings: [
+            { type: "kun", reading: "えい", vocab: [""] },
+            { type: "kun", reading: "かげ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "撮",
+        readings: [
+            { type: "kun", reading: "さつ", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "就",
+        readings: [
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "じゅ", vocab: [""] },
+            { type: "kun", reading: "つ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "涼",
+        readings: [
+            { type: "kun", reading: "すず", vocab: [""] },
+            { type: "kun", reading: "りょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鯨",
+        readings: [
+            { type: "kun", reading: "くじら", vocab: [""] },
+            { type: "kun", reading: "げい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "隔",
+        readings: [
+            { type: "kun", reading: "かく", vocab: [""] },
+            { type: "kun", reading: "へだ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "融",
+        readings: [
+            { type: "kun", reading: "ゆう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "肖",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "消",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "け", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "硝",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "ガラス", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "梢",
+        readings: [
+            { type: "kun", reading: "こずえ", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "削",
+        readings: [
+            { type: "kun", reading: "けず", vocab: [""] },
+            { type: "kun", reading: "さく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宵",
+        readings: [
+            { type: "kun", reading: "よい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宴",
+        readings: [
+            { type: "kun", reading: "えん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "郷",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "さと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "饗",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "響",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "ひび", vocab: [""] },
+            { type: "kun", reading: "ひびき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "城",
+        readings: [
+            { type: "kun", reading: "ぎ", vocab: [""] },
+            { type: "kun", reading: "しろ", vocab: [""] },
+            { type: "kun", reading: "じょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "誠",
+        readings: [
+            { type: "kun", reading: "せい", vocab: [""] },
+            { type: "kun", reading: "まこと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盛",
+        readings: [
+            { type: "kun", reading: "さか", vocab: [""] },
+            { type: "kun", reading: "ざか", vocab: [""] },
+            { type: "kun", reading: "じょう", vocab: [""] },
+            { type: "kun", reading: "せい", vocab: [""] },
+            { type: "kun", reading: "も", vocab: [""] },
+            { type: "kun", reading: "もり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "旺",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盆",
+        readings: [
+            { type: "kun", reading: "ぼん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "蓋",
+        readings: [
+            { type: "kun", reading: "がい", vocab: [""] },
+            { type: "kun", reading: "ふた", vocab: [""] },
+            { type: "kun", reading: "ぶた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盗",
+        readings: [
+            { type: "kun", reading: "とう", vocab: [""] },
+            { type: "kun", reading: "ぬす", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盟",
+        readings: [
+            { type: "kun", reading: "めい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "塩",
+        readings: [
+            { type: "kun", reading: "えん", vocab: [""] },
+            { type: "kun", reading: "しお", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "傷",
+        readings: [
+            { type: "kun", reading: "いた", vocab: [""] },
+            { type: "kun", reading: "きず", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "揚",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暢",
+        readings: [
+            { type: "kun", reading: "ちょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陽",
+        readings: [
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陰",
+        readings: [
+            { type: "kun", reading: "いん", vocab: [""] },
+            { type: "kun", reading: "かげ", vocab: [""] },
+            { type: "kun", reading: "よ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "隠",
+        readings: [
+            { type: "kun", reading: "いん", vocab: [""] },
+            { type: "kun", reading: "かく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "穏",
+        readings: [
+            { type: "kun", reading: "おだ", vocab: [""] },
+            { type: "kun", reading: "おん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "穂",
+        readings: [
+            { type: "kun", reading: "すい", vocab: [""] },
+            { type: "kun", reading: "ほ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "稲",
+        readings: [
+            { type: "kun", reading: "いな", vocab: [""] },
+            { type: "kun", reading: "いね", vocab: [""] },
+            { type: "kun", reading: "せ", vocab: [""] },
+            { type: "kun", reading: "とう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "愁",
+        readings: [
+            { type: "kun", reading: "うれ", vocab: [""] },
+            { type: "kun", reading: "しゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "裁",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "さば", vocab: [""] },
+            { type: "kun", reading: "た", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "載",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "の", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "栽",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "赦",
+        readings: [
+            { type: "kun", reading: "しゃ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "跡",
+        readings: [
+            { type: "kun", reading: "あと", vocab: [""] },
+            { type: "kun", reading: "せき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "踪",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "痕",
+        readings: [
+            { type: "kun", reading: "あと", vocab: [""] },
+            { type: "kun", reading: "こん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "蹴",
+        readings: [
+            { type: "kun", reading: "け", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "踊",
+        readings: [
+            { type: "kun", reading: "おど", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "踏",
+        readings: [
+            { type: "kun", reading: "とう", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "躍",
+        readings: [
+            { type: "kun", reading: "おど", vocab: [""] },
+            { type: "kun", reading: "やく", vocab: [""] },
+            { type: "kun", reading: "やっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "濯",
+        readings: [
+            { type: "kun", reading: "たく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "奇",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "寄",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "よ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "騎",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "椅",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "崎",
+        readings: [
+            { type: "kun", reading: "さき", vocab: [""] },
+            { type: "kun", reading: "ざき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "埼",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "岬",
+        readings: [
+            { type: "kun", reading: "みさき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "模",
+        readings: [
+            { type: "kun", reading: "ぼ", vocab: [""] },
+            { type: "kun", reading: "も", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "膜",
+        readings: [
+            { type: "kun", reading: "まく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "漠",
+        readings: [
+            { type: "kun", reading: "ばく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "幕",
+        readings: [
+            { type: "kun", reading: "ばく", vocab: [""] },
+            { type: "kun", reading: "まく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "墓",
+        readings: [
+            { type: "kun", reading: "はか", vocab: [""] },
+            { type: "kun", reading: "ぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "募",
+        readings: [
+            { type: "kun", reading: "つの", vocab: [""] },
+            { type: "kun", reading: "ぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暮",
+        readings: [
+            { type: "kun", reading: "く", vocab: [""] },
+            { type: "kun", reading: "くら", vocab: [""] },
+            { type: "kun", reading: "ぐ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "慕",
+        readings: [
+            { type: "kun", reading: "した", vocab: [""] },
+            { type: "kun", reading: "ぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "皆",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "みな", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "添",
+        readings: [
+            { type: "kun", reading: "そ", vocab: [""] },
+            { type: "kun", reading: "そい", vocab: [""] },
+            { type: "kun", reading: "ぞ", vocab: [""] },
+            { type: "kun", reading: "てん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "恭",
+        readings: [
+            { type: "kun", reading: "うやうや", vocab: [""] },
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暴",
+        readings: [
+            { type: "kun", reading: "あば", vocab: [""] },
+            { type: "kun", reading: "ぼう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "爆",
+        readings: [
+            { type: "kun", reading: "ばく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "沿",
+        readings: [
+            { type: "kun", reading: "えん", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] },
+            { type: "kun", reading: "ぞ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "礎",
+        readings: [
+            { type: "kun", reading: "いしずえ", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "疑",
+        readings: [
+            { type: "kun", reading: "うたが", vocab: [""] },
+            { type: "kun", reading: "ぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "凝",
+        readings: [
+            { type: "kun", reading: "ぎょう", vocab: [""] },
+            { type: "kun", reading: "こ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "擬",
+        readings: [
+            { type: "kun", reading: "ぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "倣",
+        readings: [
+            { type: "kun", reading: "なら", vocab: [""] },
+            { type: "kun", reading: "ほう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "似",
+        readings: [
+            { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "に", vocab: [""] },
+            { type: "kun", reading: "ね", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "俵",
+        readings: [
+            { type: "kun", reading: "たわら", vocab: [""] },
+            { type: "kun", reading: "だわら", vocab: [""] },
+            { type: "kun", reading: "ひょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "俺",
+        readings: [
+            { type: "kun", reading: "おれ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "庵",
+        readings: [
+            { type: "kun", reading: "あん", vocab: [""] },
+            { type: "kun", reading: "いおり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "僕",
+        readings: [
+            { type: "kun", reading: "ぼく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "撲",
+        readings: [
+            { type: "kun", reading: "ぼく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "叩",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "たた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "伐",
+        readings: [
+            { type: "kun", reading: "ばっ", vocab: [""] },
+            { type: "kun", reading: "ばつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "閥",
+        readings: [
+            { type: "kun", reading: "ばつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "闘",
+        readings: [
+            { type: "kun", reading: "たたか", vocab: [""] },
+            { type: "kun", reading: "とう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "闇",
+        readings: [
+            { type: "kun", reading: "やみ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "閑",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "脈",
+        readings: [
+            { type: "kun", reading: "みゃく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "派",
+        readings: [
+            { type: "kun", reading: "は", vocab: [""] },
+            { type: "kun", reading: "ぱ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "缶",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "揺",
+        readings: [
+            { type: "kun", reading: "ゆ", vocab: [""] },
+            { type: "kun", reading: "ゆる", vocab: [""] },
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "謡",
+        readings: [
+            { type: "kun", reading: "よう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "遥",
+        readings: [
+            { type: "kun", reading: "はる", vocab: [""] },
+            { type: "kun", reading: "はるか", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陶",
+        readings: [
+            { type: "kun", reading: "とう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陳",
+        readings: [
+            { type: "kun", reading: "ちん", vocab: [""] },
+            { type: "kun", reading: "チェン", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陣",
+        readings: [
+            { type: "kun", reading: "じん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陥",
+        readings: [
+            { type: "kun", reading: "おちい", vocab: [""] },
+            { type: "kun", reading: "おとしい", vocab: [""] },
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "隆",
+        readings: [
+            { type: "kun", reading: "りゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "降",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "峰",
+        readings: [
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぽう", vocab: [""] },
+            { type: "kun", reading: "みね", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "逢",
+        readings: [
+            { type: "kun", reading: "あ", vocab: [""] },
+            { type: "kun", reading: "ほう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "縫",
+        readings: [
+            { type: "kun", reading: "ぬ", vocab: [""] },
+            { type: "kun", reading: "ほう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "蜂",
+        readings: [
+            { type: "kun", reading: "はち", vocab: [""] },
+            { type: "kun", reading: "ばち", vocab: [""] },
+            { type: "kun", reading: "ほう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "蜜",
+        readings: [
+            { type: "kun", reading: "みつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "密",
+        readings: [
+            { type: "kun", reading: "みっ", vocab: [""] },
+            { type: "kun", reading: "みつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "秘",
+        readings: [
+            { type: "kun", reading: "ひ", vocab: [""] },
+            { type: "kun", reading: "ひみつかい", vocab: [""] },
+            { type: "kun", reading: "ぴ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "欧",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "枢",
+        readings: [
+            { type: "kun", reading: "すう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "殴",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "なぐ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "駆",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "が", vocab: [""] },
+            { type: "kun", reading: "く", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "馳",
+        readings: [
+            { type: "kun", reading: "ち", vocab: [""] },
+            { type: "kun", reading: "は", vocab: [""] },
+            { type: "kun", reading: "ば", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "騒",
+        readings: [
+            { type: "kun", reading: "さわ", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "旭",
+        readings: [
+            { type: "kun", reading: "あさひ", vocab: [""] },
+            { type: "kun", reading: "きょく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "旦",
+        readings: [
+            { type: "kun", reading: "たん", vocab: [""] },
+            { type: "kun", reading: "だん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "但",
+        readings: [
+            { type: "kun", reading: "ただ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "担",
+        readings: [
+            { type: "kun", reading: "かつ", vocab: [""] },
+            { type: "kun", reading: "たん", vocab: [""] },
+            { type: "kun", reading: "にな", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "亘",
+        readings: [
+            { type: "kun", reading: "わた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "恒",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "垣",
+        readings: [
+            { type: "kun", reading: "かき", vocab: [""] },
+            { type: "kun", reading: "がき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宣",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "喧",
+        readings: [
+            { type: "kun", reading: "けん", vocab: [""] },
+            { type: "kun", reading: "げん", vocab: [""] },
+            { type: "kun", reading: "やかま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "嘩",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "唾",
+        readings: [
+            { type: "kun", reading: "だ", vocab: [""] },
+            { type: "kun", reading: "つば", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "壷",
+        readings: [
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "つぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "坪",
+        readings: [
+            { type: "kun", reading: "つぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "畔",
+        readings: [
+            { type: "kun", reading: "あぜ", vocab: [""] },
+            { type: "kun", reading: "はん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "衆",
+        readings: [
+            { type: "kun", reading: "しゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "伊",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "君",
+        readings: [
+            { type: "kun", reading: "きみ", vocab: [""] },
+            { type: "kun", reading: "くん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "群",
+        readings: [
+            { type: "kun", reading: "ぐん", vocab: [""] },
+            { type: "kun", reading: "む", vocab: [""] },
+            { type: "kun", reading: "むら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "郡",
+        readings: [
+            { type: "kun", reading: "ぐん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "那",
+        readings: [
+            { type: "kun", reading: "な", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "邦",
+        readings: [
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぽう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "郊",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "効",
+        readings: [
+            { type: "kun", reading: "き", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "絞",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "しぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "搾",
+        readings: [
+            { type: "kun", reading: "さく", vocab: [""] },
+            { type: "kun", reading: "しぼ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "紋",
+        readings: [
+            { type: "kun", reading: "もん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "菊",
+        readings: [
+            { type: "kun", reading: "きく", vocab: [""] },
+            { type: "kun", reading: "きっ", vocab: [""] },
+            { type: "kun", reading: "ぎく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "帝",
+        readings: [
+            { type: "kun", reading: "てい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "締",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "しま", vocab: [""] },
+            { type: "kun", reading: "しまり", vocab: [""] },
+            { type: "kun", reading: "しめ", vocab: [""] },
+            { type: "kun", reading: "てい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "諦",
+        readings: [
+            { type: "kun", reading: "あきら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "享",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "郭",
+        readings: [
+            { type: "kun", reading: "かく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "亭",
+        readings: [
+            { type: "kun", reading: "てい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "停",
+        readings: [
+            { type: "kun", reading: "てい", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "とま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "昆",
+        readings: [
+            { type: "kun", reading: "こん", vocab: [""] },
+            { type: "kun", reading: "こんちゅうるい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "混",
+        readings: [
+            { type: "kun", reading: "こ", vocab: [""] },
+            { type: "kun", reading: "こん", vocab: [""] },
+            { type: "kun", reading: "ご", vocab: [""] },
+            { type: "kun", reading: "ま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "楷",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "諧",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "階",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陛",
+        readings: [
+            { type: "kun", reading: "へい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陸",
+        readings: [
+            { type: "kun", reading: "りく", vocab: [""] },
+            { type: "kun", reading: "りっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "睦",
+        readings: [
+            { type: "kun", reading: "ぼく", vocab: [""] },
+            { type: "kun", reading: "むつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "勢",
+        readings: [
+            { type: "kun", reading: "いきお", vocab: [""] },
+            { type: "kun", reading: "せい", vocab: [""] },
+            { type: "kun", reading: "ぜい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "熱",
+        readings: [
+            { type: "kun", reading: "あた", vocab: [""] },
+            { type: "kun", reading: "あつ", vocab: [""] },
+            { type: "kun", reading: "ねっ", vocab: [""] },
+            { type: "kun", reading: "ねつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "熟",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] },
+            { type: "kun", reading: "じゅく", vocab: [""] },
+            { type: "kun", reading: "じゅっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "塾",
+        readings: [
+            { type: "kun", reading: "じゅく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "陵",
+        readings: [
+            { type: "kun", reading: "りょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "菱",
+        readings: [
+            { type: "kun", reading: "ひし", vocab: [""] },
+            { type: "kun", reading: "びし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "俊",
+        readings: [
+            { type: "kun", reading: "しゅん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "唆",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "そその", vocab: [""] },
+            { type: "kun", reading: "そそのか", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "筈",
+        readings: [
+            { type: "kun", reading: "はず", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "箸",
+        readings: [
+            { type: "kun", reading: "はし", vocab: [""] },
+            { type: "kun", reading: "ばし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暑",
+        readings: [
+            { type: "kun", reading: "あつ", vocab: [""] },
+            { type: "kun", reading: "しょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "署",
+        readings: [
+            { type: "kun", reading: "しょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "曙",
+        readings: [
+            { type: "kun", reading: "あけぼの", vocab: [""] },
+            { type: "kun", reading: "しょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "賭",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "諸",
+        readings: [
+            { type: "kun", reading: "しょ", vocab: [""] },
+            { type: "kun", reading: "もろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "儲",
+        readings: [
+            { type: "kun", reading: "もう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "緒",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "しょ", vocab: [""] },
+            { type: "kun", reading: "ちょ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "翁",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "おきな", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "婆",
+        readings: [
+            { type: "kun", reading: "ば", vocab: [""] },
+            { type: "kun", reading: "ばあ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "姿",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "すがた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "恣",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "妄",
+        readings: [
+            { type: "kun", reading: "もう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "萎",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "しお", vocab: [""] },
+            { type: "kun", reading: "しな", vocab: [""] },
+            { type: "kun", reading: "しぼ", vocab: [""] },
+            { type: "kun", reading: "な", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "妻",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "つま", vocab: [""] },
+            { type: "kun", reading: "づま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "凄",
+        readings: [
+            { type: "kun", reading: "すご", vocab: [""] },
+            { type: "kun", reading: "すさ", vocab: [""] },
+            { type: "kun", reading: "せい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "章",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "彰",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "障",
+        readings: [
+            { type: "kun", reading: "さわ", vocab: [""] },
+            { type: "kun", reading: "ざわ", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "辛",
+        readings: [
+            { type: "kun", reading: "から", vocab: [""] },
+            { type: "kun", reading: "しん", vocab: [""] },
+            { type: "kun", reading: "つら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宰",
+        readings: [
+            { type: "kun", reading: "さい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "辣",
+        readings: [
+            { type: "kun", reading: "しん", vocab: [""] },
+            { type: "kun", reading: "らつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "辞",
+        readings: [
+            { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "や", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "壁",
+        readings: [
+            { type: "kun", reading: "かべ", vocab: [""] },
+            { type: "kun", reading: "へき", vocab: [""] },
+            { type: "kun", reading: "ぺき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "璧",
+        readings: [
+            { type: "kun", reading: "ぺき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "癖",
+        readings: [
+            { type: "kun", reading: "くせ", vocab: [""] },
+            { type: "kun", reading: "ぐせ", vocab: [""] },
+            { type: "kun", reading: "へき", vocab: [""] },
+            { type: "kun", reading: "ぺき", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "避",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "ひ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "幸",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "さい", vocab: [""] },
+            { type: "kun", reading: "さいわ", vocab: [""] },
+            { type: "kun", reading: "しあわ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "服",
+        readings: [
+            { type: "kun", reading: "ふく", vocab: [""] },
+            { type: "kun", reading: "ぷく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "報",
+        readings: [
+            { type: "kun", reading: "ほう", vocab: [""] },
+            { type: "kun", reading: "ぽう", vocab: [""] },
+            { type: "kun", reading: "むく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "執",
+        readings: [
+            { type: "kun", reading: "しっ", vocab: [""] },
+            { type: "kun", reading: "しつ", vocab: [""] },
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "摯",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "達",
+        readings: [
+            { type: "kun", reading: "たち", vocab: [""] },
+            { type: "kun", reading: "たっ", vocab: [""] },
+            { type: "kun", reading: "たつ", vocab: [""] },
+            { type: "kun", reading: "だち", vocab: [""] },
+            { type: "kun", reading: "だっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "朗",
+        readings: [
+            { type: "kun", reading: "ほが", vocab: [""] },
+            { type: "kun", reading: "ろう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "浪",
+        readings: [
+            { type: "kun", reading: "ろう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "呉",
+        readings: [
+            { type: "kun", reading: "く", vocab: [""] },
+            { type: "kun", reading: "ご", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "娯",
+        readings: [
+            { type: "kun", reading: "ご", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "誤",
+        readings: [
+            { type: "kun", reading: "あやま", vocab: [""] },
+            { type: "kun", reading: "ご", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "富",
+        readings: [
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "とみ", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "副",
+        readings: [
+            { type: "kun", reading: "ふく", vocab: [""] },
+            { type: "kun", reading: "ふっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "幅",
+        readings: [
+            { type: "kun", reading: "はば", vocab: [""] },
+            { type: "kun", reading: "ぷく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "福",
+        readings: [
+            { type: "kun", reading: "ふく", vocab: [""] },
+            { type: "kun", reading: "ぷく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "祉",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "禍",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "わざわい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "渦",
+        readings: [
+            { type: "kun", reading: "うず", vocab: [""] },
+            { type: "kun", reading: "か", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鍋",
+        readings: [
+            { type: "kun", reading: "なべ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "亠",
+        readings: [
+        ]
+    },
+    {
+        kanji: "蘭",
+        readings: [
+            { type: "kun", reading: "らん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "欄",
+        readings: [
+            { type: "kun", reading: "らん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "潤",
+        readings: [
+            { type: "kun", reading: "うるお", vocab: [""] },
+            { type: "kun", reading: "じゅん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "淵",
+        readings: [
+            { type: "kun", reading: "えん", vocab: [""] },
+            { type: "kun", reading: "ふち", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "滑",
+        readings: [
+            { type: "kun", reading: "かっ", vocab: [""] },
+            { type: "kun", reading: "かつ", vocab: [""] },
+            { type: "kun", reading: "こっ", vocab: [""] },
+            { type: "kun", reading: "すべ", vocab: [""] },
+            { type: "kun", reading: "なめ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "稽",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "げい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "肩",
+        readings: [
+            { type: "kun", reading: "かた", vocab: [""] },
+            { type: "kun", reading: "けん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "脅",
+        readings: [
+            { type: "kun", reading: "おど", vocab: [""] },
+            { type: "kun", reading: "おびや", vocab: [""] },
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "肯",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "双",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "ふた", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "江",
+        readings: [
+            { type: "kun", reading: "え", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "チャン", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "湾",
+        readings: [
+            { type: "kun", reading: "わん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "港",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] },
+            { type: "kun", reading: "みなと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "選",
+        readings: [
+            { type: "kun", reading: "えら", vocab: [""] },
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "択",
+        readings: [
+            { type: "kun", reading: "たく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "沢",
+        readings: [
+            { type: "kun", reading: "さわ", vocab: [""] },
+            { type: "kun", reading: "ざわ", vocab: [""] },
+            { type: "kun", reading: "たく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "訳",
+        readings: [
+            { type: "kun", reading: "やく", vocab: [""] },
+            { type: "kun", reading: "わけ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "釈",
+        readings: [
+            { type: "kun", reading: "しゃく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "敷",
+        readings: [
+            { type: "kun", reading: "し", vocab: [""] },
+            { type: "kun", reading: "しき", vocab: [""] },
+            { type: "kun", reading: "じ", vocab: [""] },
+            { type: "kun", reading: "じき", vocab: [""] },
+            { type: "kun", reading: "ふ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "傲",
+        readings: [
+            { type: "kun", reading: "ごう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "贅",
+        readings: [
+            { type: "kun", reading: "ぜい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "審",
+        readings: [
+            { type: "kun", reading: "しん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "藩",
+        readings: [
+            { type: "kun", reading: "はん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "翻",
+        readings: [
+            { type: "kun", reading: "ひるがえ", vocab: [""] },
+            { type: "kun", reading: "ほん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "翔",
+        readings: [
+            { type: "kun", reading: "かけ", vocab: [""] },
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "査",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "租",
+        readings: [
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "粗",
+        readings: [
+            { type: "kun", reading: "あら", vocab: [""] },
+            { type: "kun", reading: "そ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "阻",
+        readings: [
+            { type: "kun", reading: "そ", vocab: [""] },
+            { type: "kun", reading: "はば", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "狙",
+        readings: [
+            { type: "kun", reading: "そ", vocab: [""] },
+            { type: "kun", reading: "ねら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宜",
+        readings: [
+            { type: "kun", reading: "およろ", vocab: [""] },
+            { type: "kun", reading: "ぎ", vocab: [""] },
+            { type: "kun", reading: "よろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "畳",
+        readings: [
+            { type: "kun", reading: "じょう", vocab: [""] },
+            { type: "kun", reading: "たた", vocab: [""] },
+            { type: "kun", reading: "たたみ", vocab: [""] },
+            { type: "kun", reading: "だたみ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "甲",
+        readings: [
+            { type: "kun", reading: "かぶと", vocab: [""] },
+            { type: "kun", reading: "かん", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "乙",
+        readings: [
+            { type: "kun", reading: "おつ", vocab: [""] },
+            { type: "kun", reading: "おと", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "丙",
+        readings: [
+            { type: "kun", reading: "へい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "柄",
+        readings: [
+            { type: "kun", reading: "え", vocab: [""] },
+            { type: "kun", reading: "がら", vocab: [""] },
+            { type: "kun", reading: "へい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "押",
+        readings: [
+            { type: "kun", reading: "お", vocab: [""] },
+            { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "おさ", vocab: [""] },
+            { type: "kun", reading: "しおさ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "抽",
+        readings: [
+            { type: "kun", reading: "ちゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "捜",
+        readings: [
+            { type: "kun", reading: "さが", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "届",
+        readings: [
+            { type: "kun", reading: "とど", vocab: [""] },
+            { type: "kun", reading: "とどけ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宙",
+        readings: [
+            { type: "kun", reading: "ちゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "笛",
+        readings: [
+            { type: "kun", reading: "てき", vocab: [""] },
+            { type: "kun", reading: "ふえ", vocab: [""] },
+            { type: "kun", reading: "ぶえ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "袖",
+        readings: [
+            { type: "kun", reading: "そで", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "襟",
+        readings: [
+            { type: "kun", reading: "えり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "衿",
+        readings: [
+            { type: "kun", reading: "えり", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "裾",
+        readings: [
+            { type: "kun", reading: "すそ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "据",
+        readings: [
+            { type: "kun", reading: "す", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "握",
+        readings: [
+            { type: "kun", reading: "あく", vocab: [""] },
+            { type: "kun", reading: "にぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "揃",
+        readings: [
+            { type: "kun", reading: "そろ", vocab: [""] },
+            { type: "kun", reading: "ぞろ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "撫",
+        readings: [
+            { type: "kun", reading: "な", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "託",
+        readings: [
+            { type: "kun", reading: "たく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宅",
+        readings: [
+            { type: "kun", reading: "たく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "詫",
+        readings: [
+            { type: "kun", reading: "わ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "宇",
+        readings: [
+            { type: "kun", reading: "う", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "芋",
+        readings: [
+            { type: "kun", reading: "いも", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "寿",
+        readings: [
+            { type: "kun", reading: "じゅ", vocab: [""] },
+            { type: "kun", reading: "す", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鋳",
+        readings: [
+            { type: "kun", reading: "い", vocab: [""] },
+            { type: "kun", reading: "ちゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "銘",
+        readings: [
+            { type: "kun", reading: "めい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鏡",
+        readings: [
+            { type: "kun", reading: "かがみ", vocab: [""] },
+            { type: "kun", reading: "きょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "境",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "さかい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "環",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "還",
+        readings: [
+            { type: "kun", reading: "かん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "盾",
+        readings: [
+            { type: "kun", reading: "じゅん", vocab: [""] },
+            { type: "kun", reading: "たて", vocab: [""] },
+            { type: "kun", reading: "だて", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "循",
+        readings: [
+            { type: "kun", reading: "じゅん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "巡",
+        readings: [
+            { type: "kun", reading: "じゅん", vocab: [""] },
+            { type: "kun", reading: "まわ", vocab: [""] },
+            { type: "kun", reading: "めぐ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "這",
+        readings: [
+            { type: "kun", reading: "は", vocab: [""] },
+            { type: "kun", reading: "ば", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "逓",
+        readings: [
+            { type: "kun", reading: "てい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "息",
+        readings: [
+            { type: "kun", reading: "いき", vocab: [""] },
+            { type: "kun", reading: "そく", vocab: [""] },
+            { type: "kun", reading: "むすこ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "憩",
+        readings: [
+            { type: "kun", reading: "いこ", vocab: [""] },
+            { type: "kun", reading: "けい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "鼻",
+        readings: [
+            { type: "kun", reading: "はな", vocab: [""] },
+            { type: "kun", reading: "び", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "孔",
+        readings: [
+            { type: "kun", reading: "あな", vocab: [""] },
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "臭",
+        readings: [
+            { type: "kun", reading: "くさ", vocab: [""] },
+            { type: "kun", reading: "しゅう", vocab: [""] },
+            { type: "kun", reading: "にお", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "嗅",
+        readings: [
+            { type: "kun", reading: "か", vocab: [""] },
+            { type: "kun", reading: "きゅう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "奥",
+        readings: [
+            { type: "kun", reading: "おう", vocab: [""] },
+            { type: "kun", reading: "おく", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "尖",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] },
+            { type: "kun", reading: "とが", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "突",
+        readings: [
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "とっ", vocab: [""] },
+            { type: "kun", reading: "とっぴょうし", vocab: [""] },
+            { type: "kun", reading: "とつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "窒",
+        readings: [
+            { type: "kun", reading: "ちっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "窃",
+        readings: [
+            { type: "kun", reading: "せっ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "衝",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "契",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "ちぎ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "喫",
+        readings: [
+            { type: "kun", reading: "きっ", vocab: [""] },
+            { type: "kun", reading: "きつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "潔",
+        readings: [
+            { type: "kun", reading: "いさぎよ", vocab: [""] },
+            { type: "kun", reading: "けっ", vocab: [""] },
+            { type: "kun", reading: "けつ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "侮",
+        readings: [
+            { type: "kun", reading: "あなど", vocab: [""] },
+            { type: "kun", reading: "ぶ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "梅",
+        readings: [
+            { type: "kun", reading: "うめ", vocab: [""] },
+            { type: "kun", reading: "つ", vocab: [""] },
+            { type: "kun", reading: "ばい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "悔",
+        readings: [
+            { type: "kun", reading: "かい", vocab: [""] },
+            { type: "kun", reading: "く", vocab: [""] },
+            { type: "kun", reading: "くや", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "敏",
+        readings: [
+            { type: "kun", reading: "びん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "繁",
+        readings: [
+            { type: "kun", reading: "はん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "繋",
+        readings: [
+            { type: "kun", reading: "けい", vocab: [""] },
+            { type: "kun", reading: "つな", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "茂",
+        readings: [
+            { type: "kun", reading: "しげ", vocab: [""] },
+            { type: "kun", reading: "も", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "橋",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "はし", vocab: [""] },
+            { type: "kun", reading: "ばし", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "矯",
+        readings: [
+            { type: "kun", reading: "きょう", vocab: [""] },
+            { type: "kun", reading: "た", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "稿",
+        readings: [
+            { type: "kun", reading: "こう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "縞",
+        readings: [
+            { type: "kun", reading: "しま", vocab: [""] },
+            { type: "kun", reading: "じま", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "箋",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "残",
+        readings: [
+            { type: "kun", reading: "ざん", vocab: [""] },
+            { type: "kun", reading: "のこ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "桟",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "さん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "銭",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] },
+            { type: "kun", reading: "ぜに", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "践",
+        readings: [
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "浅",
+        readings: [
+            { type: "kun", reading: "あさ", vocab: [""] },
+            { type: "kun", reading: "せん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "洩",
+        readings: [
+            { type: "kun", reading: "も", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "壮",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "荘",
+        readings: [
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "装",
+        readings: [
+            { type: "kun", reading: "しょう", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] },
+            { type: "kun", reading: "よそお", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "冥",
+        readings: [
+            { type: "kun", reading: "みょう", vocab: [""] },
+            { type: "kun", reading: "めい", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "暗",
+        readings: [
+            { type: "kun", reading: "あん", vocab: [""] },
+            { type: "kun", reading: "くら", vocab: [""] },
+            { type: "kun", reading: "ぐら", vocab: [""] },
+            { type: "kun", reading: "やみ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "韻",
+        readings: [
+            { type: "kun", reading: "いん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "損",
+        readings: [
+            { type: "kun", reading: "そこ", vocab: [""] },
+            { type: "kun", reading: "そん", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "捕",
+        readings: [
+            { type: "kun", reading: "つか", vocab: [""] },
+            { type: "kun", reading: "と", vocab: [""] },
+            { type: "kun", reading: "とら", vocab: [""] },
+            { type: "kun", reading: "ど", vocab: [""] },
+            { type: "kun", reading: "ほ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "挿",
+        readings: [
+            { type: "kun", reading: "さ", vocab: [""] },
+            { type: "kun", reading: "そう", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "補",
+        readings: [
+            { type: "kun", reading: "おぎな", vocab: [""] },
+            { type: "kun", reading: "ほ", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "浦",
+        readings: [
+            { type: "kun", reading: "うら", vocab: [""] }
+        ]
+    },
+    {
+        kanji: "哺",
+        readings: [
+            { type: "kun", reading: "ほ", vocab: [""] }
         ]
     }
 ];

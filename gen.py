@@ -66,6 +66,11 @@ with open('grs.csv', 'r', encoding='utf-8') as csv_file:
             # Remove any spaces between <ruby> elements
             furigana = re.sub(r'</ruby>\s*<ruby>', r'</ruby><ruby>', furigana)
 
+            # Remove spaces before <ruby> elements
+            furigana = re.sub(r'\s+<ruby>', r'<ruby>', furigana)
+            # Remove spaces after </ruby> elements
+            furigana = re.sub(r'</ruby>\s+', r'</ruby>', furigana)
+
             # Enclose each column in a div with the appropriate class and id
             if first_kanji is not None:
                 js_file.write(f'\t<div class="sentence first elem_{first_kanji}">{furigana}</div>\n')
